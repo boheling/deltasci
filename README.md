@@ -105,7 +105,7 @@ This runs a deterministic mock LLM end-to-end so you can see the output shape.
 ### Inside Claude Code
 
 ```bash
-git clone https://github.com/deltasci/deltasci
+git clone https://github.com/boheling/deltasci
 cd deltasci && bash skill/install.sh
 ```
 
@@ -203,7 +203,7 @@ If DeltaScience helps your research, citing it as:
   title  = {DeltaScience: Two-Perspective Co-Reasoning for AI4Science Hypothesis Generation},
   author = {{DeltaScience contributors}},
   year   = {2026},
-  url    = {https://github.com/deltasci/deltasci},
+  url    = {https://github.com/boheling/deltasci},
   note   = {Version 0.1.0}
 }
 ```

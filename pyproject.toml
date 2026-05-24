@@ -46,9 +46,9 @@ dev = ["pytest>=7", "pytest-cov>=4", "ruff>=0.5"]
 deltasci = "deltasci.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/deltasci/deltasci"
-Documentation = "https://github.com/deltasci/deltasci#readme"
-Issues = "https://github.com/deltasci/deltasci/issues"
+Homepage = "https://github.com/boheling/deltasci"
+Documentation = "https://github.com/boheling/deltasci#readme"
+Issues = "https://github.com/boheling/deltasci/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/deltasci"]
