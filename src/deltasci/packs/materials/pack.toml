@@ -1,0 +1,18 @@
+[meta]
+name = "materials"
+display_name = "Materials Science"
+version = "0.1.0"
+description = "Materials informatics, computational materials, condensed matter — covers crystalline materials, catalysts, polymers, batteries, alloys."
+example_idea = "Use a graph neural network trained on the Materials Project to identify Li-ion cathode candidates in the spinel family with predicted voltage > 4.3V and thermal decomposition onset > 200C."
+
+[[evidence_rules]]
+type = "published-evidence"
+source_pattern = "\\d{4}"
+
+[[evidence_rules]]
+type = "engineering-precedent"
+source_pattern = "(github\\.com|materialsproject|pymatgen|aflow|nomad|huggingface\\.co)"
+
+[scoring_rubric]
+axes = ["data_availability", "technical_feasibility", "physical_plausibility", "novelty", "synthesizability"]
+weights = [1.0, 1.0, 1.5, 1.0, 1.3]

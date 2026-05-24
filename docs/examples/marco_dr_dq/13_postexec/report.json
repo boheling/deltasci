@@ -1,0 +1,253 @@
+{
+  "metrics": [
+    {
+      "name": "pairs_total",
+      "value": 10796.0,
+      "pretty": "pairs total: 10,796",
+      "cell_index": 9,
+      "snippet": "MARCo pairs:        10,796"
+    },
+    {
+      "name": "pairs_after_locus_filter",
+      "value": 1766.0,
+      "pretty": "pairs after locus filter: 1,766",
+      "cell_index": 9,
+      "snippet": "after locus filter: 1,766 pairs"
+    },
+    {
+      "name": "pooled_spearman_rho",
+      "value": 0.8809,
+      "pretty": "pooled spearman rho: 0.8809",
+      "cell_index": 34,
+      "snippet": "POOLED held-out Spearman \u03c1:        0.8809"
+    },
+    {
+      "name": "falsifiability_lift",
+      "value": 0.2002,
+      "pretty": "falsifiability lift: +0.2002",
+      "cell_index": 34,
+      "snippet": "lift over best baseline: +0.2002"
+    },
+    {
+      "name": "best_baseline_rho",
+      "value": 0.6807,
+      "pretty": "best baseline rho: 0.6807",
+      "cell_index": 34,
+      "snippet": "Best baseline: hlamatchmaker_eplet (\u03c1 = 0.6807"
+    },
+    {
+      "name": "platform_discrepant_count",
+      "value": 98.0,
+      "pretty": "platform discrepant count: 98",
+      "cell_index": 34,
+      "snippet": "Platform-discrepant pairs (|\u03c1_imm - \u03c1_ol| > 0.15): 98"
+    },
+    {
+      "name": "platform_consensus_rho",
+      "value": 0.849,
+      "pretty": "platform consensus rho: 0.8490",
+      "cell_index": 34,
+      "snippet": "Predicted \u03c1 vs cross-platform consensus: \u03c1 = 0.8490"
+    },
+    {
+      "name": "per_locus_rho_DQ",
+      "value": 0.8822,
+      "pretty": "DQ \u03c1 = 0.8822 (n=846,)",
+      "cell_index": 34,
+      "snippet": "DQ     : n= 846, \u03c1 = 0.8822"
+    },
+    {
+      "name": "per_locus_rho_DRB1",
+      "value": 0.8614,
+      "pretty": "DRB1 \u03c1 = 0.8614 (n=910,)",
+      "cell_index": 34,
+      "snippet": "DRB1   : n= 910, \u03c1 = 0.8614"
+    },
+    {
+      "name": "per_locus_starved_DRB3",
+      "value": 6.0,
+      "pretty": "DRB3 starved (n=6)",
+      "cell_index": 34,
+      "snippet": "DRB3   : n=6 (too small"
+    },
+    {
+      "name": "per_locus_starved_DRB4",
+      "value": 1.0,
+      "pretty": "DRB4 starved (n=1)",
+      "cell_index": 34,
+      "snippet": "DRB4   : n=1 (too small"
+    },
+    {
+      "name": "per_locus_starved_DRB5",
+      "value": 3.0,
+      "pretty": "DRB5 starved (n=3)",
+      "cell_index": 34,
+      "snippet": "DRB5   : n=3 (too small"
+    },
+    {
+      "name": "falsifiability_lift",
+      "value": 0.2002,
+      "pretty": "falsifiability lift: +0.2002",
+      "cell_index": 39,
+      "snippet": "lift over best baseline:      +0.2002"
+    },
+    {
+      "name": "falsifiability_passed",
+      "value": 1.0,
+      "pretty": "falsifiability passed: PASSED",
+      "cell_index": 39,
+      "snippet": "falsifiability check PASSED"
+    },
+    {
+      "name": "model_pooled_rho",
+      "value": 0.8809,
+      "pretty": "model pooled rho: 0.8809",
+      "cell_index": 39,
+      "snippet": "pooled Spearman \u03c1 (model):    0.8809"
+    },
+    {
+      "name": "baseline_pooled_rho",
+      "value": 0.6807,
+      "pretty": "baseline pooled rho: 0.6807",
+      "cell_index": 39,
+      "snippet": "pooled Spearman \u03c1 (baseline): 0.6807"
+    }
+  ],
+  "risk_statuses": [
+    {
+      "risk_id": "R1",
+      "severity": "critical",
+      "description": "MARCo bulk-extraction feasibility is unconfirmed. With ~10,000+ Class II pairs, programmatic per-pair extraction may take weeks if no API exists, and may trigger rate-limiting / institutional pushback.",
+      "status": "resolved",
+      "evidence_cell": 9,
+      "evidence_snippet": "# was not pre-staged. Iterated to pull live from the v0.5 discover-api result:",
+      "rationale": "matched resolution family `bulk_extraction_via_api`"
+    },
+    {
+      "risk_id": "R2",
+      "severity": "high",
+      "description": "HLA-EMMA SA-mismatch is a deceptively strong Class II baseline by construction (SA positions are the antibody-recognized epitopes). HLAMatchmaker eplet count is similarly strong as the de-facto clinical reference. The +0.07 lift over the best baseline is more aggressive than typi",
+      "status": "resolved",
+      "evidence_cell": 34,
+      "evidence_snippet": "",
+      "rationale": "measured lift +0.2002 \u2265 stated threshold +0.0700"
+    },
+    {
+      "risk_id": "R3",
+      "severity": "high",
+      "description": "Per-locus sample imbalance: DRB1 likely has 5000+ pairs; DRB3/4/5 may have <1000 each; DPA1/B1 heterodimer pairs likely much fewer. The +0.05 per-locus-lift threshold is harder to detect at small N with statistical confidence.",
+      "status": "confirmed",
+      "evidence_cell": 34,
+      "evidence_snippet": "",
+      "rationale": "per-locus imbalance held: 3 starved loci (DRB3 n=6, DRB4 n=1, DRB5 n=3); 2 loci have n \u2265 20"
+    },
+    {
+      "risk_id": "R4",
+      "severity": "high",
+      "description": "Platform-discrepancy analysis assumes paired Immucor+OL data per allele pair, but MARCo's manufacturer-stratified counts vary; for many pairs only one platform is represented. The 'discrepant subset' may be too small for stable conclusions.",
+      "status": "still_open",
+      "evidence_cell": null,
+      "evidence_snippet": "",
+      "rationale": "no observation cell matched the risk's resolution tokens"
+    },
+    {
+      "risk_id": "R5",
+      "severity": "high",
+      "description": "GroupKFold by allele identity is a partial leakage guard, but allele PAIRS in MARCo overlap heavily within locus (e.g., DRB1*15:01 appears in pairs with thousands of other DRB1 alleles). Many test pairs share one allele with training pairs, creating residual leakage.",
+      "status": "still_open",
+      "evidence_cell": null,
+      "evidence_snippet": "",
+      "rationale": "no observation cell matched the risk's resolution tokens"
+    },
+    {
+      "risk_id": "R6",
+      "severity": "medium",
+      "description": "MARCo's cohort is Brazilian; the Brazilian transplant population has distinctive HLA frequency distributions (admixed European-Indigenous-African ancestry); model may not generalize to North American or East Asian cohorts where allele-frequency-weighted pair coverage is different",
+      "status": "still_open",
+      "evidence_cell": null,
+      "evidence_snippet": "",
+      "rationale": "no observation cell matched the risk's resolution tokens"
+    }
+  ],
+  "next_step_statuses": [
+    {
+      "order": 1,
+      "name": "MARCo data extraction",
+      "status": "done",
+      "evidence_cell": 9,
+      "evidence_snippet": "print(f'wrote {MARCO_PAIRS_CSV}: {len(df):,} pairs')"
+    },
+    {
+      "order": 2,
+      "name": "IPD-IMGT/HLA sequence retrieval",
+      "status": "done",
+      "evidence_cell": 12,
+      "evidence_snippet": ""
+    },
+    {
+      "order": 3,
+      "name": "HATS featurization",
+      "status": "done",
+      "evidence_cell": 15,
+      "evidence_snippet": ""
+    },
+    {
+      "order": 4,
+      "name": "HLA-EMMA mismatch profiling",
+      "status": "outstanding",
+      "evidence_cell": null,
+      "evidence_snippet": ""
+    },
+    {
+      "order": 5,
+      "name": "HLAMatchmaker + PIRCHE-II bulk pipeline",
+      "status": "done",
+      "evidence_cell": 21,
+      "evidence_snippet": "print(f'wrote {len(eplet_df):,} rows \u2192 {EPLET_FEATURES_CSV}')"
+    },
+    {
+      "order": 6,
+      "name": "Feature assembly + train/test split",
+      "status": "done",
+      "evidence_cell": 26,
+      "evidence_snippet": ""
+    },
+    {
+      "order": 7,
+      "name": "Train XGBoost regressor",
+      "status": "done",
+      "evidence_cell": 29,
+      "evidence_snippet": "fold_rho, _ = spearmanr(cv_predictions[test_idx], y[test_idx])"
+    },
+    {
+      "order": 8,
+      "name": "Evaluate per-locus + platform-stratified + platform-discrepant",
+      "status": "done",
+      "evidence_cell": 34,
+      "evidence_snippet": "pooled_rho, _ = spearmanr(cv_predictions, y)"
+    }
+  ],
+  "new_issues": [],
+  "achievements": [
+    {
+      "headline": "Falsifiability gate PASSED \u2014 pooled Spearman \u03c1 = 0.8809, lift = +0.2002",
+      "detail": "From cells 34/34; verdict from cell 39.",
+      "cell_index": 34
+    },
+    {
+      "headline": "Per-locus stratification covers: DQ, DRB1",
+      "detail": "DQ \u03c1 = 0.8822 (n=846,); DRB1 \u03c1 = 0.8614 (n=910,)",
+      "cell_index": null
+    },
+    {
+      "headline": "Risk R1 (critical) \u2192 resolved",
+      "detail": "# was not pre-staged. Iterated to pull live from the v0.5 discover-api result:",
+      "cell_index": 9
+    },
+    {
+      "headline": "Risk R2 (high) \u2192 resolved",
+      "detail": "measured lift +0.2002 \u2265 stated threshold +0.0700",
+      "cell_index": 34
+    }
+  ]
+}

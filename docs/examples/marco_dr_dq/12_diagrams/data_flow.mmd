@@ -1,0 +1,24 @@
+flowchart TD
+    MARCo_Class_II_allele_pair_MFI_data_DRB1["📊 MARCo Class II allele-pair MFI ρ data (DRB1, DRB3/4/5, DQA1+DQB1, DPA1+DPB1) (https://marco.igen.org.br/)"]
+    MARCo_data_extraction["Step 1: MARCo data extraction"]
+    MARCo_Class_II_allele_pair_MFI_data_DRB1 --> MARCo_data_extraction
+    IPD_IMGT_HLA_sequence_retrieval["Step 2: IPD-IMGT/HLA sequence retrieval"]
+    MARCo_data_extraction --> IPD_IMGT_HLA_sequence_retrieval
+    HATS_featurization["Step 3: HATS featurization"]
+    IPD_IMGT_HLA_sequence_retrieval --> HATS_featurization
+    HLA_EMMA_mismatch_profiling["Step 4: HLA-EMMA mismatch profiling"]
+    HATS_featurization --> HLA_EMMA_mismatch_profiling
+    HLAMatchmaker_PIRCHE_II_bulk_pipeline["Step 5: HLAMatchmaker + PIRCHE-II bulk pipeline"]
+    HLA_EMMA_mismatch_profiling --> HLAMatchmaker_PIRCHE_II_bulk_pipeline
+    Feature_assembly_train_test_split["Step 6: Feature assembly + train/test split"]
+    HLAMatchmaker_PIRCHE_II_bulk_pipeline --> Feature_assembly_train_test_split
+    Train_XGBoost_regressor["Step 7: Train XGBoost regressor"]
+    Feature_assembly_train_test_split --> Train_XGBoost_regressor
+    Evaluate_per_locus_platform_stratified_p["Step 8: Evaluate per-locus + platform-stratified + platform-discrepant"]
+    Train_XGBoost_regressor --> Evaluate_per_locus_platform_stratified_p
+    Spearman_correlation_between_predicted_a["🎯 Spearman correlation between predicted and observed MFI cross-reactivity (Spearman ρ) at held-out allele pairs, pooled and per-locus ≥ Pooled Spearman ρ ≥ 0.85 AND ≥ 0.07 absolute lift over best of {naive Hamming, HATS-shares, HLA-EMMA-SA, HLAMatchmaker eplet count, PIRCHE-II indirect-recognition} AND per-locus lift ≥ 0.05 in ≥ 4/5 stratification groups AND platform-discrepant-pair Spearman ρ vs consensus ≥ 0.7"]
+    Evaluate_per_locus_platform_stratified_p --> Spearman_correlation_between_predicted_a
+    classDef data fill:#fef3c7,stroke:#b45309,color:#1f2937;
+    classDef metric fill:#dcfce7,stroke:#15803d,color:#1f2937;
+    class MARCo_Class_II_allele_pair_MFI_data_DRB1 data;
+    class Spearman_correlation_between_predicted_a metric;

@@ -1,0 +1,123 @@
+{
+  "title": "Spatial CD204+ M2 macrophage neighborhood graph for OS checkpoint-immunotherapy non-response prediction",
+  "summary": "Per-tumor spatial transcriptomics over Xenium fields; cell-type-typed cell-cell graph with CD204+ M2-malignant edges; HGT encoder; calibrated AUROC for non-response, stratified by TFE3-fusion status, evaluated against bulk IFN-\u03b3 Hallmark signature baseline.",
+  "data_acquisition": {
+    "primary_dataset": "Institutional pretreatment FFPE OS biopsy cohort with linked PD-1 / PD-L1 inhibitor RECIST outcomes; Xenium 10x in-situ panel.",
+    "accession_or_url": "(institutional cohort \u2014 DUA + IRB required; reference OS scRNA-seq atlas at GEO GSE152048 for cell-type marker priors)",
+    "access_constraints": "IRB approval, FFPE block availability, RECIST adjudication, multi-site DUA for external validation",
+    "fallback_datasets": [
+      "public GSE152048 for marker priors",
+      "Vizgen MERFISH OS panel if Xenium unavailable"
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "name": "Cohort assembly",
+      "description": "Pretreatment FFPE biopsies with linked best-RECIST-response and TFE3-fusion status.",
+      "inputs": [
+        "FFPE blocks",
+        "clinical chart"
+      ],
+      "outputs": [
+        "cohort manifest"
+      ],
+      "method_citations": [
+        "RECIST 1.1, Eisenhauer 2009"
+      ]
+    },
+    {
+      "order": 2,
+      "name": "Spatial transcriptomics + QC",
+      "description": "Run Xenium panel; QC per cell, per FOV, per sample.",
+      "inputs": [
+        "FFPE sections"
+      ],
+      "outputs": [
+        "per-cell expression matrices"
+      ],
+      "method_citations": [
+        "github.com/scverse/scanpy",
+        "github.com/scverse/squidpy"
+      ]
+    },
+    {
+      "order": 3,
+      "name": "Cell-type annotation",
+      "description": "Reference-mapped annotation against OS scRNA-seq atlas; tag CD204+ M2, malignant, T-cell, fibroblast.",
+      "inputs": [
+        "per-cell expression"
+      ],
+      "outputs": [
+        "typed cells"
+      ],
+      "method_citations": [
+        "GEO GSE152048 marker panel"
+      ]
+    },
+    {
+      "order": 4,
+      "name": "Spatial graph construction",
+      "description": "k-NN in physical-\u00b5m with edge type = cell-type pair (M2-malignant, M2-T, T-malignant, ...).",
+      "inputs": [
+        "typed cells",
+        "x/y coords"
+      ],
+      "outputs": [
+        "per-tumor heterogeneous graph"
+      ],
+      "method_citations": [
+        "github.com/pyg-team/pytorch_geometric"
+      ]
+    },
+    {
+      "order": 5,
+      "name": "HGT encoder + survival head",
+      "description": "Heterogeneous Graph Transformer (Hu et al 2020) \u2192 graph readout \u2192 MLP head; multitask loss.",
+      "inputs": [
+        "graphs",
+        "outcomes"
+      ],
+      "outputs": [
+        "trained model",
+        "predictions"
+      ],
+      "method_citations": [
+        "Hu et al 2020 WWW HGT"
+      ]
+    },
+    {
+      "order": 6,
+      "name": "Evaluation + calibration",
+      "description": "AUROC + AUPRC + decision-curve analysis vs IFN-\u03b3 Hallmark baseline; stratified by TFE3 status.",
+      "inputs": [
+        "predictions"
+      ],
+      "outputs": [
+        "metrics",
+        "figures"
+      ],
+      "method_citations": [
+        "TRIPOD 2015"
+      ]
+    }
+  ],
+  "primary_metric": "AUROC for predicting checkpoint-inhibitor non-response (best RECIST = PD)",
+  "success_threshold": "AUROC \u2265 0.75 absolute AND \u2265 0.07 above bulk IFN-\u03b3 baseline AUROC, with calibration intercept |\u03b1| < 0.05 and slope \u2208 [0.9, 1.1]",
+  "null_outcome": "AUROC improvement < 0.02 over bulk IFN-\u03b3 baseline, OR calibration slope outside [0.85, 1.15], OR no detectable signal in TFE3-fusion stratum",
+  "baselines": [
+    "bulk IFN-\u03b3 Hallmark signature",
+    "TIL count from H&E",
+    "M2/M1 ratio bulk",
+    "logistic regression on simple panel"
+  ],
+  "compute": {
+    "hardware": "1\u00d7 A100 (24GB sufficient for per-tumor graphs)",
+    "estimated_runtime": "8-12h training",
+    "storage": "~500GB Xenium raw + 50GB processed",
+    "cost_estimate": "low (~$50 GPU)"
+  },
+  "timeline_estimate": "12-16 weeks: cohort assembly + IRB (4-6w), Xenium runs (4w), modeling + writing (6w)",
+  "sample_size_justification": "Power calculation TBD; expect ~60-100 OS pretreatment biopsies with linked outcomes \u2014 likely underpowered for stratified TFE3 analysis without multi-site collaboration.",
+  "citations": []
+}

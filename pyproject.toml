@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "deltasci"
+version = "0.7.3"
+description = "Two-perspective co-reasoning for AI4Science hypothesis generation. A domain expert and an ML engineer talk through your research idea in 4 rounds, producing a grounded, falsifiable hypothesis with a citation trail."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "DeltaScience contributors" },
+]
+keywords = [
+    "ai4science",
+    "hypothesis-generation",
+    "co-reasoning",
+    "scientific-co-pilot",
+    "llm-agents",
+    "research-tools",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "pydantic>=2.0",
+    "tomli>=2.0; python_version < '3.11'",
+]
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.40"]
+openai = ["openai>=1.50"]
+discover = ["playwright>=1.40"]
+all = ["anthropic>=0.40", "openai>=1.50", "playwright>=1.40"]
+dev = ["pytest>=7", "pytest-cov>=4", "ruff>=0.5"]
+
+[project.scripts]
+deltasci = "deltasci.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/deltasci/deltasci"
+Documentation = "https://github.com/deltasci/deltasci#readme"
+Issues = "https://github.com/deltasci/deltasci/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/deltasci"]
+
+[tool.hatch.build.targets.wheel.shared-data]
+"skill" = "share/deltasci/skill"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "live: tests that hit a real LLM API (skipped in CI)",
+]

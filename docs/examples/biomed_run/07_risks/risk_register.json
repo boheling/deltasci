@@ -1,0 +1,62 @@
+{
+  "summary": "Six risks ranked by their potential to falsely produce or hide a positive result.",
+  "items": [
+    {
+      "id": "R1",
+      "category": "data",
+      "severity": "critical",
+      "description": "Pretreatment FFPE OS biopsy cohorts with linked checkpoint-inhibitor outcomes are very small (likely <100 patients, often <50 with high-quality Xenium); single-site cohorts will be severely underpowered for stratified TFE3-fusion analysis.",
+      "likely_failure_mode": "wide AUROC confidence intervals overlapping the IFN-\u03b3 baseline, false negative on the +0.07 falsifiability threshold even if true effect exists.",
+      "mitigation": "Multi-site cohort assembly via SARC consortium or COG before commencing; pre-register sample-size requirements.",
+      "counter_evidence_citations": []
+    },
+    {
+      "id": "R2",
+      "category": "evaluation",
+      "severity": "high",
+      "description": "AUROC may not reflect the clinically actionable improvement at the offer-acceptance decision threshold; non-response is the rare class, so AUPRC and net benefit at the relevant decision point matter more than AUROC.",
+      "likely_failure_mode": "model achieves AUROC > 0.75 but decision-curve analysis shows no benefit over standard of care.",
+      "mitigation": "Pre-specify AUPRC + DCA at clinically meaningful threshold as co-primary endpoints.",
+      "counter_evidence_citations": [
+        "Vickers & Elkin 2006 Med Decis Making 26:565"
+      ]
+    },
+    {
+      "id": "R3",
+      "category": "method",
+      "severity": "high",
+      "description": "Cell-type annotation noise \u2014 CD204 / CD68 / CD163 panels in Xenium can confuse M2 macrophages with osteoclast-like cells abundant in OS \u2014 would propagate into spurious graph edges.",
+      "likely_failure_mode": "model learns osteoclast spatial signal, not M2 polarization; effect disappears in external validation.",
+      "mitigation": "Add osteoclast markers (TRAP, CTSK) to panel; require dual-positive CD204+CD68+CD163+ for M2 calls; sensitivity-test with leave-one-marker-out.",
+      "counter_evidence_citations": []
+    },
+    {
+      "id": "R4",
+      "category": "confounding",
+      "severity": "high",
+      "description": "TFE3-fusion status may be confounded with cohort-source \u2014 TFE3-positive cases concentrate at large referral centers \u2014 making the TFE3-stratified evaluation a site effect rather than a biology effect.",
+      "likely_failure_mode": "stratified TFE3 result reproduces site demographics, not the proposed biological signal.",
+      "mitigation": "Multi-site cohort with matched TFE3 distributions across sites; site-as-confound sensitivity analysis.",
+      "counter_evidence_citations": []
+    },
+    {
+      "id": "R5",
+      "category": "novelty-overstated",
+      "severity": "medium",
+      "description": "Spatial graph approaches to immunotherapy response prediction in melanoma and breast cancer are increasingly common; the OS-specific contribution may be smaller than framed if the architecture itself is borrowed.",
+      "likely_failure_mode": "reviewers note that the OS application is straightforward transfer of existing methods.",
+      "mitigation": "Position the contribution as the OS-specific cell-type panel + TFE3-stratified evaluation, not the architecture; cite the prior melanoma/breast spatial-graph IO work directly.",
+      "counter_evidence_citations": []
+    },
+    {
+      "id": "R6",
+      "category": "ethics-or-governance",
+      "severity": "medium",
+      "description": "Multi-site DUA + IRB for federated training of a clinical-decision-support tool is non-trivial; privacy-preserving federated learning has its own failure modes.",
+      "likely_failure_mode": "project stalls at 6 months in legal review; or, simpler federated approach has unexpected accuracy hit.",
+      "mitigation": "Begin DUA discussions in week 1 of project, before any modeling; plan for centralized vs federated decision early.",
+      "counter_evidence_citations": []
+    }
+  ],
+  "citations": []
+}

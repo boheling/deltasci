@@ -1,0 +1,81 @@
+{
+  "findings": [
+    {
+      "target_kind": "repo",
+      "target_summary": "github.com/kosoegawa/HATS",
+      "auditor_name": "github",
+      "status": "verified",
+      "fetched_metadata": {
+        "repo": "kosoegawa/HATS",
+        "description": "Convert HLA allele to Serotype",
+        "stars": 12,
+        "url": "https://github.com/kosoegawa/HATS"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-03T01:09:08.365068+00:00"
+    },
+    {
+      "target_kind": "repo",
+      "target_summary": "github.com/dmlc/xgboost",
+      "auditor_name": "github",
+      "status": "verified",
+      "fetched_metadata": {
+        "repo": "dmlc/xgboost",
+        "description": "Scalable, Portable and Distributed Gradient Boosting (GBDT, GBRT or GBM) Library,  for Python, R, Java, Scala, C++ and more. Runs on single machine, Hadoop, Spark, Dask, Flink and DataFlow",
+        "stars": 28334,
+        "url": "https://github.com/dmlc/xgboost"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-03T01:09:08.396331+00:00"
+    },
+    {
+      "target_kind": "repo",
+      "target_summary": "github.com/ANHIG/IMGTHLA",
+      "auditor_name": "github",
+      "status": "verified",
+      "fetched_metadata": {
+        "repo": "ANHIG/IMGTHLA",
+        "description": "Github for files currently published in the IPD-IMGT/HLA FTP Directory hosted at the European Bioinformatics Institute",
+        "stars": 256,
+        "url": "https://github.com/ANHIG/IMGTHLA"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-03T01:09:08.408361+00:00"
+    },
+    {
+      "target_kind": "repo",
+      "target_summary": "github.com/biopython/biopython",
+      "auditor_name": "github",
+      "status": "verified",
+      "fetched_metadata": {
+        "repo": "biopython/biopython",
+        "description": "Official git repository for Biopython (originally converted from CVS)",
+        "stars": 5000,
+        "url": "https://github.com/biopython/biopython"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-03T01:09:08.475737+00:00"
+    },
+    {
+      "target_kind": "repo",
+      "target_summary": "github.com/scikit-learn/scikit-learn",
+      "auditor_name": "github",
+      "status": "verified",
+      "fetched_metadata": {
+        "repo": "scikit-learn/scikit-learn",
+        "description": "scikit-learn: machine learning in Python",
+        "stars": 65967,
+        "url": "https://github.com/scikit-learn/scikit-learn"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-03T01:09:08.624265+00:00"
+    }
+  ],
+  "skipped": false,
+  "skipped_reason": ""
+}

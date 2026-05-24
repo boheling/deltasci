@@ -1,0 +1,1767 @@
+allele1,allele2,hlamatchmaker_eplet_count,eplet_symdiff,eplet_both_alleles_in_registry,pirche_ii_score,eplet_features_source
+DQB1*02:01 / DQA1*02:01,DQB1*02:01 / DQA1*03:01,1,5,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*02:01 / DQA1*04:01,3,8,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*02:01 / DQA1*05:01,3,11,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*02:02 / DQA1*02:01,1,2,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*02:02 / DQA1*03:02,3,10,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*02:02 / DQA1*05:01,4,13,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:01 / DQA1*02:01,14,25,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:01 / DQA1*03:01,15,30,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:01 / DQA1*03:02,16,33,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:01 / DQA1*05:01,17,36,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:01 / DQA1*05:03,18,38,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:01 / DQA1*06:01,16,31,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:02 / DQA1*01:01,16,32,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:02 / DQA1*02:01,13,20,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:02 / DQA1*03:01,14,25,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:02 / DQA1*03:02,15,28,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:02 / DQA1*03:03,15,28,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:03 / DQA1*02:01,14,22,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:03 / DQA1*03:01,15,27,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:03 / DQA1*03:02,16,30,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:03 / DQA1*04:01,17,30,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:03 / DQA1*06:01,16,28,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:04 / DQA1*03:01,1,24,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:19 / DQA1*02:01,15,27,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*03:19 / DQA1*05:05,18,38,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*04:01 / DQA1*02:01,11,21,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*04:01 / DQA1*03:03,13,29,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*04:01 / DQA1*04:01,14,29,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*04:01 / DQA1*05:01,14,32,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*04:02 / DQA1*02:01,10,19,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*04:02 / DQA1*03:01,11,24,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*04:02 / DQA1*04:01,13,27,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*04:02 / DQA1*06:01,12,25,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*05:01 / DQA1*01:01,17,33,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*05:01 / DQA1*01:02,17,33,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*05:02 / DQA1*01:02,16,32,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*05:03 / DQA1*01:01,18,34,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*05:03 / DQA1*01:04,19,36,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*06:01 / DQA1*01:03,16,33,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*06:01 / DQA1*01:04,18,38,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*06:01 / DQA1*02:01,14,24,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*06:02 / DQA1*01:01,20,37,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*06:02 / DQA1*01:02,20,37,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*06:03 / DQA1*01:03,19,33,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*06:04 / DQA1*01:02,19,36,1,,epregistry.com.br
+DQB1*02:01 / DQA1*02:01,DQB1*06:09 / DQA1*01:02,18,35,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*02:01 / DQA1*04:01,5,9,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*02:01 / DQA1*05:01,4,10,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*02:02 / DQA1*02:01,5,7,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*03:01 / DQA1*02:01,18,30,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*03:01 / DQA1*03:01,14,25,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*03:01 / DQA1*05:03,19,37,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*03:01 / DQA1*06:01,19,34,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*03:02 / DQA1*01:01,16,29,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*03:02 / DQA1*02:01,17,25,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*03:02 / DQA1*03:01,13,20,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*03:02 / DQA1*03:02,14,23,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*03:02 / DQA1*03:03,14,23,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*03:03 / DQA1*02:01,18,27,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*03:03 / DQA1*03:01,14,22,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*03:03 / DQA1*03:02,15,25,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*03:04 / DQA1*03:01,0,19,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*03:19 / DQA1*02:01,19,32,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*03:19 / DQA1*05:05,19,37,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*04:01 / DQA1*02:01,15,26,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*04:01 / DQA1*03:03,12,24,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*04:02 / DQA1*02:01,14,24,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*04:02 / DQA1*04:01,15,28,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*05:01 / DQA1*01:01,17,30,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*05:02 / DQA1*01:02,16,29,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*05:03 / DQA1*01:01,18,31,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*06:01 / DQA1*01:03,17,32,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*06:02 / DQA1*01:01,20,34,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*06:02 / DQA1*01:02,20,34,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*06:03 / DQA1*01:03,20,32,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*06:04 / DQA1*01:02,19,33,1,,epregistry.com.br
+DQB1*02:01 / DQA1*03:01,DQB1*06:09 / DQA1*01:02,18,32,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*02:01 / DQA1*05:01,2,7,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*02:02 / DQA1*02:01,6,10,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*03:01 / DQA1*02:01,19,33,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*03:01 / DQA1*03:01,18,34,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*03:01 / DQA1*05:03,17,34,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*03:01 / DQA1*06:01,15,27,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*03:02 / DQA1*01:01,16,30,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*03:02 / DQA1*02:01,18,28,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*03:02 / DQA1*03:01,17,29,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*03:02 / DQA1*03:02,18,32,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*03:02 / DQA1*03:03,18,32,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*03:03 / DQA1*02:01,19,30,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*03:03 / DQA1*03:01,18,31,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*03:03 / DQA1*03:02,19,34,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*03:04 / DQA1*03:01,4,28,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*03:19 / DQA1*02:01,20,35,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*03:19 / DQA1*05:05,17,34,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*04:01 / DQA1*02:01,16,29,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*04:01 / DQA1*03:03,16,33,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*04:02 / DQA1*02:01,15,27,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*04:02 / DQA1*04:01,10,19,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*05:01 / DQA1*01:01,17,31,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*05:02 / DQA1*01:02,16,30,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*05:03 / DQA1*01:01,18,32,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*06:01 / DQA1*01:03,18,35,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*06:02 / DQA1*01:01,20,35,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*06:02 / DQA1*01:02,20,35,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*06:03 / DQA1*01:03,21,35,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*06:04 / DQA1*01:02,19,34,1,,epregistry.com.br
+DQB1*02:01 / DQA1*04:01,DQB1*06:09 / DQA1*01:02,18,33,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*02:02 / DQA1*02:01,9,13,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*02:02 / DQA1*03:02,7,13,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*02:02 / DQA1*05:01,1,2,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:01 / DQA1*02:01,22,36,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:01 / DQA1*03:01,20,35,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:01 / DQA1*03:02,20,36,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:01 / DQA1*05:01,14,25,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:01 / DQA1*05:03,15,27,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:01 / DQA1*06:01,20,34,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:02 / DQA1*01:01,18,31,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:02 / DQA1*02:01,21,31,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:02 / DQA1*03:01,19,30,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:02 / DQA1*03:02,19,31,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:02 / DQA1*03:03,19,31,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:03 / DQA1*02:01,22,33,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:03 / DQA1*03:01,20,32,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:03 / DQA1*03:02,20,33,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:03 / DQA1*04:01,19,29,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:03 / DQA1*06:01,20,31,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:04 / DQA1*03:01,6,29,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:19 / DQA1*02:01,23,38,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*03:19 / DQA1*05:05,15,27,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*04:01 / DQA1*02:01,19,32,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*04:01 / DQA1*03:03,17,32,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*04:01 / DQA1*04:01,16,28,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*04:01 / DQA1*05:01,11,21,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*04:02 / DQA1*02:01,18,30,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*04:02 / DQA1*03:01,16,29,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*04:02 / DQA1*04:01,15,26,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*04:02 / DQA1*06:01,16,28,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*05:01 / DQA1*01:01,19,32,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*05:01 / DQA1*01:02,19,32,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*05:02 / DQA1*01:02,18,31,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*05:03 / DQA1*01:01,20,33,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*05:03 / DQA1*01:04,21,35,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*06:01 / DQA1*01:03,20,36,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*06:01 / DQA1*01:04,20,37,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*06:01 / DQA1*02:01,22,35,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*06:02 / DQA1*01:01,22,36,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*06:02 / DQA1*01:02,22,36,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*06:03 / DQA1*01:03,23,36,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*06:04 / DQA1*01:02,21,35,1,,epregistry.com.br
+DQB1*02:01 / DQA1*05:01,DQB1*06:09 / DQA1*01:02,20,34,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*02:02 / DQA1*03:02,2,8,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*02:02 / DQA1*05:01,3,11,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:01 / DQA1*02:01,15,27,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:01 / DQA1*03:01,16,32,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:01 / DQA1*03:02,17,35,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:01 / DQA1*05:01,18,38,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:01 / DQA1*05:03,19,40,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:01 / DQA1*06:01,17,33,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:02 / DQA1*01:01,17,34,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:02 / DQA1*02:01,14,22,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:02 / DQA1*03:01,15,27,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:02 / DQA1*03:02,16,30,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:02 / DQA1*03:03,16,30,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:03 / DQA1*02:01,15,24,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:03 / DQA1*03:01,16,29,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:03 / DQA1*03:02,17,32,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:03 / DQA1*04:01,18,32,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:03 / DQA1*06:01,17,30,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:04 / DQA1*03:01,1,24,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:19 / DQA1*02:01,16,29,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*03:19 / DQA1*05:05,19,40,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*04:01 / DQA1*02:01,12,23,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*04:01 / DQA1*03:03,14,31,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*04:01 / DQA1*04:01,15,31,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*04:01 / DQA1*05:01,15,34,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*04:02 / DQA1*02:01,11,21,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*04:02 / DQA1*03:01,12,26,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*04:02 / DQA1*04:01,14,29,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*04:02 / DQA1*06:01,13,27,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*05:01 / DQA1*01:01,18,35,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*05:01 / DQA1*01:02,18,35,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*05:02 / DQA1*01:02,17,34,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*05:03 / DQA1*01:01,19,36,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*05:03 / DQA1*01:04,20,38,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*06:01 / DQA1*01:03,17,35,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*06:01 / DQA1*01:04,19,40,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*06:01 / DQA1*02:01,15,26,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*06:02 / DQA1*01:01,21,39,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*06:02 / DQA1*01:02,21,39,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*06:03 / DQA1*01:03,20,35,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*06:04 / DQA1*01:02,20,38,1,,epregistry.com.br
+DQB1*02:02 / DQA1*02:01,DQB1*06:09 / DQA1*01:02,19,37,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*02:02 / DQA1*05:01,5,11,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*03:01 / DQA1*03:01,17,30,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*03:01 / DQA1*03:02,15,27,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*03:01 / DQA1*05:01,20,38,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*03:01 / DQA1*06:01,22,39,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*03:02 / DQA1*02:01,20,30,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*03:02 / DQA1*03:01,16,25,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*03:02 / DQA1*03:02,14,22,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*03:03 / DQA1*03:02,15,24,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*03:03 / DQA1*04:01,22,36,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*03:03 / DQA1*06:01,22,36,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*04:01 / DQA1*02:01,18,31,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*04:01 / DQA1*04:01,19,35,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*04:01 / DQA1*05:01,17,34,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*04:02 / DQA1*03:01,13,24,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*04:02 / DQA1*04:01,18,33,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*04:02 / DQA1*06:01,18,33,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*05:01 / DQA1*01:01,20,35,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*05:01 / DQA1*01:02,20,35,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*05:02 / DQA1*01:02,19,34,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*05:03 / DQA1*01:04,22,38,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*06:01 / DQA1*01:03,20,37,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*06:01 / DQA1*01:04,21,40,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*06:01 / DQA1*02:01,21,34,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*06:02 / DQA1*01:02,23,39,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*06:03 / DQA1*01:03,23,37,1,,epregistry.com.br
+DQB1*02:02 / DQA1*03:02,DQB1*06:04 / DQA1*01:02,22,38,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*03:01 / DQA1*03:01,21,37,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*03:01 / DQA1*03:02,21,38,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*03:01 / DQA1*05:01,15,27,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*03:01 / DQA1*06:01,21,36,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*03:02 / DQA1*02:01,22,33,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*03:02 / DQA1*03:01,20,32,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*03:02 / DQA1*03:02,20,33,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*03:03 / DQA1*03:02,21,35,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*03:03 / DQA1*04:01,20,31,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*03:03 / DQA1*06:01,21,33,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*04:01 / DQA1*02:01,20,34,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*04:01 / DQA1*04:01,17,30,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*04:01 / DQA1*05:01,12,23,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*04:02 / DQA1*03:01,17,31,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*04:02 / DQA1*04:01,16,28,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*04:02 / DQA1*06:01,17,30,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*05:01 / DQA1*01:01,20,34,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*05:01 / DQA1*01:02,20,34,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*05:02 / DQA1*01:02,19,33,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*05:03 / DQA1*01:04,22,37,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*06:01 / DQA1*01:03,21,38,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*06:01 / DQA1*01:04,21,39,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*06:01 / DQA1*02:01,23,37,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*06:02 / DQA1*01:02,23,38,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*06:03 / DQA1*01:03,24,38,1,,epregistry.com.br
+DQB1*02:02 / DQA1*05:01,DQB1*06:04 / DQA1*01:02,22,37,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*03:01 / DQA1*03:01,1,5,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*03:01 / DQA1*05:03,4,13,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*03:01 / DQA1*06:01,2,6,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*03:02 / DQA1*01:01,11,25,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*03:02 / DQA1*02:01,8,13,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*03:02 / DQA1*03:01,9,18,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*03:02 / DQA1*03:02,10,21,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*03:02 / DQA1*03:03,10,21,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*03:03 / DQA1*02:01,6,9,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*03:03 / DQA1*03:01,7,14,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*03:03 / DQA1*03:02,8,17,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*03:19 / DQA1*02:01,1,2,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*03:19 / DQA1*05:05,4,13,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*04:01 / DQA1*02:01,12,26,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*04:01 / DQA1*03:03,14,34,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*04:02 / DQA1*02:01,11,24,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*04:02 / DQA1*04:01,14,32,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*05:01 / DQA1*01:01,20,42,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*05:02 / DQA1*01:02,19,41,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*05:03 / DQA1*01:01,20,41,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*06:01 / DQA1*01:03,14,32,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*06:02 / DQA1*01:01,18,36,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*06:02 / DQA1*01:02,18,36,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*06:03 / DQA1*01:03,17,32,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*06:04 / DQA1*01:02,16,33,1,,epregistry.com.br
+DQB1*03:01 / DQA1*02:01,DQB1*06:09 / DQA1*01:02,15,32,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*03:01 / DQA1*03:02,1,3,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*03:01 / DQA1*05:01,4,10,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*03:01 / DQA1*05:03,5,12,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*03:01 / DQA1*06:01,5,9,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*03:02 / DQA1*01:01,11,22,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*03:02 / DQA1*02:01,12,18,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*03:02 / DQA1*03:01,8,13,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*03:02 / DQA1*03:02,9,16,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*03:02 / DQA1*03:03,9,16,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*03:03 / DQA1*02:01,10,14,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*03:03 / DQA1*03:01,6,9,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*03:03 / DQA1*03:02,7,12,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*03:03 / DQA1*04:01,11,18,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*03:03 / DQA1*06:01,11,18,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*03:04 / DQA1*03:01,0,22,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*03:19 / DQA1*02:01,5,7,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*03:19 / DQA1*05:05,5,12,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*04:01 / DQA1*02:01,16,31,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*04:01 / DQA1*03:03,13,29,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*04:01 / DQA1*04:01,17,35,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*04:01 / DQA1*05:01,16,36,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*04:02 / DQA1*02:01,15,29,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*04:02 / DQA1*03:01,11,24,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*04:02 / DQA1*04:01,16,33,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*04:02 / DQA1*06:01,16,33,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*05:01 / DQA1*01:01,20,39,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*05:01 / DQA1*01:02,20,39,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*05:02 / DQA1*01:02,19,38,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*05:03 / DQA1*01:01,20,38,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*05:03 / DQA1*01:04,21,40,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*06:01 / DQA1*01:03,15,31,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*06:01 / DQA1*01:04,16,34,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*06:01 / DQA1*02:01,16,28,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*06:02 / DQA1*01:01,18,33,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*06:02 / DQA1*01:02,18,33,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*06:03 / DQA1*01:03,18,31,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*06:04 / DQA1*01:02,16,30,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:01,DQB1*06:09 / DQA1*01:02,15,29,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*03:01 / DQA1*05:01,5,11,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*03:01 / DQA1*06:01,7,12,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*03:02 / DQA1*02:01,14,21,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*03:02 / DQA1*03:01,10,16,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*03:02 / DQA1*03:02,8,13,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*03:03 / DQA1*03:02,6,9,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*03:03 / DQA1*04:01,13,21,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*03:03 / DQA1*06:01,13,21,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*04:01 / DQA1*02:01,18,34,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*04:01 / DQA1*04:01,19,38,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*04:01 / DQA1*05:01,17,37,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*04:02 / DQA1*03:01,13,27,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*04:02 / DQA1*04:01,18,36,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*04:02 / DQA1*06:01,18,36,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*05:01 / DQA1*01:01,22,42,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*05:01 / DQA1*01:02,22,42,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*05:02 / DQA1*01:02,21,41,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*05:03 / DQA1*01:04,23,43,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*06:01 / DQA1*01:03,17,34,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*06:01 / DQA1*01:04,18,37,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*06:01 / DQA1*02:01,18,31,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*06:02 / DQA1*01:02,20,36,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*06:03 / DQA1*01:03,20,34,1,,epregistry.com.br
+DQB1*03:01 / DQA1*03:02,DQB1*06:04 / DQA1*01:02,18,33,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*03:01 / DQA1*06:01,6,9,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*03:02 / DQA1*02:01,16,24,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*03:02 / DQA1*03:01,14,23,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*03:02 / DQA1*03:02,14,24,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*03:03 / DQA1*03:02,12,20,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*03:03 / DQA1*04:01,11,16,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*03:03 / DQA1*06:01,12,18,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*04:01 / DQA1*02:01,20,37,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*04:01 / DQA1*04:01,17,33,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*04:01 / DQA1*05:01,12,26,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*04:02 / DQA1*03:01,17,34,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*04:02 / DQA1*04:01,16,31,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*04:02 / DQA1*06:01,17,33,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*05:01 / DQA1*01:01,22,41,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*05:01 / DQA1*01:02,22,41,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*05:02 / DQA1*01:02,21,40,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*05:03 / DQA1*01:04,23,42,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*06:01 / DQA1*01:03,18,35,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*06:01 / DQA1*01:04,18,36,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*06:01 / DQA1*02:01,20,34,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*06:02 / DQA1*01:02,20,35,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*06:03 / DQA1*01:03,21,35,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:01,DQB1*06:04 / DQA1*01:02,18,32,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*03:01 / DQA1*06:01,7,11,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*03:02 / DQA1*01:01,14,26,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*03:02 / DQA1*02:01,17,26,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*03:02 / DQA1*03:01,15,25,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*03:02 / DQA1*03:02,14,24,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*03:02 / DQA1*03:03,14,24,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*03:03 / DQA1*02:01,15,22,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*03:03 / DQA1*03:01,13,21,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*03:03 / DQA1*03:02,12,20,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*03:04 / DQA1*03:01,7,34,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*03:19 / DQA1*02:01,10,15,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*03:19 / DQA1*05:05,2,4,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*04:01 / DQA1*02:01,21,39,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*04:01 / DQA1*03:03,18,37,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*04:02 / DQA1*02:01,20,37,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*04:02 / DQA1*04:01,17,33,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*05:01 / DQA1*01:01,23,43,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*05:02 / DQA1*01:02,22,42,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*05:03 / DQA1*01:01,23,42,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*06:01 / DQA1*01:03,19,37,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*06:02 / DQA1*01:01,21,37,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*06:02 / DQA1*01:02,21,37,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*06:03 / DQA1*01:03,22,37,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*06:04 / DQA1*01:02,19,34,1,,epregistry.com.br
+DQB1*03:01 / DQA1*05:03,DQB1*06:09 / DQA1*01:02,18,33,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*03:02 / DQA1*01:01,12,25,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*03:02 / DQA1*02:01,12,19,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*03:02 / DQA1*03:01,12,22,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*03:02 / DQA1*03:02,13,25,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*03:02 / DQA1*03:03,13,25,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*03:03 / DQA1*02:01,10,15,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*03:03 / DQA1*03:01,10,18,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*03:03 / DQA1*03:02,11,21,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*03:03 / DQA1*04:01,7,11,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*03:03 / DQA1*06:01,6,9,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*03:04 / DQA1*03:01,4,31,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*03:19 / DQA1*02:01,5,8,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*03:19 / DQA1*05:05,4,11,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*04:01 / DQA1*02:01,16,32,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*04:01 / DQA1*03:03,17,38,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*04:01 / DQA1*04:01,13,28,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*04:01 / DQA1*05:01,15,35,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*04:02 / DQA1*02:01,15,30,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*04:02 / DQA1*03:01,15,33,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*04:02 / DQA1*04:01,12,26,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*04:02 / DQA1*06:01,11,24,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*05:01 / DQA1*01:01,21,42,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*05:01 / DQA1*01:02,21,42,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*05:02 / DQA1*01:02,20,41,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*05:03 / DQA1*01:01,21,41,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*05:03 / DQA1*01:04,22,43,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*06:01 / DQA1*01:03,15,32,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*06:01 / DQA1*01:04,17,37,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*06:01 / DQA1*02:01,16,29,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*06:02 / DQA1*01:01,19,36,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*06:02 / DQA1*01:02,19,36,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*06:03 / DQA1*01:03,18,32,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*06:04 / DQA1*01:02,17,33,1,,epregistry.com.br
+DQB1*03:01 / DQA1*06:01,DQB1*06:09 / DQA1*01:02,16,32,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*03:02 / DQA1*02:01,9,12,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*03:02 / DQA1*03:01,6,9,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*03:02 / DQA1*03:02,7,12,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*03:03 / DQA1*02:01,11,16,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*03:03 / DQA1*03:01,8,13,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*03:03 / DQA1*03:02,9,16,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*03:04 / DQA1*03:01,6,34,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*03:19 / DQA1*05:05,10,22,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*04:01 / DQA1*02:01,16,31,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*04:01 / DQA1*03:03,14,31,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*04:02 / DQA1*02:01,15,29,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*04:02 / DQA1*04:01,13,27,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*05:01 / DQA1*01:01,15,29,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*05:02 / DQA1*01:02,14,28,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*06:01 / DQA1*01:03,16,33,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*06:02 / DQA1*01:01,12,21,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*06:02 / DQA1*01:02,12,21,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*06:03 / DQA1*01:03,15,25,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*06:04 / DQA1*01:02,9,16,1,,epregistry.com.br
+DQB1*03:02 / DQA1*01:01,DQB1*06:09 / DQA1*01:02,8,15,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*03:02 / DQA1*03:01,1,5,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*03:02 / DQA1*03:02,2,8,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*03:02 / DQA1*03:03,2,8,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*03:03 / DQA1*02:01,2,4,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*03:03 / DQA1*03:01,3,9,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*03:03 / DQA1*03:02,4,12,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*03:03 / DQA1*04:01,5,12,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*03:03 / DQA1*06:01,4,10,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*03:19 / DQA1*02:01,4,11,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*03:19 / DQA1*05:05,7,22,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*04:01 / DQA1*02:01,7,19,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*04:01 / DQA1*03:03,9,27,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*04:01 / DQA1*04:01,10,27,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*04:01 / DQA1*05:01,10,30,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*04:02 / DQA1*02:01,6,17,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*04:02 / DQA1*03:01,7,22,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*04:02 / DQA1*04:01,9,25,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*04:02 / DQA1*06:01,8,23,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*05:01 / DQA1*01:01,18,41,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*05:01 / DQA1*01:02,18,41,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*05:02 / DQA1*01:02,17,40,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*05:03 / DQA1*01:01,19,42,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*05:03 / DQA1*01:04,20,44,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*06:01 / DQA1*01:03,15,37,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*06:01 / DQA1*01:04,17,42,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*06:01 / DQA1*02:01,13,28,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*06:02 / DQA1*01:01,15,33,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*06:02 / DQA1*01:02,15,33,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*06:03 / DQA1*01:03,14,29,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*06:04 / DQA1*01:02,12,28,1,,epregistry.com.br
+DQB1*03:02 / DQA1*02:01,DQB1*06:09 / DQA1*01:02,11,27,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*03:02 / DQA1*03:02,1,3,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*03:02 / DQA1*03:03,1,3,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*03:03 / DQA1*02:01,6,9,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*03:03 / DQA1*03:01,2,4,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*03:03 / DQA1*03:02,3,7,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*03:03 / DQA1*04:01,7,13,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*03:03 / DQA1*06:01,7,13,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*03:04 / DQA1*03:01,0,25,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*03:19 / DQA1*02:01,8,16,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*03:19 / DQA1*05:05,8,21,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*04:01 / DQA1*02:01,11,24,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*04:01 / DQA1*03:03,8,22,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*04:01 / DQA1*04:01,12,28,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*04:01 / DQA1*05:01,11,29,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*04:02 / DQA1*02:01,10,22,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*04:02 / DQA1*03:01,6,17,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*04:02 / DQA1*04:01,11,26,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*04:02 / DQA1*06:01,11,26,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*05:01 / DQA1*01:01,18,38,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*05:01 / DQA1*01:02,18,38,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*05:02 / DQA1*01:02,17,37,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*05:03 / DQA1*01:01,19,39,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*05:03 / DQA1*01:04,20,41,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*06:01 / DQA1*01:03,16,36,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*06:01 / DQA1*01:04,17,39,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*06:01 / DQA1*02:01,17,33,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*06:02 / DQA1*01:01,15,30,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*06:02 / DQA1*01:02,15,30,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*06:03 / DQA1*01:03,15,28,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*06:04 / DQA1*01:02,12,25,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:01,DQB1*06:09 / DQA1*01:02,11,24,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*03:03 / DQA1*02:01,8,12,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*03:03 / DQA1*03:01,4,7,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*03:03 / DQA1*03:02,2,4,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*03:03 / DQA1*04:01,9,16,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*03:03 / DQA1*06:01,9,16,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*03:19 / DQA1*02:01,10,19,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*03:19 / DQA1*05:05,9,22,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*04:01 / DQA1*02:01,13,27,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*04:01 / DQA1*03:03,7,19,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*04:01 / DQA1*04:01,14,31,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*04:01 / DQA1*05:01,12,30,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*04:02 / DQA1*02:01,12,25,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*04:02 / DQA1*03:01,8,20,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*04:02 / DQA1*04:01,13,29,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*04:02 / DQA1*06:01,13,29,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*05:01 / DQA1*01:01,20,41,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*05:01 / DQA1*01:02,20,41,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*05:02 / DQA1*01:02,19,40,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*05:03 / DQA1*01:01,21,42,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*05:03 / DQA1*01:04,22,44,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*06:01 / DQA1*01:03,18,39,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*06:01 / DQA1*01:04,19,42,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*06:01 / DQA1*02:01,19,36,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*06:02 / DQA1*01:01,17,33,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*06:02 / DQA1*01:02,17,33,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*06:03 / DQA1*01:03,17,31,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*06:04 / DQA1*01:02,14,28,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:02,DQB1*06:09 / DQA1*01:02,13,27,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*03:03 / DQA1*02:01,8,12,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*03:03 / DQA1*03:01,4,7,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*03:03 / DQA1*03:02,2,4,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*03:19 / DQA1*02:01,10,19,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*03:19 / DQA1*05:05,9,22,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*04:01 / DQA1*02:01,13,27,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*04:01 / DQA1*03:03,7,19,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*04:02 / DQA1*02:01,12,25,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*04:02 / DQA1*04:01,13,29,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*05:01 / DQA1*01:01,20,41,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*05:02 / DQA1*01:02,19,40,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*05:03 / DQA1*01:01,21,42,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*06:01 / DQA1*01:03,18,39,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*06:02 / DQA1*01:01,17,33,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*06:02 / DQA1*01:02,17,33,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*06:03 / DQA1*01:03,17,31,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*06:04 / DQA1*01:02,14,28,1,,epregistry.com.br
+DQB1*03:02 / DQA1*03:03,DQB1*06:09 / DQA1*01:02,13,27,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*03:03 / DQA1*03:01,1,5,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*03:03 / DQA1*03:02,2,8,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*03:04 / DQA1*03:01,1,30,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*03:19 / DQA1*02:01,2,7,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*03:19 / DQA1*05:05,5,18,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*04:01 / DQA1*02:01,7,19,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*04:01 / DQA1*03:03,9,27,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*04:02 / DQA1*02:01,6,17,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*04:02 / DQA1*04:01,9,25,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*05:01 / DQA1*01:01,18,41,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*05:02 / DQA1*01:02,17,40,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*05:03 / DQA1*01:01,18,40,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*06:01 / DQA1*01:03,14,35,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*06:02 / DQA1*01:01,14,31,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*06:02 / DQA1*01:02,14,31,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*06:03 / DQA1*01:03,13,27,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*06:04 / DQA1*01:02,12,28,1,,epregistry.com.br
+DQB1*03:03 / DQA1*02:01,DQB1*06:09 / DQA1*01:02,11,27,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:01,DQB1*03:03 / DQA1*03:02,1,3,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:01,DQB1*03:04 / DQA1*03:01,0,25,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:01,DQB1*03:19 / DQA1*02:01,6,12,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:01,DQB1*03:19 / DQA1*05:05,6,17,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:01,DQB1*04:01 / DQA1*02:01,11,24,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:01,DQB1*04:01 / DQA1*03:03,8,22,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:01,DQB1*04:02 / DQA1*02:01,10,22,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:01,DQB1*04:02 / DQA1*04:01,11,26,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:01,DQB1*05:01 / DQA1*01:01,18,38,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:01,DQB1*05:02 / DQA1*01:02,17,37,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:01,DQB1*05:03 / DQA1*01:01,18,37,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:01,DQB1*06:01 / DQA1*01:03,15,34,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:01,DQB1*06:02 / DQA1*01:01,14,28,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:01,DQB1*06:02 / DQA1*01:02,14,28,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:01,DQB1*06:03 / DQA1*01:03,14,26,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:01,DQB1*06:04 / DQA1*01:02,12,25,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:01,DQB1*06:09 / DQA1*01:02,11,24,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*03:03 / DQA1*04:01,7,12,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*03:03 / DQA1*06:01,7,12,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*03:04 / DQA1*03:01,2,28,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*03:19 / DQA1*02:01,8,15,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*03:19 / DQA1*05:05,7,18,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*04:01 / DQA1*02:01,13,27,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*04:01 / DQA1*03:03,7,19,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*04:01 / DQA1*04:01,14,31,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*04:01 / DQA1*05:01,12,30,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*04:02 / DQA1*02:01,12,25,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*04:02 / DQA1*03:01,8,20,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*04:02 / DQA1*04:01,13,29,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*04:02 / DQA1*06:01,13,29,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*05:01 / DQA1*01:01,20,41,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*05:01 / DQA1*01:02,20,41,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*05:02 / DQA1*01:02,19,40,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*05:03 / DQA1*01:01,20,40,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*05:03 / DQA1*01:04,21,42,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*06:01 / DQA1*01:03,17,37,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*06:01 / DQA1*01:04,18,40,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*06:01 / DQA1*02:01,18,34,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*06:02 / DQA1*01:01,16,31,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*06:02 / DQA1*01:02,16,31,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*06:03 / DQA1*01:03,16,29,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*06:04 / DQA1*01:02,14,28,1,,epregistry.com.br
+DQB1*03:03 / DQA1*03:02,DQB1*06:09 / DQA1*01:02,13,27,1,,epregistry.com.br
+DQB1*03:03 / DQA1*04:01,DQB1*03:03 / DQA1*06:01,1,2,1,,epregistry.com.br
+DQB1*03:03 / DQA1*04:01,DQB1*04:01 / DQA1*02:01,12,27,1,,epregistry.com.br
+DQB1*03:03 / DQA1*04:01,DQB1*04:01 / DQA1*04:01,7,19,1,,epregistry.com.br
+DQB1*03:03 / DQA1*04:01,DQB1*04:01 / DQA1*05:01,9,26,1,,epregistry.com.br
+DQB1*03:03 / DQA1*04:01,DQB1*04:02 / DQA1*03:01,10,26,1,,epregistry.com.br
+DQB1*03:03 / DQA1*04:01,DQB1*04:02 / DQA1*04:01,6,17,1,,epregistry.com.br
+DQB1*03:03 / DQA1*04:01,DQB1*04:02 / DQA1*06:01,7,19,1,,epregistry.com.br
+DQB1*03:03 / DQA1*04:01,DQB1*05:01 / DQA1*01:01,18,39,1,,epregistry.com.br
+DQB1*03:03 / DQA1*04:01,DQB1*05:01 / DQA1*01:02,18,39,1,,epregistry.com.br
+DQB1*03:03 / DQA1*04:01,DQB1*05:02 / DQA1*01:02,17,38,1,,epregistry.com.br
+DQB1*03:03 / DQA1*04:01,DQB1*05:03 / DQA1*01:04,19,40,1,,epregistry.com.br
+DQB1*03:03 / DQA1*04:01,DQB1*06:01 / DQA1*01:03,16,37,1,,epregistry.com.br
+DQB1*03:03 / DQA1*04:01,DQB1*06:01 / DQA1*01:04,16,38,1,,epregistry.com.br
+DQB1*03:03 / DQA1*04:01,DQB1*06:01 / DQA1*02:01,17,34,1,,epregistry.com.br
+DQB1*03:03 / DQA1*04:01,DQB1*06:02 / DQA1*01:02,14,29,1,,epregistry.com.br
+DQB1*03:03 / DQA1*04:01,DQB1*06:03 / DQA1*01:03,15,29,1,,epregistry.com.br
+DQB1*03:03 / DQA1*04:01,DQB1*06:04 / DQA1*01:02,12,26,1,,epregistry.com.br
+DQB1*03:03 / DQA1*06:01,DQB1*04:01 / DQA1*02:01,11,25,1,,epregistry.com.br
+DQB1*03:03 / DQA1*06:01,DQB1*04:01 / DQA1*04:01,8,21,1,,epregistry.com.br
+DQB1*03:03 / DQA1*06:01,DQB1*04:01 / DQA1*05:01,10,28,1,,epregistry.com.br
+DQB1*03:03 / DQA1*06:01,DQB1*04:02 / DQA1*03:01,10,26,1,,epregistry.com.br
+DQB1*03:03 / DQA1*06:01,DQB1*04:02 / DQA1*04:01,7,19,1,,epregistry.com.br
+DQB1*03:03 / DQA1*06:01,DQB1*04:02 / DQA1*06:01,6,17,1,,epregistry.com.br
+DQB1*03:03 / DQA1*06:01,DQB1*05:01 / DQA1*01:01,19,41,1,,epregistry.com.br
+DQB1*03:03 / DQA1*06:01,DQB1*05:01 / DQA1*01:02,19,41,1,,epregistry.com.br
+DQB1*03:03 / DQA1*06:01,DQB1*05:02 / DQA1*01:02,18,40,1,,epregistry.com.br
+DQB1*03:03 / DQA1*06:01,DQB1*05:03 / DQA1*01:04,20,42,1,,epregistry.com.br
+DQB1*03:03 / DQA1*06:01,DQB1*06:01 / DQA1*01:03,15,35,1,,epregistry.com.br
+DQB1*03:03 / DQA1*06:01,DQB1*06:01 / DQA1*01:04,17,40,1,,epregistry.com.br
+DQB1*03:03 / DQA1*06:01,DQB1*06:01 / DQA1*02:01,16,32,1,,epregistry.com.br
+DQB1*03:03 / DQA1*06:01,DQB1*06:02 / DQA1*01:02,15,31,1,,epregistry.com.br
+DQB1*03:03 / DQA1*06:01,DQB1*06:03 / DQA1*01:03,14,27,1,,epregistry.com.br
+DQB1*03:03 / DQA1*06:01,DQB1*06:04 / DQA1*01:02,13,28,1,,epregistry.com.br
+DQB1*03:04 / DQA1*03:01,DQB1*04:01 / DQA1*02:01,24,25,1,,epregistry.com.br
+DQB1*03:04 / DQA1*03:01,DQB1*04:01 / DQA1*03:03,21,23,1,,epregistry.com.br
+DQB1*03:04 / DQA1*03:01,DQB1*04:02 / DQA1*02:01,24,25,1,,epregistry.com.br
+DQB1*03:04 / DQA1*03:01,DQB1*04:02 / DQA1*04:01,25,29,1,,epregistry.com.br
+DQB1*03:04 / DQA1*03:01,DQB1*05:01 / DQA1*01:01,29,35,1,,epregistry.com.br
+DQB1*03:04 / DQA1*03:01,DQB1*05:02 / DQA1*01:02,28,34,1,,epregistry.com.br
+DQB1*03:04 / DQA1*03:01,DQB1*06:01 / DQA1*01:03,26,31,1,,epregistry.com.br
+DQB1*03:04 / DQA1*03:01,DQB1*06:02 / DQA1*01:01,31,37,1,,epregistry.com.br
+DQB1*03:04 / DQA1*03:01,DQB1*06:02 / DQA1*01:02,31,37,1,,epregistry.com.br
+DQB1*03:04 / DQA1*03:01,DQB1*06:03 / DQA1*01:03,32,37,1,,epregistry.com.br
+DQB1*03:04 / DQA1*03:01,DQB1*06:04 / DQA1*01:02,30,36,1,,epregistry.com.br
+DQB1*03:04 / DQA1*03:01,DQB1*06:09 / DQA1*01:02,29,35,1,,epregistry.com.br
+DQB1*03:19 / DQA1*02:01,DQB1*03:19 / DQA1*05:05,3,11,1,,epregistry.com.br
+DQB1*03:19 / DQA1*02:01,DQB1*04:01 / DQA1*02:01,11,24,1,,epregistry.com.br
+DQB1*03:19 / DQA1*02:01,DQB1*04:01 / DQA1*03:03,13,32,1,,epregistry.com.br
+DQB1*03:19 / DQA1*02:01,DQB1*04:02 / DQA1*02:01,10,22,1,,epregistry.com.br
+DQB1*03:19 / DQA1*02:01,DQB1*04:02 / DQA1*04:01,13,30,1,,epregistry.com.br
+DQB1*03:19 / DQA1*02:01,DQB1*05:01 / DQA1*01:01,21,44,1,,epregistry.com.br
+DQB1*03:19 / DQA1*02:01,DQB1*05:02 / DQA1*01:02,20,43,1,,epregistry.com.br
+DQB1*03:19 / DQA1*02:01,DQB1*05:03 / DQA1*01:01,21,43,1,,epregistry.com.br
+DQB1*03:19 / DQA1*02:01,DQB1*06:01 / DQA1*01:03,15,34,1,,epregistry.com.br
+DQB1*03:19 / DQA1*02:01,DQB1*06:02 / DQA1*01:01,19,38,1,,epregistry.com.br
+DQB1*03:19 / DQA1*02:01,DQB1*06:02 / DQA1*01:02,19,38,1,,epregistry.com.br
+DQB1*03:19 / DQA1*02:01,DQB1*06:03 / DQA1*01:03,18,34,1,,epregistry.com.br
+DQB1*03:19 / DQA1*02:01,DQB1*06:04 / DQA1*01:02,17,35,1,,epregistry.com.br
+DQB1*03:19 / DQA1*02:01,DQB1*06:09 / DQA1*01:02,16,34,1,,epregistry.com.br
+DQB1*03:19 / DQA1*05:05,DQB1*04:01 / DQA1*02:01,19,35,1,,epregistry.com.br
+DQB1*03:19 / DQA1*05:05,DQB1*04:01 / DQA1*03:03,17,35,1,,epregistry.com.br
+DQB1*03:19 / DQA1*05:05,DQB1*04:02 / DQA1*02:01,18,33,1,,epregistry.com.br
+DQB1*03:19 / DQA1*05:05,DQB1*04:02 / DQA1*04:01,15,29,1,,epregistry.com.br
+DQB1*03:19 / DQA1*05:05,DQB1*05:01 / DQA1*01:01,23,43,1,,epregistry.com.br
+DQB1*03:19 / DQA1*05:05,DQB1*05:02 / DQA1*01:02,22,42,1,,epregistry.com.br
+DQB1*03:19 / DQA1*05:05,DQB1*05:03 / DQA1*01:01,23,42,1,,epregistry.com.br
+DQB1*03:19 / DQA1*05:05,DQB1*06:01 / DQA1*01:03,19,37,1,,epregistry.com.br
+DQB1*03:19 / DQA1*05:05,DQB1*06:02 / DQA1*01:01,21,37,1,,epregistry.com.br
+DQB1*03:19 / DQA1*05:05,DQB1*06:02 / DQA1*01:02,21,37,1,,epregistry.com.br
+DQB1*03:19 / DQA1*05:05,DQB1*06:03 / DQA1*01:03,22,37,1,,epregistry.com.br
+DQB1*03:19 / DQA1*05:05,DQB1*06:04 / DQA1*01:02,19,34,1,,epregistry.com.br
+DQB1*03:19 / DQA1*05:05,DQB1*06:09 / DQA1*01:02,18,33,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*04:01 / DQA1*03:03,2,8,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*04:01 / DQA1*04:01,3,8,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*04:01 / DQA1*05:01,3,11,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*04:02 / DQA1*02:01,1,2,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*04:02 / DQA1*03:01,2,7,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*04:02 / DQA1*04:01,4,10,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*04:02 / DQA1*06:01,3,8,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*05:01 / DQA1*01:01,19,38,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*05:01 / DQA1*01:02,19,38,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*05:02 / DQA1*01:02,18,37,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*05:03 / DQA1*01:01,20,39,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*05:03 / DQA1*01:04,21,41,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*06:01 / DQA1*01:03,17,36,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*06:01 / DQA1*01:04,19,41,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*06:01 / DQA1*02:01,15,27,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*06:02 / DQA1*01:01,19,36,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*06:02 / DQA1*01:02,19,36,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*06:03 / DQA1*01:03,20,36,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*06:04 / DQA1*01:02,20,39,1,,epregistry.com.br
+DQB1*04:01 / DQA1*02:01,DQB1*06:09 / DQA1*01:02,19,38,1,,epregistry.com.br
+DQB1*04:01 / DQA1*03:03,DQB1*04:02 / DQA1*02:01,7,10,1,,epregistry.com.br
+DQB1*04:01 / DQA1*03:03,DQB1*04:02 / DQA1*04:01,8,14,1,,epregistry.com.br
+DQB1*04:01 / DQA1*03:03,DQB1*05:01 / DQA1*01:01,21,38,1,,epregistry.com.br
+DQB1*04:01 / DQA1*03:03,DQB1*05:02 / DQA1*01:02,20,37,1,,epregistry.com.br
+DQB1*04:01 / DQA1*03:03,DQB1*05:03 / DQA1*01:01,22,39,1,,epregistry.com.br
+DQB1*04:01 / DQA1*03:03,DQB1*06:01 / DQA1*01:03,20,38,1,,epregistry.com.br
+DQB1*04:01 / DQA1*03:03,DQB1*06:02 / DQA1*01:01,21,36,1,,epregistry.com.br
+DQB1*04:01 / DQA1*03:03,DQB1*06:02 / DQA1*01:02,21,36,1,,epregistry.com.br
+DQB1*04:01 / DQA1*03:03,DQB1*06:03 / DQA1*01:03,23,38,1,,epregistry.com.br
+DQB1*04:01 / DQA1*03:03,DQB1*06:04 / DQA1*01:02,22,39,1,,epregistry.com.br
+DQB1*04:01 / DQA1*03:03,DQB1*06:09 / DQA1*01:02,21,38,1,,epregistry.com.br
+DQB1*04:01 / DQA1*04:01,DQB1*04:01 / DQA1*05:01,2,7,1,,epregistry.com.br
+DQB1*04:01 / DQA1*04:01,DQB1*04:02 / DQA1*03:01,5,11,1,,epregistry.com.br
+DQB1*04:01 / DQA1*04:01,DQB1*04:02 / DQA1*04:01,1,2,1,,epregistry.com.br
+DQB1*04:01 / DQA1*04:01,DQB1*04:02 / DQA1*06:01,2,4,1,,epregistry.com.br
+DQB1*04:01 / DQA1*04:01,DQB1*05:01 / DQA1*01:01,19,36,1,,epregistry.com.br
+DQB1*04:01 / DQA1*04:01,DQB1*05:01 / DQA1*01:02,19,36,1,,epregistry.com.br
+DQB1*04:01 / DQA1*04:01,DQB1*05:02 / DQA1*01:02,18,35,1,,epregistry.com.br
+DQB1*04:01 / DQA1*04:01,DQB1*05:03 / DQA1*01:04,21,39,1,,epregistry.com.br
+DQB1*04:01 / DQA1*04:01,DQB1*06:01 / DQA1*01:03,19,38,1,,epregistry.com.br
+DQB1*04:01 / DQA1*04:01,DQB1*06:01 / DQA1*01:04,19,39,1,,epregistry.com.br
+DQB1*04:01 / DQA1*04:01,DQB1*06:01 / DQA1*02:01,20,35,1,,epregistry.com.br
+DQB1*04:01 / DQA1*04:01,DQB1*06:02 / DQA1*01:02,19,34,1,,epregistry.com.br
+DQB1*04:01 / DQA1*04:01,DQB1*06:03 / DQA1*01:03,22,38,1,,epregistry.com.br
+DQB1*04:01 / DQA1*04:01,DQB1*06:04 / DQA1*01:02,20,37,1,,epregistry.com.br
+DQB1*04:01 / DQA1*05:01,DQB1*04:02 / DQA1*03:01,7,12,1,,epregistry.com.br
+DQB1*04:01 / DQA1*05:01,DQB1*04:02 / DQA1*04:01,6,9,1,,epregistry.com.br
+DQB1*04:01 / DQA1*05:01,DQB1*04:02 / DQA1*06:01,7,11,1,,epregistry.com.br
+DQB1*04:01 / DQA1*05:01,DQB1*05:01 / DQA1*01:01,21,37,1,,epregistry.com.br
+DQB1*04:01 / DQA1*05:01,DQB1*05:01 / DQA1*01:02,21,37,1,,epregistry.com.br
+DQB1*04:01 / DQA1*05:01,DQB1*05:02 / DQA1*01:02,20,36,1,,epregistry.com.br
+DQB1*04:01 / DQA1*05:01,DQB1*05:03 / DQA1*01:04,23,40,1,,epregistry.com.br
+DQB1*04:01 / DQA1*05:01,DQB1*06:01 / DQA1*01:03,21,39,1,,epregistry.com.br
+DQB1*04:01 / DQA1*05:01,DQB1*06:01 / DQA1*01:04,21,40,1,,epregistry.com.br
+DQB1*04:01 / DQA1*05:01,DQB1*06:01 / DQA1*02:01,23,38,1,,epregistry.com.br
+DQB1*04:01 / DQA1*05:01,DQB1*06:02 / DQA1*01:02,21,35,1,,epregistry.com.br
+DQB1*04:01 / DQA1*05:01,DQB1*06:03 / DQA1*01:03,24,39,1,,epregistry.com.br
+DQB1*04:01 / DQA1*05:01,DQB1*06:04 / DQA1*01:02,22,38,1,,epregistry.com.br
+DQB1*04:02 / DQA1*02:01,DQB1*04:02 / DQA1*04:01,3,8,1,,epregistry.com.br
+DQB1*04:02 / DQA1*02:01,DQB1*05:01 / DQA1*01:01,18,36,1,,epregistry.com.br
+DQB1*04:02 / DQA1*02:01,DQB1*05:02 / DQA1*01:02,17,35,1,,epregistry.com.br
+DQB1*04:02 / DQA1*02:01,DQB1*05:03 / DQA1*01:01,19,37,1,,epregistry.com.br
+DQB1*04:02 / DQA1*02:01,DQB1*06:01 / DQA1*01:03,16,34,1,,epregistry.com.br
+DQB1*04:02 / DQA1*02:01,DQB1*06:02 / DQA1*01:01,18,34,1,,epregistry.com.br
+DQB1*04:02 / DQA1*02:01,DQB1*06:02 / DQA1*01:02,18,34,1,,epregistry.com.br
+DQB1*04:02 / DQA1*02:01,DQB1*06:03 / DQA1*01:03,19,34,1,,epregistry.com.br
+DQB1*04:02 / DQA1*02:01,DQB1*06:04 / DQA1*01:02,19,37,1,,epregistry.com.br
+DQB1*04:02 / DQA1*02:01,DQB1*06:09 / DQA1*01:02,18,36,1,,epregistry.com.br
+DQB1*04:02 / DQA1*03:01,DQB1*04:02 / DQA1*04:01,5,9,1,,epregistry.com.br
+DQB1*04:02 / DQA1*03:01,DQB1*04:02 / DQA1*06:01,5,9,1,,epregistry.com.br
+DQB1*04:02 / DQA1*03:01,DQB1*05:01 / DQA1*01:01,18,33,1,,epregistry.com.br
+DQB1*04:02 / DQA1*03:01,DQB1*05:01 / DQA1*01:02,18,33,1,,epregistry.com.br
+DQB1*04:02 / DQA1*03:01,DQB1*05:02 / DQA1*01:02,17,32,1,,epregistry.com.br
+DQB1*04:02 / DQA1*03:01,DQB1*05:03 / DQA1*01:04,20,36,1,,epregistry.com.br
+DQB1*04:02 / DQA1*03:01,DQB1*06:01 / DQA1*01:03,17,33,1,,epregistry.com.br
+DQB1*04:02 / DQA1*03:01,DQB1*06:01 / DQA1*01:04,18,36,1,,epregistry.com.br
+DQB1*04:02 / DQA1*03:01,DQB1*06:01 / DQA1*02:01,18,30,1,,epregistry.com.br
+DQB1*04:02 / DQA1*03:01,DQB1*06:02 / DQA1*01:02,18,31,1,,epregistry.com.br
+DQB1*04:02 / DQA1*03:01,DQB1*06:03 / DQA1*01:03,20,33,1,,epregistry.com.br
+DQB1*04:02 / DQA1*03:01,DQB1*06:04 / DQA1*01:02,19,34,1,,epregistry.com.br
+DQB1*04:02 / DQA1*04:01,DQB1*04:02 / DQA1*06:01,1,2,1,,epregistry.com.br
+DQB1*04:02 / DQA1*04:01,DQB1*05:01 / DQA1*01:01,18,34,1,,epregistry.com.br
+DQB1*04:02 / DQA1*04:01,DQB1*05:01 / DQA1*01:02,18,34,1,,epregistry.com.br
+DQB1*04:02 / DQA1*04:01,DQB1*05:02 / DQA1*01:02,17,33,1,,epregistry.com.br
+DQB1*04:02 / DQA1*04:01,DQB1*05:03 / DQA1*01:01,19,35,1,,epregistry.com.br
+DQB1*04:02 / DQA1*04:01,DQB1*05:03 / DQA1*01:04,20,37,1,,epregistry.com.br
+DQB1*04:02 / DQA1*04:01,DQB1*06:01 / DQA1*01:03,18,36,1,,epregistry.com.br
+DQB1*04:02 / DQA1*04:01,DQB1*06:01 / DQA1*01:04,18,37,1,,epregistry.com.br
+DQB1*04:02 / DQA1*04:01,DQB1*06:01 / DQA1*02:01,19,33,1,,epregistry.com.br
+DQB1*04:02 / DQA1*04:01,DQB1*06:02 / DQA1*01:01,18,32,1,,epregistry.com.br
+DQB1*04:02 / DQA1*04:01,DQB1*06:02 / DQA1*01:02,18,32,1,,epregistry.com.br
+DQB1*04:02 / DQA1*04:01,DQB1*06:03 / DQA1*01:03,21,36,1,,epregistry.com.br
+DQB1*04:02 / DQA1*04:01,DQB1*06:04 / DQA1*01:02,19,35,1,,epregistry.com.br
+DQB1*04:02 / DQA1*04:01,DQB1*06:09 / DQA1*01:02,18,34,1,,epregistry.com.br
+DQB1*04:02 / DQA1*06:01,DQB1*05:01 / DQA1*01:01,19,36,1,,epregistry.com.br
+DQB1*04:02 / DQA1*06:01,DQB1*05:01 / DQA1*01:02,19,36,1,,epregistry.com.br
+DQB1*04:02 / DQA1*06:01,DQB1*05:02 / DQA1*01:02,18,35,1,,epregistry.com.br
+DQB1*04:02 / DQA1*06:01,DQB1*05:03 / DQA1*01:04,21,39,1,,epregistry.com.br
+DQB1*04:02 / DQA1*06:01,DQB1*06:01 / DQA1*01:03,17,34,1,,epregistry.com.br
+DQB1*04:02 / DQA1*06:01,DQB1*06:01 / DQA1*01:04,19,39,1,,epregistry.com.br
+DQB1*04:02 / DQA1*06:01,DQB1*06:01 / DQA1*02:01,18,31,1,,epregistry.com.br
+DQB1*04:02 / DQA1*06:01,DQB1*06:02 / DQA1*01:02,19,34,1,,epregistry.com.br
+DQB1*04:02 / DQA1*06:01,DQB1*06:03 / DQA1*01:03,20,34,1,,epregistry.com.br
+DQB1*04:02 / DQA1*06:01,DQB1*06:04 / DQA1*01:02,20,37,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:01,DQB1*05:01 / DQA1*01:02,0,0,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:01,DQB1*05:02 / DQA1*01:02,1,3,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:01,DQB1*05:03 / DQA1*01:01,2,3,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:01,DQB1*05:03 / DQA1*01:04,3,5,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:01,DQB1*06:01 / DQA1*01:03,14,30,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:01,DQB1*06:01 / DQA1*01:04,12,27,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:01,DQB1*06:01 / DQA1*02:01,20,37,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:01,DQB1*06:02 / DQA1*01:01,12,22,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:01,DQB1*06:02 / DQA1*01:02,12,22,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:01,DQB1*06:03 / DQA1*01:03,14,24,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:01,DQB1*06:04 / DQA1*01:02,10,19,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:01,DQB1*06:09 / DQA1*01:02,10,20,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:02,DQB1*05:02 / DQA1*01:02,1,3,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:02,DQB1*05:03 / DQA1*01:04,3,5,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:02,DQB1*06:01 / DQA1*01:03,14,30,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:02,DQB1*06:01 / DQA1*01:04,12,27,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:02,DQB1*06:01 / DQA1*02:01,20,37,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:02,DQB1*06:02 / DQA1*01:02,12,22,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:02,DQB1*06:03 / DQA1*01:03,14,24,1,,epregistry.com.br
+DQB1*05:01 / DQA1*01:02,DQB1*06:04 / DQA1*01:02,10,19,1,,epregistry.com.br
+DQB1*05:02 / DQA1*01:02,DQB1*05:03 / DQA1*01:01,3,4,1,,epregistry.com.br
+DQB1*05:02 / DQA1*01:02,DQB1*05:03 / DQA1*01:04,4,6,1,,epregistry.com.br
+DQB1*05:02 / DQA1*01:02,DQB1*06:01 / DQA1*01:03,14,29,1,,epregistry.com.br
+DQB1*05:02 / DQA1*01:02,DQB1*06:01 / DQA1*01:04,12,26,1,,epregistry.com.br
+DQB1*05:02 / DQA1*01:02,DQB1*06:01 / DQA1*02:01,20,36,1,,epregistry.com.br
+DQB1*05:02 / DQA1*01:02,DQB1*06:02 / DQA1*01:01,12,21,1,,epregistry.com.br
+DQB1*05:02 / DQA1*01:02,DQB1*06:02 / DQA1*01:02,12,21,1,,epregistry.com.br
+DQB1*05:02 / DQA1*01:02,DQB1*06:03 / DQA1*01:03,14,23,1,,epregistry.com.br
+DQB1*05:02 / DQA1*01:02,DQB1*06:04 / DQA1*01:02,11,20,1,,epregistry.com.br
+DQB1*05:02 / DQA1*01:02,DQB1*06:09 / DQA1*01:02,11,21,1,,epregistry.com.br
+DQB1*05:03 / DQA1*01:01,DQB1*06:01 / DQA1*01:03,12,27,1,,epregistry.com.br
+DQB1*05:03 / DQA1*01:01,DQB1*06:02 / DQA1*01:01,10,19,1,,epregistry.com.br
+DQB1*05:03 / DQA1*01:01,DQB1*06:02 / DQA1*01:02,10,19,1,,epregistry.com.br
+DQB1*05:03 / DQA1*01:01,DQB1*06:03 / DQA1*01:03,12,21,1,,epregistry.com.br
+DQB1*05:03 / DQA1*01:01,DQB1*06:04 / DQA1*01:02,11,22,1,,epregistry.com.br
+DQB1*05:03 / DQA1*01:01,DQB1*06:09 / DQA1*01:02,11,23,1,,epregistry.com.br
+DQB1*05:03 / DQA1*01:04,DQB1*06:01 / DQA1*01:03,13,29,1,,epregistry.com.br
+DQB1*05:03 / DQA1*01:04,DQB1*06:01 / DQA1*01:04,9,22,1,,epregistry.com.br
+DQB1*05:03 / DQA1*01:04,DQB1*06:01 / DQA1*02:01,19,36,1,,epregistry.com.br
+DQB1*05:03 / DQA1*01:04,DQB1*06:02 / DQA1*01:02,11,21,1,,epregistry.com.br
+DQB1*05:03 / DQA1*01:04,DQB1*06:03 / DQA1*01:03,13,23,1,,epregistry.com.br
+DQB1*05:03 / DQA1*01:04,DQB1*06:04 / DQA1*01:02,12,24,1,,epregistry.com.br
+DQB1*06:01 / DQA1*01:03,DQB1*06:01 / DQA1*01:04,3,7,1,,epregistry.com.br
+DQB1*06:01 / DQA1*01:03,DQB1*06:01 / DQA1*02:01,7,9,1,,epregistry.com.br
+DQB1*06:01 / DQA1*01:03,DQB1*06:02 / DQA1*01:01,12,20,1,,epregistry.com.br
+DQB1*06:01 / DQA1*01:03,DQB1*06:02 / DQA1*01:02,12,20,1,,epregistry.com.br
+DQB1*06:01 / DQA1*01:03,DQB1*06:03 / DQA1*01:03,11,16,1,,epregistry.com.br
+DQB1*06:01 / DQA1*01:03,DQB1*06:04 / DQA1*01:02,15,27,1,,epregistry.com.br
+DQB1*06:01 / DQA1*01:03,DQB1*06:09 / DQA1*01:02,14,26,1,,epregistry.com.br
+DQB1*06:01 / DQA1*01:04,DQB1*06:01 / DQA1*02:01,10,14,1,,epregistry.com.br
+DQB1*06:01 / DQA1*01:04,DQB1*06:02 / DQA1*01:02,11,17,1,,epregistry.com.br
+DQB1*06:01 / DQA1*01:04,DQB1*06:03 / DQA1*01:03,15,23,1,,epregistry.com.br
+DQB1*06:01 / DQA1*01:04,DQB1*06:04 / DQA1*01:02,14,24,1,,epregistry.com.br
+DQB1*06:01 / DQA1*02:01,DQB1*06:02 / DQA1*01:02,13,27,1,,epregistry.com.br
+DQB1*06:01 / DQA1*02:01,DQB1*06:03 / DQA1*01:03,13,25,1,,epregistry.com.br
+DQB1*06:01 / DQA1*02:01,DQB1*06:04 / DQA1*01:02,16,34,1,,epregistry.com.br
+DQB1*06:02 / DQA1*01:01,DQB1*06:02 / DQA1*01:02,0,0,1,,epregistry.com.br
+DQB1*06:02 / DQA1*01:01,DQB1*06:03 / DQA1*01:03,5,8,1,,epregistry.com.br
+DQB1*06:02 / DQA1*01:01,DQB1*06:04 / DQA1*01:02,7,15,1,,epregistry.com.br
+DQB1*06:02 / DQA1*01:01,DQB1*06:09 / DQA1*01:02,6,14,1,,epregistry.com.br
+DQB1*06:02 / DQA1*01:02,DQB1*06:03 / DQA1*01:03,5,8,1,,epregistry.com.br
+DQB1*06:02 / DQA1*01:02,DQB1*06:04 / DQA1*01:02,7,15,1,,epregistry.com.br
+DQB1*06:02 / DQA1*01:02,DQB1*06:09 / DQA1*01:02,6,14,1,,epregistry.com.br
+DQB1*06:03 / DQA1*01:03,DQB1*06:04 / DQA1*01:02,7,17,1,,epregistry.com.br
+DQB1*06:03 / DQA1*01:03,DQB1*06:09 / DQA1*01:02,7,18,1,,epregistry.com.br
+DQB1*06:04 / DQA1*01:02,DQB1*06:09 / DQA1*01:02,0,1,1,,epregistry.com.br
+DRB1*01:01,DRB1*01:02,2,4,1,,epregistry.com.br
+DRB1*01:01,DRB1*01:03,4,10,1,,epregistry.com.br
+DRB1*01:01,DRB1*03:01,20,42,1,,epregistry.com.br
+DRB1*01:01,DRB1*03:02,16,35,1,,epregistry.com.br
+DRB1*01:01,DRB1*03:03,14,44,1,,epregistry.com.br
+DRB1*01:01,DRB1*04:01,14,31,1,,epregistry.com.br
+DRB1*01:01,DRB1*04:02,18,40,1,,epregistry.com.br
+DRB1*01:01,DRB1*04:03,15,32,1,,epregistry.com.br
+DRB1*01:01,DRB1*04:04,14,30,1,,epregistry.com.br
+DRB1*01:01,DRB1*04:05,13,30,1,,epregistry.com.br
+DRB1*01:01,DRB1*04:06,13,29,1,,epregistry.com.br
+DRB1*01:01,DRB1*04:07,13,29,1,,epregistry.com.br
+DRB1*01:01,DRB1*04:10,15,33,1,,epregistry.com.br
+DRB1*01:01,DRB1*04:11,16,35,1,,epregistry.com.br
+DRB1*01:01,DRB1*07:01,20,45,1,,epregistry.com.br
+DRB1*01:01,DRB1*08:01,19,38,1,,epregistry.com.br
+DRB1*01:01,DRB1*08:02,18,35,1,,epregistry.com.br
+DRB1*01:01,DRB1*08:03,19,38,1,,epregistry.com.br
+DRB1*01:01,DRB1*08:07,18,37,1,,epregistry.com.br
+DRB1*01:01,DRB1*09:01,17,38,1,,epregistry.com.br
+DRB1*01:01,DRB1*09:02,8,33,1,,epregistry.com.br
+DRB1*01:01,DRB1*10:01,12,31,1,,epregistry.com.br
+DRB1*01:01,DRB1*11:01,19,38,1,,epregistry.com.br
+DRB1*01:01,DRB1*11:03,20,41,1,,epregistry.com.br
+DRB1*01:01,DRB1*11:04,21,41,1,,epregistry.com.br
+DRB1*01:01,DRB1*12:01,20,45,1,,epregistry.com.br
+DRB1*01:01,DRB1*12:02,20,45,1,,epregistry.com.br
+DRB1*01:01,DRB1*13:01,19,39,1,,epregistry.com.br
+DRB1*01:01,DRB1*13:02,17,36,1,,epregistry.com.br
+DRB1*01:01,DRB1*13:03,17,34,1,,epregistry.com.br
+DRB1*01:01,DRB1*13:05,18,36,1,,epregistry.com.br
+DRB1*01:01,DRB1*14:01,20,43,1,,epregistry.com.br
+DRB1*01:01,DRB1*14:02,11,22,1,,epregistry.com.br
+DRB1*01:01,DRB1*14:03,16,33,1,,epregistry.com.br
+DRB1*01:01,DRB1*14:04,18,41,1,,epregistry.com.br
+DRB1*01:01,DRB1*14:05,18,37,1,,epregistry.com.br
+DRB1*01:01,DRB1*14:06,13,25,1,,epregistry.com.br
+DRB1*01:01,DRB1*14:54,19,41,1,,epregistry.com.br
+DRB1*01:01,DRB1*15:01,11,23,1,,epregistry.com.br
+DRB1*01:01,DRB1*15:02,9,20,1,,epregistry.com.br
+DRB1*01:01,DRB1*15:03,12,24,1,,epregistry.com.br
+DRB1*01:01,DRB1*16:01,11,22,1,,epregistry.com.br
+DRB1*01:01,DRB1*16:02,10,21,1,,epregistry.com.br
+DRB1*01:02,DRB1*01:03,6,14,1,,epregistry.com.br
+DRB1*01:02,DRB1*03:01,20,42,1,,epregistry.com.br
+DRB1*01:02,DRB1*03:02,18,39,1,,epregistry.com.br
+DRB1*01:02,DRB1*03:03,14,44,1,,epregistry.com.br
+DRB1*01:02,DRB1*04:01,16,35,1,,epregistry.com.br
+DRB1*01:02,DRB1*04:02,18,40,1,,epregistry.com.br
+DRB1*01:02,DRB1*04:03,15,32,1,,epregistry.com.br
+DRB1*01:02,DRB1*04:04,14,30,1,,epregistry.com.br
+DRB1*01:02,DRB1*04:05,15,34,1,,epregistry.com.br
+DRB1*01:02,DRB1*04:06,13,29,1,,epregistry.com.br
+DRB1*01:02,DRB1*04:07,15,33,1,,epregistry.com.br
+DRB1*01:02,DRB1*04:10,15,33,1,,epregistry.com.br
+DRB1*01:02,DRB1*04:11,16,35,1,,epregistry.com.br
+DRB1*01:02,DRB1*07:01,22,49,1,,epregistry.com.br
+DRB1*01:02,DRB1*08:01,21,42,1,,epregistry.com.br
+DRB1*01:02,DRB1*08:02,20,39,1,,epregistry.com.br
+DRB1*01:02,DRB1*08:03,21,42,1,,epregistry.com.br
+DRB1*01:02,DRB1*08:07,20,41,1,,epregistry.com.br
+DRB1*01:02,DRB1*09:01,19,42,1,,epregistry.com.br
+DRB1*01:02,DRB1*09:02,10,37,1,,epregistry.com.br
+DRB1*01:02,DRB1*10:01,14,35,1,,epregistry.com.br
+DRB1*01:02,DRB1*11:01,21,42,1,,epregistry.com.br
+DRB1*01:02,DRB1*11:03,20,41,1,,epregistry.com.br
+DRB1*01:02,DRB1*11:04,21,41,1,,epregistry.com.br
+DRB1*01:02,DRB1*12:01,18,41,1,,epregistry.com.br
+DRB1*01:02,DRB1*12:02,18,41,1,,epregistry.com.br
+DRB1*01:02,DRB1*13:01,19,39,1,,epregistry.com.br
+DRB1*01:02,DRB1*13:02,19,40,1,,epregistry.com.br
+DRB1*01:02,DRB1*13:03,19,38,1,,epregistry.com.br
+DRB1*01:02,DRB1*13:05,20,40,1,,epregistry.com.br
+DRB1*01:02,DRB1*14:01,20,43,1,,epregistry.com.br
+DRB1*01:02,DRB1*14:02,13,26,1,,epregistry.com.br
+DRB1*01:02,DRB1*14:03,18,37,1,,epregistry.com.br
+DRB1*01:02,DRB1*14:04,18,41,1,,epregistry.com.br
+DRB1*01:02,DRB1*14:05,18,37,1,,epregistry.com.br
+DRB1*01:02,DRB1*14:06,13,25,1,,epregistry.com.br
+DRB1*01:02,DRB1*14:54,19,41,1,,epregistry.com.br
+DRB1*01:02,DRB1*15:01,11,23,1,,epregistry.com.br
+DRB1*01:02,DRB1*15:02,11,24,1,,epregistry.com.br
+DRB1*01:02,DRB1*15:03,12,24,1,,epregistry.com.br
+DRB1*01:02,DRB1*16:01,13,26,1,,epregistry.com.br
+DRB1*01:02,DRB1*16:02,12,25,1,,epregistry.com.br
+DRB1*01:03,DRB1*03:01,22,44,1,,epregistry.com.br
+DRB1*01:03,DRB1*03:02,18,37,1,,epregistry.com.br
+DRB1*01:03,DRB1*03:03,16,46,1,,epregistry.com.br
+DRB1*01:03,DRB1*04:01,18,37,1,,epregistry.com.br
+DRB1*01:03,DRB1*04:02,14,30,1,,epregistry.com.br
+DRB1*01:03,DRB1*04:03,21,42,1,,epregistry.com.br
+DRB1*01:03,DRB1*04:04,20,40,1,,epregistry.com.br
+DRB1*01:03,DRB1*04:05,19,40,1,,epregistry.com.br
+DRB1*01:03,DRB1*04:06,19,39,1,,epregistry.com.br
+DRB1*01:03,DRB1*04:07,19,39,1,,epregistry.com.br
+DRB1*01:03,DRB1*04:10,21,43,1,,epregistry.com.br
+DRB1*01:03,DRB1*04:11,22,45,1,,epregistry.com.br
+DRB1*01:03,DRB1*07:01,19,41,1,,epregistry.com.br
+DRB1*01:03,DRB1*08:01,18,34,1,,epregistry.com.br
+DRB1*01:03,DRB1*08:02,17,31,1,,epregistry.com.br
+DRB1*01:03,DRB1*08:03,17,32,1,,epregistry.com.br
+DRB1*01:03,DRB1*08:07,17,33,1,,epregistry.com.br
+DRB1*01:03,DRB1*09:01,18,38,1,,epregistry.com.br
+DRB1*01:03,DRB1*09:02,9,33,1,,epregistry.com.br
+DRB1*01:03,DRB1*10:01,13,31,1,,epregistry.com.br
+DRB1*01:03,DRB1*11:01,18,34,1,,epregistry.com.br
+DRB1*01:03,DRB1*11:03,17,33,1,,epregistry.com.br
+DRB1*01:03,DRB1*11:04,20,37,1,,epregistry.com.br
+DRB1*01:03,DRB1*12:01,18,39,1,,epregistry.com.br
+DRB1*01:03,DRB1*12:02,19,41,1,,epregistry.com.br
+DRB1*01:03,DRB1*13:01,15,29,1,,epregistry.com.br
+DRB1*01:03,DRB1*13:02,13,26,1,,epregistry.com.br
+DRB1*01:03,DRB1*13:03,14,26,1,,epregistry.com.br
+DRB1*01:03,DRB1*13:05,17,32,1,,epregistry.com.br
+DRB1*01:03,DRB1*14:01,21,43,1,,epregistry.com.br
+DRB1*01:03,DRB1*14:02,17,32,1,,epregistry.com.br
+DRB1*01:03,DRB1*14:03,15,29,1,,epregistry.com.br
+DRB1*01:03,DRB1*14:04,19,41,1,,epregistry.com.br
+DRB1*01:03,DRB1*14:05,19,37,1,,epregistry.com.br
+DRB1*01:03,DRB1*14:06,19,35,1,,epregistry.com.br
+DRB1*01:03,DRB1*14:54,20,41,1,,epregistry.com.br
+DRB1*01:03,DRB1*15:01,13,25,1,,epregistry.com.br
+DRB1*01:03,DRB1*15:02,11,22,1,,epregistry.com.br
+DRB1*01:03,DRB1*15:03,14,26,1,,epregistry.com.br
+DRB1*01:03,DRB1*16:01,10,18,1,,epregistry.com.br
+DRB1*01:03,DRB1*16:02,9,17,1,,epregistry.com.br
+DRB1*03:01,DRB1*03:02,4,9,1,,epregistry.com.br
+DRB1*03:01,DRB1*03:03,3,20,1,,epregistry.com.br
+DRB1*03:01,DRB1*04:01,20,41,1,,epregistry.com.br
+DRB1*03:01,DRB1*04:02,21,44,1,,epregistry.com.br
+DRB1*03:01,DRB1*04:03,21,42,1,,epregistry.com.br
+DRB1*03:01,DRB1*04:04,21,42,1,,epregistry.com.br
+DRB1*03:01,DRB1*04:05,23,48,1,,epregistry.com.br
+DRB1*03:01,DRB1*04:06,20,41,1,,epregistry.com.br
+DRB1*03:01,DRB1*04:07,22,45,1,,epregistry.com.br
+DRB1*03:01,DRB1*04:10,22,45,1,,epregistry.com.br
+DRB1*03:01,DRB1*04:11,22,45,1,,epregistry.com.br
+DRB1*03:01,DRB1*07:01,27,57,1,,epregistry.com.br
+DRB1*03:01,DRB1*08:01,22,42,1,,epregistry.com.br
+DRB1*03:01,DRB1*08:02,21,39,1,,epregistry.com.br
+DRB1*03:01,DRB1*08:03,22,42,1,,epregistry.com.br
+DRB1*03:01,DRB1*08:07,21,41,1,,epregistry.com.br
+DRB1*03:01,DRB1*09:01,27,56,1,,epregistry.com.br
+DRB1*03:01,DRB1*09:02,16,47,1,,epregistry.com.br
+DRB1*03:01,DRB1*10:01,21,47,1,,epregistry.com.br
+DRB1*03:01,DRB1*11:01,18,34,1,,epregistry.com.br
+DRB1*03:01,DRB1*11:03,15,29,1,,epregistry.com.br
+DRB1*03:01,DRB1*11:04,17,31,1,,epregistry.com.br
+DRB1*03:01,DRB1*12:01,17,37,1,,epregistry.com.br
+DRB1*03:01,DRB1*12:02,17,37,1,,epregistry.com.br
+DRB1*03:01,DRB1*13:01,9,17,1,,epregistry.com.br
+DRB1*03:01,DRB1*13:02,10,20,1,,epregistry.com.br
+DRB1*03:01,DRB1*13:03,17,32,1,,epregistry.com.br
+DRB1*03:01,DRB1*13:05,12,22,1,,epregistry.com.br
+DRB1*03:01,DRB1*14:01,14,29,1,,epregistry.com.br
+DRB1*03:01,DRB1*14:02,12,22,1,,epregistry.com.br
+DRB1*03:01,DRB1*14:03,13,25,1,,epregistry.com.br
+DRB1*03:01,DRB1*14:04,14,31,1,,epregistry.com.br
+DRB1*03:01,DRB1*14:05,12,23,1,,epregistry.com.br
+DRB1*03:01,DRB1*14:06,11,19,1,,epregistry.com.br
+DRB1*03:01,DRB1*14:54,13,27,1,,epregistry.com.br
+DRB1*03:01,DRB1*15:01,17,33,1,,epregistry.com.br
+DRB1*03:01,DRB1*15:02,18,36,1,,epregistry.com.br
+DRB1*03:01,DRB1*15:03,18,34,1,,epregistry.com.br
+DRB1*03:01,DRB1*16:01,22,42,1,,epregistry.com.br
+DRB1*03:01,DRB1*16:02,21,41,1,,epregistry.com.br
+DRB1*03:02,DRB1*03:03,2,17,1,,epregistry.com.br
+DRB1*03:02,DRB1*04:01,17,34,1,,epregistry.com.br
+DRB1*03:02,DRB1*04:02,21,43,1,,epregistry.com.br
+DRB1*03:02,DRB1*04:03,21,41,1,,epregistry.com.br
+DRB1*03:02,DRB1*04:04,21,41,1,,epregistry.com.br
+DRB1*03:02,DRB1*04:05,20,41,1,,epregistry.com.br
+DRB1*03:02,DRB1*04:06,20,40,1,,epregistry.com.br
+DRB1*03:02,DRB1*04:07,19,38,1,,epregistry.com.br
+DRB1*03:02,DRB1*04:10,22,44,1,,epregistry.com.br
+DRB1*03:02,DRB1*04:11,22,44,1,,epregistry.com.br
+DRB1*03:02,DRB1*07:01,23,48,1,,epregistry.com.br
+DRB1*03:02,DRB1*08:01,19,35,1,,epregistry.com.br
+DRB1*03:02,DRB1*08:02,18,32,1,,epregistry.com.br
+DRB1*03:02,DRB1*08:03,19,35,1,,epregistry.com.br
+DRB1*03:02,DRB1*08:07,18,34,1,,epregistry.com.br
+DRB1*03:02,DRB1*09:01,25,51,1,,epregistry.com.br
+DRB1*03:02,DRB1*09:02,14,42,1,,epregistry.com.br
+DRB1*03:02,DRB1*10:01,18,40,1,,epregistry.com.br
+DRB1*03:02,DRB1*11:01,18,33,1,,epregistry.com.br
+DRB1*03:02,DRB1*11:03,18,34,1,,epregistry.com.br
+DRB1*03:02,DRB1*11:04,20,36,1,,epregistry.com.br
+DRB1*03:02,DRB1*12:01,19,40,1,,epregistry.com.br
+DRB1*03:02,DRB1*12:02,19,40,1,,epregistry.com.br
+DRB1*03:02,DRB1*13:01,12,22,1,,epregistry.com.br
+DRB1*03:02,DRB1*13:02,10,19,1,,epregistry.com.br
+DRB1*03:02,DRB1*13:03,14,25,1,,epregistry.com.br
+DRB1*03:02,DRB1*13:05,12,21,1,,epregistry.com.br
+DRB1*03:02,DRB1*14:01,14,28,1,,epregistry.com.br
+DRB1*03:02,DRB1*14:02,8,13,1,,epregistry.com.br
+DRB1*03:02,DRB1*14:03,9,16,1,,epregistry.com.br
+DRB1*03:02,DRB1*14:04,14,30,1,,epregistry.com.br
+DRB1*03:02,DRB1*14:05,12,22,1,,epregistry.com.br
+DRB1*03:02,DRB1*14:06,10,16,1,,epregistry.com.br
+DRB1*03:02,DRB1*14:54,13,26,1,,epregistry.com.br
+DRB1*03:02,DRB1*15:01,20,38,1,,epregistry.com.br
+DRB1*03:02,DRB1*15:02,18,35,1,,epregistry.com.br
+DRB1*03:02,DRB1*15:03,21,39,1,,epregistry.com.br
+DRB1*03:02,DRB1*16:01,19,35,1,,epregistry.com.br
+DRB1*03:02,DRB1*16:02,18,34,1,,epregistry.com.br
+DRB1*03:03,DRB1*04:01,24,35,1,,epregistry.com.br
+DRB1*03:03,DRB1*04:02,25,38,1,,epregistry.com.br
+DRB1*03:03,DRB1*04:03,25,36,1,,epregistry.com.br
+DRB1*03:03,DRB1*04:04,25,36,1,,epregistry.com.br
+DRB1*03:03,DRB1*04:05,27,42,1,,epregistry.com.br
+DRB1*03:03,DRB1*07:01,30,49,1,,epregistry.com.br
+DRB1*03:03,DRB1*08:01,33,50,1,,epregistry.com.br
+DRB1*03:03,DRB1*08:02,32,47,1,,epregistry.com.br
+DRB1*03:03,DRB1*09:01,32,52,1,,epregistry.com.br
+DRB1*03:03,DRB1*10:01,26,43,1,,epregistry.com.br
+DRB1*03:03,DRB1*11:01,33,50,1,,epregistry.com.br
+DRB1*03:03,DRB1*11:03,30,45,1,,epregistry.com.br
+DRB1*03:03,DRB1*11:04,32,47,1,,epregistry.com.br
+DRB1*03:03,DRB1*12:01,32,53,1,,epregistry.com.br
+DRB1*03:03,DRB1*12:02,32,53,1,,epregistry.com.br
+DRB1*03:03,DRB1*13:01,24,33,1,,epregistry.com.br
+DRB1*03:03,DRB1*13:03,29,42,1,,epregistry.com.br
+DRB1*03:03,DRB1*13:05,27,38,1,,epregistry.com.br
+DRB1*03:03,DRB1*14:01,25,37,1,,epregistry.com.br
+DRB1*03:03,DRB1*14:03,24,33,1,,epregistry.com.br
+DRB1*03:03,DRB1*14:04,26,41,1,,epregistry.com.br
+DRB1*03:03,DRB1*15:01,28,41,1,,epregistry.com.br
+DRB1*03:03,DRB1*15:02,29,44,1,,epregistry.com.br
+DRB1*03:03,DRB1*15:03,29,42,1,,epregistry.com.br
+DRB1*03:03,DRB1*16:01,30,44,1,,epregistry.com.br
+DRB1*03:03,DRB1*16:02,29,43,1,,epregistry.com.br
+DRB1*04:01,DRB1*04:02,6,13,1,,epregistry.com.br
+DRB1*04:01,DRB1*04:03,5,9,1,,epregistry.com.br
+DRB1*04:01,DRB1*04:04,4,7,1,,epregistry.com.br
+DRB1*04:01,DRB1*04:05,3,7,1,,epregistry.com.br
+DRB1*04:01,DRB1*04:06,6,12,1,,epregistry.com.br
+DRB1*04:01,DRB1*04:07,3,6,1,,epregistry.com.br
+DRB1*04:01,DRB1*04:10,5,10,1,,epregistry.com.br
+DRB1*04:01,DRB1*04:11,6,12,1,,epregistry.com.br
+DRB1*04:01,DRB1*07:01,21,44,1,,epregistry.com.br
+DRB1*04:01,DRB1*08:01,20,37,1,,epregistry.com.br
+DRB1*04:01,DRB1*08:02,19,34,1,,epregistry.com.br
+DRB1*04:01,DRB1*08:03,20,37,1,,epregistry.com.br
+DRB1*04:01,DRB1*08:07,19,36,1,,epregistry.com.br
+DRB1*04:01,DRB1*09:01,23,47,1,,epregistry.com.br
+DRB1*04:01,DRB1*09:02,13,40,1,,epregistry.com.br
+DRB1*04:01,DRB1*10:01,15,34,1,,epregistry.com.br
+DRB1*04:01,DRB1*11:01,20,37,1,,epregistry.com.br
+DRB1*04:01,DRB1*11:03,20,38,1,,epregistry.com.br
+DRB1*04:01,DRB1*11:04,22,40,1,,epregistry.com.br
+DRB1*04:01,DRB1*12:01,26,54,1,,epregistry.com.br
+DRB1*04:01,DRB1*12:02,26,54,1,,epregistry.com.br
+DRB1*04:01,DRB1*13:01,21,40,1,,epregistry.com.br
+DRB1*04:01,DRB1*13:02,19,37,1,,epregistry.com.br
+DRB1*04:01,DRB1*13:03,16,29,1,,epregistry.com.br
+DRB1*04:01,DRB1*13:05,21,39,1,,epregistry.com.br
+DRB1*04:01,DRB1*14:01,23,46,1,,epregistry.com.br
+DRB1*04:01,DRB1*14:02,16,29,1,,epregistry.com.br
+DRB1*04:01,DRB1*14:03,20,38,1,,epregistry.com.br
+DRB1*04:01,DRB1*14:04,21,44,1,,epregistry.com.br
+DRB1*04:01,DRB1*14:05,21,40,1,,epregistry.com.br
+DRB1*04:01,DRB1*14:06,18,32,1,,epregistry.com.br
+DRB1*04:01,DRB1*14:54,22,44,1,,epregistry.com.br
+DRB1*04:01,DRB1*15:01,16,30,1,,epregistry.com.br
+DRB1*04:01,DRB1*15:02,14,27,1,,epregistry.com.br
+DRB1*04:01,DRB1*15:03,17,31,1,,epregistry.com.br
+DRB1*04:01,DRB1*16:01,17,31,1,,epregistry.com.br
+DRB1*04:01,DRB1*16:02,16,30,1,,epregistry.com.br
+DRB1*04:02,DRB1*04:03,7,12,1,,epregistry.com.br
+DRB1*04:02,DRB1*04:04,6,10,1,,epregistry.com.br
+DRB1*04:02,DRB1*04:05,8,16,1,,epregistry.com.br
+DRB1*04:02,DRB1*04:06,8,15,1,,epregistry.com.br
+DRB1*04:02,DRB1*04:07,8,15,1,,epregistry.com.br
+DRB1*04:02,DRB1*04:10,7,13,1,,epregistry.com.br
+DRB1*04:02,DRB1*04:11,8,15,1,,epregistry.com.br
+DRB1*04:02,DRB1*07:01,20,41,1,,epregistry.com.br
+DRB1*04:02,DRB1*08:01,19,34,1,,epregistry.com.br
+DRB1*04:02,DRB1*08:02,18,31,1,,epregistry.com.br
+DRB1*04:02,DRB1*08:03,18,32,1,,epregistry.com.br
+DRB1*04:02,DRB1*08:07,18,33,1,,epregistry.com.br
+DRB1*04:02,DRB1*09:01,24,48,1,,epregistry.com.br
+DRB1*04:02,DRB1*09:02,14,41,1,,epregistry.com.br
+DRB1*04:02,DRB1*10:01,16,35,1,,epregistry.com.br
+DRB1*04:02,DRB1*11:01,19,34,1,,epregistry.com.br
+DRB1*04:02,DRB1*11:03,15,27,1,,epregistry.com.br
+DRB1*04:02,DRB1*11:04,18,31,1,,epregistry.com.br
+DRB1*04:02,DRB1*12:01,22,45,1,,epregistry.com.br
+DRB1*04:02,DRB1*12:02,23,47,1,,epregistry.com.br
+DRB1*04:02,DRB1*13:01,15,27,1,,epregistry.com.br
+DRB1*04:02,DRB1*13:02,16,30,1,,epregistry.com.br
+DRB1*04:02,DRB1*13:03,15,26,1,,epregistry.com.br
+DRB1*04:02,DRB1*13:05,20,36,1,,epregistry.com.br
+DRB1*04:02,DRB1*14:01,21,41,1,,epregistry.com.br
+DRB1*04:02,DRB1*14:02,21,38,1,,epregistry.com.br
+DRB1*04:02,DRB1*14:03,19,35,1,,epregistry.com.br
+DRB1*04:02,DRB1*14:04,19,39,1,,epregistry.com.br
+DRB1*04:02,DRB1*14:05,19,35,1,,epregistry.com.br
+DRB1*04:02,DRB1*14:06,20,35,1,,epregistry.com.br
+DRB1*04:02,DRB1*14:54,20,39,1,,epregistry.com.br
+DRB1*04:02,DRB1*15:01,16,29,1,,epregistry.com.br
+DRB1*04:02,DRB1*15:02,17,32,1,,epregistry.com.br
+DRB1*04:02,DRB1*15:03,17,30,1,,epregistry.com.br
+DRB1*04:02,DRB1*16:01,16,28,1,,epregistry.com.br
+DRB1*04:02,DRB1*16:02,15,27,1,,epregistry.com.br
+DRB1*04:03,DRB1*04:04,1,2,1,,epregistry.com.br
+DRB1*04:03,DRB1*04:05,3,8,1,,epregistry.com.br
+DRB1*04:03,DRB1*04:06,1,3,1,,epregistry.com.br
+DRB1*04:03,DRB1*04:07,1,3,1,,epregistry.com.br
+DRB1*04:03,DRB1*04:10,2,5,1,,epregistry.com.br
+DRB1*04:03,DRB1*04:11,1,3,1,,epregistry.com.br
+DRB1*04:03,DRB1*07:01,21,45,1,,epregistry.com.br
+DRB1*04:03,DRB1*08:01,20,38,1,,epregistry.com.br
+DRB1*04:03,DRB1*08:02,19,35,1,,epregistry.com.br
+DRB1*04:03,DRB1*08:03,20,38,1,,epregistry.com.br
+DRB1*04:03,DRB1*08:07,19,37,1,,epregistry.com.br
+DRB1*04:03,DRB1*09:01,22,46,1,,epregistry.com.br
+DRB1*04:03,DRB1*09:02,12,39,1,,epregistry.com.br
+DRB1*04:03,DRB1*10:01,16,37,1,,epregistry.com.br
+DRB1*04:03,DRB1*11:01,21,40,1,,epregistry.com.br
+DRB1*04:03,DRB1*11:03,19,37,1,,epregistry.com.br
+DRB1*04:03,DRB1*11:04,20,37,1,,epregistry.com.br
+DRB1*04:03,DRB1*12:01,25,53,1,,epregistry.com.br
+DRB1*04:03,DRB1*12:02,25,53,1,,epregistry.com.br
+DRB1*04:03,DRB1*13:01,20,39,1,,epregistry.com.br
+DRB1*04:03,DRB1*13:02,21,42,1,,epregistry.com.br
+DRB1*04:03,DRB1*13:03,19,36,1,,epregistry.com.br
+DRB1*04:03,DRB1*13:05,22,42,1,,epregistry.com.br
+DRB1*04:03,DRB1*14:01,19,39,1,,epregistry.com.br
+DRB1*04:03,DRB1*14:02,16,30,1,,epregistry.com.br
+DRB1*04:03,DRB1*14:03,20,39,1,,epregistry.com.br
+DRB1*04:03,DRB1*14:04,17,37,1,,epregistry.com.br
+DRB1*04:03,DRB1*14:05,17,33,1,,epregistry.com.br
+DRB1*04:03,DRB1*14:06,15,27,1,,epregistry.com.br
+DRB1*04:03,DRB1*14:54,18,37,1,,epregistry.com.br
+DRB1*04:03,DRB1*15:01,15,29,1,,epregistry.com.br
+DRB1*04:03,DRB1*15:02,16,32,1,,epregistry.com.br
+DRB1*04:03,DRB1*15:03,16,30,1,,epregistry.com.br
+DRB1*04:03,DRB1*16:01,18,34,1,,epregistry.com.br
+DRB1*04:03,DRB1*16:02,17,33,1,,epregistry.com.br
+DRB1*04:04,DRB1*04:05,2,6,1,,epregistry.com.br
+DRB1*04:04,DRB1*04:06,2,5,1,,epregistry.com.br
+DRB1*04:04,DRB1*04:07,2,5,1,,epregistry.com.br
+DRB1*04:04,DRB1*04:10,1,3,1,,epregistry.com.br
+DRB1*04:04,DRB1*04:11,2,5,1,,epregistry.com.br
+DRB1*04:04,DRB1*07:01,21,45,1,,epregistry.com.br
+DRB1*04:04,DRB1*08:01,20,38,1,,epregistry.com.br
+DRB1*04:04,DRB1*08:02,19,35,1,,epregistry.com.br
+DRB1*04:04,DRB1*08:03,20,38,1,,epregistry.com.br
+DRB1*04:04,DRB1*08:07,19,37,1,,epregistry.com.br
+DRB1*04:04,DRB1*09:01,23,48,1,,epregistry.com.br
+DRB1*04:04,DRB1*09:02,13,41,1,,epregistry.com.br
+DRB1*04:04,DRB1*10:01,15,35,1,,epregistry.com.br
+DRB1*04:04,DRB1*11:01,20,38,1,,epregistry.com.br
+DRB1*04:04,DRB1*11:03,18,35,1,,epregistry.com.br
+DRB1*04:04,DRB1*11:04,19,35,1,,epregistry.com.br
+DRB1*04:04,DRB1*12:01,24,51,1,,epregistry.com.br
+DRB1*04:04,DRB1*12:02,24,51,1,,epregistry.com.br
+DRB1*04:04,DRB1*13:01,19,37,1,,epregistry.com.br
+DRB1*04:04,DRB1*13:02,20,40,1,,epregistry.com.br
+DRB1*04:04,DRB1*13:03,18,34,1,,epregistry.com.br
+DRB1*04:04,DRB1*13:05,21,40,1,,epregistry.com.br
+DRB1*04:04,DRB1*14:01,20,41,1,,epregistry.com.br
+DRB1*04:04,DRB1*14:02,15,28,1,,epregistry.com.br
+DRB1*04:04,DRB1*14:03,20,39,1,,epregistry.com.br
+DRB1*04:04,DRB1*14:04,18,39,1,,epregistry.com.br
+DRB1*04:04,DRB1*14:05,18,35,1,,epregistry.com.br
+DRB1*04:04,DRB1*14:06,14,25,1,,epregistry.com.br
+DRB1*04:04,DRB1*14:54,19,39,1,,epregistry.com.br
+DRB1*04:04,DRB1*15:01,14,27,1,,epregistry.com.br
+DRB1*04:04,DRB1*15:02,15,30,1,,epregistry.com.br
+DRB1*04:04,DRB1*15:03,15,28,1,,epregistry.com.br
+DRB1*04:04,DRB1*16:01,17,32,1,,epregistry.com.br
+DRB1*04:04,DRB1*16:02,16,31,1,,epregistry.com.br
+DRB1*04:05,DRB1*04:06,6,11,1,,epregistry.com.br
+DRB1*04:05,DRB1*04:07,3,5,1,,epregistry.com.br
+DRB1*04:05,DRB1*04:10,2,3,1,,epregistry.com.br
+DRB1*04:05,DRB1*04:11,3,5,1,,epregistry.com.br
+DRB1*04:05,DRB1*07:01,20,41,1,,epregistry.com.br
+DRB1*04:05,DRB1*08:01,18,32,1,,epregistry.com.br
+DRB1*04:05,DRB1*08:02,20,35,1,,epregistry.com.br
+DRB1*04:05,DRB1*08:03,18,32,1,,epregistry.com.br
+DRB1*04:05,DRB1*08:07,18,33,1,,epregistry.com.br
+DRB1*04:05,DRB1*09:01,22,44,1,,epregistry.com.br
+DRB1*04:05,DRB1*09:02,14,41,1,,epregistry.com.br
+DRB1*04:05,DRB1*10:01,16,35,1,,epregistry.com.br
+DRB1*04:05,DRB1*11:01,20,36,1,,epregistry.com.br
+DRB1*04:05,DRB1*11:03,21,39,1,,epregistry.com.br
+DRB1*04:05,DRB1*11:04,22,39,1,,epregistry.com.br
+DRB1*04:05,DRB1*12:01,25,51,1,,epregistry.com.br
+DRB1*04:05,DRB1*12:02,25,51,1,,epregistry.com.br
+DRB1*04:05,DRB1*13:01,23,43,1,,epregistry.com.br
+DRB1*04:05,DRB1*13:02,21,40,1,,epregistry.com.br
+DRB1*04:05,DRB1*13:03,16,28,1,,epregistry.com.br
+DRB1*04:05,DRB1*13:05,22,40,1,,epregistry.com.br
+DRB1*04:05,DRB1*14:01,22,43,1,,epregistry.com.br
+DRB1*04:05,DRB1*14:02,16,28,1,,epregistry.com.br
+DRB1*04:05,DRB1*14:03,21,39,1,,epregistry.com.br
+DRB1*04:05,DRB1*14:04,20,41,1,,epregistry.com.br
+DRB1*04:05,DRB1*14:05,22,41,1,,epregistry.com.br
+DRB1*04:05,DRB1*14:06,18,31,1,,epregistry.com.br
+DRB1*04:05,DRB1*14:54,21,41,1,,epregistry.com.br
+DRB1*04:05,DRB1*15:01,18,33,1,,epregistry.com.br
+DRB1*04:05,DRB1*15:02,16,30,1,,epregistry.com.br
+DRB1*04:05,DRB1*15:03,19,34,1,,epregistry.com.br
+DRB1*04:05,DRB1*16:01,18,32,1,,epregistry.com.br
+DRB1*04:05,DRB1*16:02,17,31,1,,epregistry.com.br
+DRB1*04:06,DRB1*04:07,3,6,1,,epregistry.com.br
+DRB1*04:06,DRB1*04:10,4,8,1,,epregistry.com.br
+DRB1*04:06,DRB1*04:11,3,6,1,,epregistry.com.br
+DRB1*04:06,DRB1*07:01,21,44,1,,epregistry.com.br
+DRB1*04:06,DRB1*08:01,22,41,1,,epregistry.com.br
+DRB1*04:06,DRB1*08:02,21,38,1,,epregistry.com.br
+DRB1*04:06,DRB1*08:03,22,41,1,,epregistry.com.br
+DRB1*04:06,DRB1*08:07,21,40,1,,epregistry.com.br
+DRB1*04:06,DRB1*09:01,22,45,1,,epregistry.com.br
+DRB1*04:06,DRB1*09:02,12,38,1,,epregistry.com.br
+DRB1*04:06,DRB1*10:01,17,38,1,,epregistry.com.br
+DRB1*04:06,DRB1*11:01,23,43,1,,epregistry.com.br
+DRB1*04:06,DRB1*11:04,22,40,1,,epregistry.com.br
+DRB1*04:06,DRB1*12:01,25,52,1,,epregistry.com.br
+DRB1*04:06,DRB1*12:02,25,52,1,,epregistry.com.br
+DRB1*04:06,DRB1*13:01,20,38,1,,epregistry.com.br
+DRB1*04:06,DRB1*13:02,21,41,1,,epregistry.com.br
+DRB1*04:06,DRB1*13:03,21,39,1,,epregistry.com.br
+DRB1*04:06,DRB1*14:01,19,38,1,,epregistry.com.br
+DRB1*04:06,DRB1*14:02,16,29,1,,epregistry.com.br
+DRB1*04:06,DRB1*14:03,20,38,1,,epregistry.com.br
+DRB1*04:06,DRB1*14:04,17,36,1,,epregistry.com.br
+DRB1*04:06,DRB1*14:05,17,32,1,,epregistry.com.br
+DRB1*04:06,DRB1*14:06,15,26,1,,epregistry.com.br
+DRB1*04:06,DRB1*14:54,18,36,1,,epregistry.com.br
+DRB1*04:06,DRB1*15:01,14,26,1,,epregistry.com.br
+DRB1*04:06,DRB1*15:02,15,29,1,,epregistry.com.br
+DRB1*04:06,DRB1*15:03,15,27,1,,epregistry.com.br
+DRB1*04:06,DRB1*16:01,17,31,1,,epregistry.com.br
+DRB1*04:06,DRB1*16:02,16,30,1,,epregistry.com.br
+DRB1*04:07,DRB1*04:10,4,8,1,,epregistry.com.br
+DRB1*04:07,DRB1*04:11,3,6,1,,epregistry.com.br
+DRB1*04:07,DRB1*07:01,20,42,1,,epregistry.com.br
+DRB1*04:07,DRB1*08:01,19,35,1,,epregistry.com.br
+DRB1*04:07,DRB1*08:02,18,32,1,,epregistry.com.br
+DRB1*04:07,DRB1*08:03,19,35,1,,epregistry.com.br
+DRB1*04:07,DRB1*08:07,18,34,1,,epregistry.com.br
+DRB1*04:07,DRB1*09:01,21,43,1,,epregistry.com.br
+DRB1*04:07,DRB1*09:02,11,36,1,,epregistry.com.br
+DRB1*04:07,DRB1*10:01,15,34,1,,epregistry.com.br
+DRB1*04:07,DRB1*11:01,20,37,1,,epregistry.com.br
+DRB1*04:07,DRB1*11:04,22,40,1,,epregistry.com.br
+DRB1*04:07,DRB1*12:01,26,54,1,,epregistry.com.br
+DRB1*04:07,DRB1*12:02,26,54,1,,epregistry.com.br
+DRB1*04:07,DRB1*13:01,22,42,1,,epregistry.com.br
+DRB1*04:07,DRB1*13:02,20,39,1,,epregistry.com.br
+DRB1*04:07,DRB1*13:03,18,33,1,,epregistry.com.br
+DRB1*04:07,DRB1*14:01,21,42,1,,epregistry.com.br
+DRB1*04:07,DRB1*14:02,15,27,1,,epregistry.com.br
+DRB1*04:07,DRB1*14:03,19,36,1,,epregistry.com.br
+DRB1*04:07,DRB1*14:04,19,40,1,,epregistry.com.br
+DRB1*04:07,DRB1*14:05,19,36,1,,epregistry.com.br
+DRB1*04:07,DRB1*14:06,17,30,1,,epregistry.com.br
+DRB1*04:07,DRB1*14:54,20,40,1,,epregistry.com.br
+DRB1*04:07,DRB1*15:01,17,32,1,,epregistry.com.br
+DRB1*04:07,DRB1*15:02,15,29,1,,epregistry.com.br
+DRB1*04:07,DRB1*15:03,18,33,1,,epregistry.com.br
+DRB1*04:07,DRB1*16:01,17,31,1,,epregistry.com.br
+DRB1*04:07,DRB1*16:02,16,30,1,,epregistry.com.br
+DRB1*04:10,DRB1*04:11,1,2,1,,epregistry.com.br
+DRB1*04:10,DRB1*07:01,21,44,1,,epregistry.com.br
+DRB1*04:10,DRB1*08:01,19,35,1,,epregistry.com.br
+DRB1*04:10,DRB1*08:02,21,38,1,,epregistry.com.br
+DRB1*04:10,DRB1*08:03,19,35,1,,epregistry.com.br
+DRB1*04:10,DRB1*08:07,19,36,1,,epregistry.com.br
+DRB1*04:10,DRB1*09:01,23,47,1,,epregistry.com.br
+DRB1*04:10,DRB1*09:02,15,44,1,,epregistry.com.br
+DRB1*04:10,DRB1*10:01,17,38,1,,epregistry.com.br
+DRB1*04:10,DRB1*11:01,21,39,1,,epregistry.com.br
+DRB1*04:10,DRB1*11:04,20,36,1,,epregistry.com.br
+DRB1*04:10,DRB1*12:01,24,50,1,,epregistry.com.br
+DRB1*04:10,DRB1*12:02,24,50,1,,epregistry.com.br
+DRB1*04:10,DRB1*13:01,21,40,1,,epregistry.com.br
+DRB1*04:10,DRB1*13:02,22,43,1,,epregistry.com.br
+DRB1*04:10,DRB1*13:03,17,31,1,,epregistry.com.br
+DRB1*04:10,DRB1*14:01,20,40,1,,epregistry.com.br
+DRB1*04:10,DRB1*14:02,17,31,1,,epregistry.com.br
+DRB1*04:10,DRB1*14:03,22,42,1,,epregistry.com.br
+DRB1*04:10,DRB1*14:04,18,38,1,,epregistry.com.br
+DRB1*04:10,DRB1*14:05,20,38,1,,epregistry.com.br
+DRB1*04:10,DRB1*14:06,16,28,1,,epregistry.com.br
+DRB1*04:10,DRB1*14:54,19,38,1,,epregistry.com.br
+DRB1*04:10,DRB1*15:01,16,30,1,,epregistry.com.br
+DRB1*04:10,DRB1*15:02,17,33,1,,epregistry.com.br
+DRB1*04:10,DRB1*15:03,17,31,1,,epregistry.com.br
+DRB1*04:10,DRB1*16:01,19,35,1,,epregistry.com.br
+DRB1*04:10,DRB1*16:02,18,34,1,,epregistry.com.br
+DRB1*04:11,DRB1*07:01,21,44,1,,epregistry.com.br
+DRB1*04:11,DRB1*08:01,19,35,1,,epregistry.com.br
+DRB1*04:11,DRB1*08:02,21,38,1,,epregistry.com.br
+DRB1*04:11,DRB1*08:03,19,35,1,,epregistry.com.br
+DRB1*04:11,DRB1*08:07,19,36,1,,epregistry.com.br
+DRB1*04:11,DRB1*09:01,22,45,1,,epregistry.com.br
+DRB1*04:11,DRB1*09:02,14,42,1,,epregistry.com.br
+DRB1*04:11,DRB1*10:01,18,40,1,,epregistry.com.br
+DRB1*04:11,DRB1*11:01,22,41,1,,epregistry.com.br
+DRB1*04:11,DRB1*11:04,21,38,1,,epregistry.com.br
+DRB1*04:11,DRB1*12:01,25,52,1,,epregistry.com.br
+DRB1*04:11,DRB1*12:02,25,52,1,,epregistry.com.br
+DRB1*04:11,DRB1*13:01,22,42,1,,epregistry.com.br
+DRB1*04:11,DRB1*13:02,23,45,1,,epregistry.com.br
+DRB1*04:11,DRB1*13:03,18,33,1,,epregistry.com.br
+DRB1*04:11,DRB1*14:01,19,38,1,,epregistry.com.br
+DRB1*04:11,DRB1*14:02,18,33,1,,epregistry.com.br
+DRB1*04:11,DRB1*14:03,22,42,1,,epregistry.com.br
+DRB1*04:11,DRB1*14:04,17,36,1,,epregistry.com.br
+DRB1*04:11,DRB1*14:05,19,36,1,,epregistry.com.br
+DRB1*04:11,DRB1*14:06,17,30,1,,epregistry.com.br
+DRB1*04:11,DRB1*14:54,18,36,1,,epregistry.com.br
+DRB1*04:11,DRB1*15:01,17,32,1,,epregistry.com.br
+DRB1*04:11,DRB1*15:02,18,35,1,,epregistry.com.br
+DRB1*04:11,DRB1*15:03,18,33,1,,epregistry.com.br
+DRB1*04:11,DRB1*16:01,20,37,1,,epregistry.com.br
+DRB1*04:11,DRB1*16:02,19,36,1,,epregistry.com.br
+DRB1*07:01,DRB1*08:01,24,43,1,,epregistry.com.br
+DRB1*07:01,DRB1*08:02,25,44,1,,epregistry.com.br
+DRB1*07:01,DRB1*08:03,23,41,1,,epregistry.com.br
+DRB1*07:01,DRB1*08:07,23,42,1,,epregistry.com.br
+DRB1*07:01,DRB1*09:01,12,23,1,,epregistry.com.br
+DRB1*07:01,DRB1*09:02,16,44,1,,epregistry.com.br
+DRB1*07:01,DRB1*10:01,23,48,1,,epregistry.com.br
+DRB1*07:01,DRB1*11:01,25,45,1,,epregistry.com.br
+DRB1*07:01,DRB1*11:03,27,50,1,,epregistry.com.br
+DRB1*07:01,DRB1*11:04,27,48,1,,epregistry.com.br
+DRB1*07:01,DRB1*12:01,25,50,1,,epregistry.com.br
+DRB1*07:01,DRB1*12:02,26,52,1,,epregistry.com.br
+DRB1*07:01,DRB1*13:01,28,52,1,,epregistry.com.br
+DRB1*07:01,DRB1*13:02,26,49,1,,epregistry.com.br
+DRB1*07:01,DRB1*13:03,23,41,1,,epregistry.com.br
+DRB1*07:01,DRB1*13:05,27,49,1,,epregistry.com.br
+DRB1*07:01,DRB1*14:01,24,46,1,,epregistry.com.br
+DRB1*07:01,DRB1*14:02,27,49,1,,epregistry.com.br
+DRB1*07:01,DRB1*14:03,24,44,1,,epregistry.com.br
+DRB1*07:01,DRB1*14:04,22,44,1,,epregistry.com.br
+DRB1*07:01,DRB1*14:05,26,48,1,,epregistry.com.br
+DRB1*07:01,DRB1*14:06,29,52,1,,epregistry.com.br
+DRB1*07:01,DRB1*14:54,23,44,1,,epregistry.com.br
+DRB1*07:01,DRB1*15:01,25,46,1,,epregistry.com.br
+DRB1*07:01,DRB1*15:02,23,43,1,,epregistry.com.br
+DRB1*07:01,DRB1*15:03,26,47,1,,epregistry.com.br
+DRB1*07:01,DRB1*16:01,21,37,1,,epregistry.com.br
+DRB1*07:01,DRB1*16:02,20,36,1,,epregistry.com.br
+DRB1*08:01,DRB1*08:02,2,3,1,,epregistry.com.br
+DRB1*08:01,DRB1*08:03,1,2,1,,epregistry.com.br
+DRB1*08:01,DRB1*08:07,0,1,1,,epregistry.com.br
+DRB1*08:01,DRB1*09:01,22,48,1,,epregistry.com.br
+DRB1*08:01,DRB1*09:02,12,41,1,,epregistry.com.br
+DRB1*08:01,DRB1*10:01,18,43,1,,epregistry.com.br
+DRB1*08:01,DRB1*11:01,8,16,1,,epregistry.com.br
+DRB1*08:01,DRB1*11:03,11,23,1,,epregistry.com.br
+DRB1*08:01,DRB1*11:04,10,19,1,,epregistry.com.br
+DRB1*08:01,DRB1*12:01,13,31,1,,epregistry.com.br
+DRB1*08:01,DRB1*12:02,12,29,1,,epregistry.com.br
+DRB1*08:01,DRB1*13:01,15,31,1,,epregistry.com.br
+DRB1*08:01,DRB1*13:02,13,28,1,,epregistry.com.br
+DRB1*08:01,DRB1*13:03,7,14,1,,epregistry.com.br
+DRB1*08:01,DRB1*13:05,11,22,1,,epregistry.com.br
+DRB1*08:01,DRB1*14:01,15,33,1,,epregistry.com.br
+DRB1*08:01,DRB1*14:02,15,30,1,,epregistry.com.br
+DRB1*08:01,DRB1*14:03,9,19,1,,epregistry.com.br
+DRB1*08:01,DRB1*14:04,11,27,1,,epregistry.com.br
+DRB1*08:01,DRB1*14:05,14,29,1,,epregistry.com.br
+DRB1*08:01,DRB1*14:06,17,33,1,,epregistry.com.br
+DRB1*08:01,DRB1*14:54,14,31,1,,epregistry.com.br
+DRB1*08:01,DRB1*15:01,18,37,1,,epregistry.com.br
+DRB1*08:01,DRB1*15:02,16,34,1,,epregistry.com.br
+DRB1*08:01,DRB1*15:03,19,38,1,,epregistry.com.br
+DRB1*08:01,DRB1*16:01,10,20,1,,epregistry.com.br
+DRB1*08:01,DRB1*16:02,10,21,1,,epregistry.com.br
+DRB1*08:02,DRB1*08:03,2,5,1,,epregistry.com.br
+DRB1*08:02,DRB1*08:07,0,2,1,,epregistry.com.br
+DRB1*08:02,DRB1*09:01,22,49,1,,epregistry.com.br
+DRB1*08:02,DRB1*09:02,10,38,1,,epregistry.com.br
+DRB1*08:02,DRB1*10:01,16,40,1,,epregistry.com.br
+DRB1*08:02,DRB1*11:01,7,15,1,,epregistry.com.br
+DRB1*08:02,DRB1*11:03,10,22,1,,epregistry.com.br
+DRB1*08:02,DRB1*11:04,9,18,1,,epregistry.com.br
+DRB1*08:02,DRB1*12:01,13,32,1,,epregistry.com.br
+DRB1*08:02,DRB1*12:02,12,30,1,,epregistry.com.br
+DRB1*08:02,DRB1*13:01,13,28,1,,epregistry.com.br
+DRB1*08:02,DRB1*13:02,11,25,1,,epregistry.com.br
+DRB1*08:02,DRB1*13:03,8,17,1,,epregistry.com.br
+DRB1*08:02,DRB1*13:05,9,19,1,,epregistry.com.br
+DRB1*08:02,DRB1*14:01,15,34,1,,epregistry.com.br
+DRB1*08:02,DRB1*14:02,13,27,1,,epregistry.com.br
+DRB1*08:02,DRB1*14:03,7,16,1,,epregistry.com.br
+DRB1*08:02,DRB1*14:04,11,28,1,,epregistry.com.br
+DRB1*08:02,DRB1*14:05,12,26,1,,epregistry.com.br
+DRB1*08:02,DRB1*14:06,15,30,1,,epregistry.com.br
+DRB1*08:02,DRB1*14:54,14,32,1,,epregistry.com.br
+DRB1*08:02,DRB1*15:01,16,34,1,,epregistry.com.br
+DRB1*08:02,DRB1*15:02,14,31,1,,epregistry.com.br
+DRB1*08:02,DRB1*15:03,17,35,1,,epregistry.com.br
+DRB1*08:02,DRB1*16:01,8,17,1,,epregistry.com.br
+DRB1*08:02,DRB1*16:02,8,18,1,,epregistry.com.br
+DRB1*08:03,DRB1*08:07,1,3,1,,epregistry.com.br
+DRB1*08:03,DRB1*09:01,23,50,1,,epregistry.com.br
+DRB1*08:03,DRB1*09:02,13,43,1,,epregistry.com.br
+DRB1*08:03,DRB1*10:01,18,43,1,,epregistry.com.br
+DRB1*08:03,DRB1*11:01,9,18,1,,epregistry.com.br
+DRB1*08:03,DRB1*11:04,11,21,1,,epregistry.com.br
+DRB1*08:03,DRB1*12:01,12,29,1,,epregistry.com.br
+DRB1*08:03,DRB1*12:02,13,31,1,,epregistry.com.br
+DRB1*08:03,DRB1*13:01,14,29,1,,epregistry.com.br
+DRB1*08:03,DRB1*13:02,12,26,1,,epregistry.com.br
+DRB1*08:03,DRB1*13:03,6,12,1,,epregistry.com.br
+DRB1*08:03,DRB1*14:01,15,33,1,,epregistry.com.br
+DRB1*08:03,DRB1*14:02,15,30,1,,epregistry.com.br
+DRB1*08:03,DRB1*14:03,9,19,1,,epregistry.com.br
+DRB1*08:03,DRB1*14:04,11,27,1,,epregistry.com.br
+DRB1*08:03,DRB1*14:05,14,29,1,,epregistry.com.br
+DRB1*08:03,DRB1*14:06,17,33,1,,epregistry.com.br
+DRB1*08:03,DRB1*14:54,14,31,1,,epregistry.com.br
+DRB1*08:03,DRB1*15:01,17,35,1,,epregistry.com.br
+DRB1*08:03,DRB1*15:02,15,32,1,,epregistry.com.br
+DRB1*08:03,DRB1*15:03,18,36,1,,epregistry.com.br
+DRB1*08:03,DRB1*16:01,11,22,1,,epregistry.com.br
+DRB1*08:03,DRB1*16:02,10,21,1,,epregistry.com.br
+DRB1*08:07,DRB1*09:01,22,47,1,,epregistry.com.br
+DRB1*08:07,DRB1*09:02,12,40,1,,epregistry.com.br
+DRB1*08:07,DRB1*10:01,18,42,1,,epregistry.com.br
+DRB1*08:07,DRB1*11:01,8,15,1,,epregistry.com.br
+DRB1*08:07,DRB1*11:04,10,18,1,,epregistry.com.br
+DRB1*08:07,DRB1*12:01,13,30,1,,epregistry.com.br
+DRB1*08:07,DRB1*12:02,12,28,1,,epregistry.com.br
+DRB1*08:07,DRB1*13:01,15,30,1,,epregistry.com.br
+DRB1*08:07,DRB1*13:02,13,27,1,,epregistry.com.br
+DRB1*08:07,DRB1*13:03,8,15,1,,epregistry.com.br
+DRB1*08:07,DRB1*14:01,15,32,1,,epregistry.com.br
+DRB1*08:07,DRB1*14:02,15,29,1,,epregistry.com.br
+DRB1*08:07,DRB1*14:03,9,18,1,,epregistry.com.br
+DRB1*08:07,DRB1*14:04,11,26,1,,epregistry.com.br
+DRB1*08:07,DRB1*14:05,14,28,1,,epregistry.com.br
+DRB1*08:07,DRB1*14:06,17,32,1,,epregistry.com.br
+DRB1*08:07,DRB1*14:54,14,30,1,,epregistry.com.br
+DRB1*08:07,DRB1*15:01,18,36,1,,epregistry.com.br
+DRB1*08:07,DRB1*15:02,16,33,1,,epregistry.com.br
+DRB1*08:07,DRB1*15:03,19,37,1,,epregistry.com.br
+DRB1*08:07,DRB1*16:01,10,19,1,,epregistry.com.br
+DRB1*08:07,DRB1*16:02,10,20,1,,epregistry.com.br
+DRB1*09:01,DRB1*09:02,4,21,1,,epregistry.com.br
+DRB1*09:01,DRB1*10:01,19,41,1,,epregistry.com.br
+DRB1*09:01,DRB1*11:01,27,50,1,,epregistry.com.br
+DRB1*09:01,DRB1*11:03,28,53,1,,epregistry.com.br
+DRB1*09:01,DRB1*11:04,29,53,1,,epregistry.com.br
+DRB1*09:01,DRB1*12:01,27,55,1,,epregistry.com.br
+DRB1*09:01,DRB1*12:02,26,53,1,,epregistry.com.br
+DRB1*09:01,DRB1*13:01,29,55,1,,epregistry.com.br
+DRB1*09:01,DRB1*13:02,27,52,1,,epregistry.com.br
+DRB1*09:01,DRB1*13:03,26,48,1,,epregistry.com.br
+DRB1*09:01,DRB1*13:05,27,50,1,,epregistry.com.br
+DRB1*09:01,DRB1*14:01,23,45,1,,epregistry.com.br
+DRB1*09:01,DRB1*14:02,26,48,1,,epregistry.com.br
+DRB1*09:01,DRB1*14:03,25,47,1,,epregistry.com.br
+DRB1*09:01,DRB1*14:04,21,43,1,,epregistry.com.br
+DRB1*09:01,DRB1*14:05,25,47,1,,epregistry.com.br
+DRB1*09:01,DRB1*14:06,28,51,1,,epregistry.com.br
+DRB1*09:01,DRB1*14:54,22,43,1,,epregistry.com.br
+DRB1*09:01,DRB1*15:01,27,51,1,,epregistry.com.br
+DRB1*09:01,DRB1*15:02,25,48,1,,epregistry.com.br
+DRB1*09:01,DRB1*15:03,28,52,1,,epregistry.com.br
+DRB1*09:01,DRB1*16:01,23,42,1,,epregistry.com.br
+DRB1*09:01,DRB1*16:02,23,43,1,,epregistry.com.br
+DRB1*09:02,DRB1*10:01,22,34,1,,epregistry.com.br
+DRB1*09:02,DRB1*11:01,31,45,1,,epregistry.com.br
+DRB1*09:02,DRB1*11:04,33,48,1,,epregistry.com.br
+DRB1*09:02,DRB1*12:01,34,56,1,,epregistry.com.br
+DRB1*09:02,DRB1*12:02,33,54,1,,epregistry.com.br
+DRB1*09:02,DRB1*13:01,31,46,1,,epregistry.com.br
+DRB1*09:02,DRB1*13:02,29,43,1,,epregistry.com.br
+DRB1*09:02,DRB1*13:03,30,43,1,,epregistry.com.br
+DRB1*09:02,DRB1*14:01,28,42,1,,epregistry.com.br
+DRB1*09:02,DRB1*14:02,28,39,1,,epregistry.com.br
+DRB1*09:02,DRB1*14:03,27,38,1,,epregistry.com.br
+DRB1*09:02,DRB1*14:04,27,42,1,,epregistry.com.br
+DRB1*09:02,DRB1*14:05,27,38,1,,epregistry.com.br
+DRB1*09:02,DRB1*14:06,30,42,1,,epregistry.com.br
+DRB1*09:02,DRB1*14:54,28,42,1,,epregistry.com.br
+DRB1*09:02,DRB1*15:01,30,44,1,,epregistry.com.br
+DRB1*09:02,DRB1*15:02,28,41,1,,epregistry.com.br
+DRB1*09:02,DRB1*15:03,31,45,1,,epregistry.com.br
+DRB1*09:02,DRB1*16:01,26,35,1,,epregistry.com.br
+DRB1*09:02,DRB1*16:02,26,36,1,,epregistry.com.br
+DRB1*10:01,DRB1*11:01,25,43,1,,epregistry.com.br
+DRB1*10:01,DRB1*11:03,26,46,1,,epregistry.com.br
+DRB1*10:01,DRB1*11:04,27,46,1,,epregistry.com.br
+DRB1*10:01,DRB1*12:01,23,44,1,,epregistry.com.br
+DRB1*10:01,DRB1*12:02,23,44,1,,epregistry.com.br
+DRB1*10:01,DRB1*13:01,23,40,1,,epregistry.com.br
+DRB1*10:01,DRB1*13:02,21,37,1,,epregistry.com.br
+DRB1*10:01,DRB1*13:03,23,39,1,,epregistry.com.br
+DRB1*10:01,DRB1*13:05,22,37,1,,epregistry.com.br
+DRB1*10:01,DRB1*14:01,23,42,1,,epregistry.com.br
+DRB1*10:01,DRB1*14:02,20,33,1,,epregistry.com.br
+DRB1*10:01,DRB1*14:03,20,34,1,,epregistry.com.br
+DRB1*10:01,DRB1*14:04,21,40,1,,epregistry.com.br
+DRB1*10:01,DRB1*14:05,21,36,1,,epregistry.com.br
+DRB1*10:01,DRB1*14:06,22,36,1,,epregistry.com.br
+DRB1*10:01,DRB1*14:54,22,40,1,,epregistry.com.br
+DRB1*10:01,DRB1*15:01,23,40,1,,epregistry.com.br
+DRB1*10:01,DRB1*15:02,21,37,1,,epregistry.com.br
+DRB1*10:01,DRB1*15:03,24,41,1,,epregistry.com.br
+DRB1*10:01,DRB1*16:01,20,33,1,,epregistry.com.br
+DRB1*10:01,DRB1*16:02,19,32,1,,epregistry.com.br
+DRB1*11:01,DRB1*11:03,3,7,1,,epregistry.com.br
+DRB1*11:01,DRB1*11:04,2,3,1,,epregistry.com.br
+DRB1*11:01,DRB1*12:01,12,29,1,,epregistry.com.br
+DRB1*11:01,DRB1*12:02,11,27,1,,epregistry.com.br
+DRB1*11:01,DRB1*13:01,10,21,1,,epregistry.com.br
+DRB1*11:01,DRB1*13:02,8,18,1,,epregistry.com.br
+DRB1*11:01,DRB1*13:03,7,14,1,,epregistry.com.br
+DRB1*11:01,DRB1*13:05,6,12,1,,epregistry.com.br
+DRB1*11:01,DRB1*14:01,14,31,1,,epregistry.com.br
+DRB1*11:01,DRB1*14:02,13,26,1,,epregistry.com.br
+DRB1*11:01,DRB1*14:03,9,19,1,,epregistry.com.br
+DRB1*11:01,DRB1*14:04,14,33,1,,epregistry.com.br
+DRB1*11:01,DRB1*14:05,14,29,1,,epregistry.com.br
+DRB1*11:01,DRB1*14:06,15,29,1,,epregistry.com.br
+DRB1*11:01,DRB1*14:54,13,29,1,,epregistry.com.br
+DRB1*11:01,DRB1*15:01,15,31,1,,epregistry.com.br
+DRB1*11:01,DRB1*15:02,13,28,1,,epregistry.com.br
+DRB1*11:01,DRB1*15:03,16,32,1,,epregistry.com.br
+DRB1*11:01,DRB1*16:01,10,20,1,,epregistry.com.br
+DRB1*11:01,DRB1*16:02,10,21,1,,epregistry.com.br
+DRB1*11:03,DRB1*11:04,3,4,1,,epregistry.com.br
+DRB1*11:03,DRB1*12:01,14,32,1,,epregistry.com.br
+DRB1*11:03,DRB1*12:02,13,30,1,,epregistry.com.br
+DRB1*11:03,DRB1*13:01,7,14,1,,epregistry.com.br
+DRB1*11:03,DRB1*13:03,8,15,1,,epregistry.com.br
+DRB1*11:03,DRB1*13:05,10,19,1,,epregistry.com.br
+DRB1*11:03,DRB1*14:01,13,28,1,,epregistry.com.br
+DRB1*11:03,DRB1*14:03,13,26,1,,epregistry.com.br
+DRB1*11:03,DRB1*14:04,13,30,1,,epregistry.com.br
+DRB1*11:03,DRB1*15:01,13,26,1,,epregistry.com.br
+DRB1*11:03,DRB1*15:02,14,29,1,,epregistry.com.br
+DRB1*11:03,DRB1*15:03,14,27,1,,epregistry.com.br
+DRB1*11:03,DRB1*16:01,14,27,1,,epregistry.com.br
+DRB1*11:03,DRB1*16:02,14,28,1,,epregistry.com.br
+DRB1*11:04,DRB1*12:01,11,28,1,,epregistry.com.br
+DRB1*11:04,DRB1*12:02,10,26,1,,epregistry.com.br
+DRB1*11:04,DRB1*13:01,8,18,1,,epregistry.com.br
+DRB1*11:04,DRB1*13:02,9,21,1,,epregistry.com.br
+DRB1*11:04,DRB1*13:03,8,17,1,,epregistry.com.br
+DRB1*11:04,DRB1*13:05,7,15,1,,epregistry.com.br
+DRB1*11:04,DRB1*14:01,12,28,1,,epregistry.com.br
+DRB1*11:04,DRB1*14:02,14,29,1,,epregistry.com.br
+DRB1*11:04,DRB1*14:03,10,22,1,,epregistry.com.br
+DRB1*11:04,DRB1*14:04,12,30,1,,epregistry.com.br
+DRB1*11:04,DRB1*14:05,12,26,1,,epregistry.com.br
+DRB1*11:04,DRB1*14:06,13,26,1,,epregistry.com.br
+DRB1*11:04,DRB1*14:54,11,26,1,,epregistry.com.br
+DRB1*11:04,DRB1*15:01,13,28,1,,epregistry.com.br
+DRB1*11:04,DRB1*15:02,14,31,1,,epregistry.com.br
+DRB1*11:04,DRB1*15:03,14,29,1,,epregistry.com.br
+DRB1*11:04,DRB1*16:01,11,23,1,,epregistry.com.br
+DRB1*11:04,DRB1*16:02,11,24,1,,epregistry.com.br
+DRB1*12:01,DRB1*12:02,1,2,1,,epregistry.com.br
+DRB1*12:01,DRB1*13:01,14,24,1,,epregistry.com.br
+DRB1*12:01,DRB1*13:02,14,25,1,,epregistry.com.br
+DRB1*12:01,DRB1*13:03,19,33,1,,epregistry.com.br
+DRB1*12:01,DRB1*13:05,14,23,1,,epregistry.com.br
+DRB1*12:01,DRB1*14:01,17,32,1,,epregistry.com.br
+DRB1*12:01,DRB1*14:02,19,33,1,,epregistry.com.br
+DRB1*12:01,DRB1*14:03,15,26,1,,epregistry.com.br
+DRB1*12:01,DRB1*14:04,13,26,1,,epregistry.com.br
+DRB1*12:01,DRB1*14:05,18,32,1,,epregistry.com.br
+DRB1*12:01,DRB1*14:06,19,32,1,,epregistry.com.br
+DRB1*12:01,DRB1*14:54,16,30,1,,epregistry.com.br
+DRB1*12:01,DRB1*15:01,22,40,1,,epregistry.com.br
+DRB1*12:01,DRB1*15:02,22,41,1,,epregistry.com.br
+DRB1*12:01,DRB1*15:03,22,39,1,,epregistry.com.br
+DRB1*12:01,DRB1*16:01,21,37,1,,epregistry.com.br
+DRB1*12:01,DRB1*16:02,20,36,1,,epregistry.com.br
+DRB1*12:02,DRB1*13:01,15,26,1,,epregistry.com.br
+DRB1*12:02,DRB1*13:02,15,27,1,,epregistry.com.br
+DRB1*12:02,DRB1*13:03,20,35,1,,epregistry.com.br
+DRB1*12:02,DRB1*13:05,13,21,1,,epregistry.com.br
+DRB1*12:02,DRB1*14:01,17,32,1,,epregistry.com.br
+DRB1*12:02,DRB1*14:02,19,33,1,,epregistry.com.br
+DRB1*12:02,DRB1*14:03,15,26,1,,epregistry.com.br
+DRB1*12:02,DRB1*14:04,13,26,1,,epregistry.com.br
+DRB1*12:02,DRB1*14:05,18,32,1,,epregistry.com.br
+DRB1*12:02,DRB1*14:06,19,32,1,,epregistry.com.br
+DRB1*12:02,DRB1*14:54,16,30,1,,epregistry.com.br
+DRB1*12:02,DRB1*15:01,23,42,1,,epregistry.com.br
+DRB1*12:02,DRB1*15:02,23,43,1,,epregistry.com.br
+DRB1*12:02,DRB1*15:03,23,41,1,,epregistry.com.br
+DRB1*12:02,DRB1*16:01,20,35,1,,epregistry.com.br
+DRB1*12:02,DRB1*16:02,20,36,1,,epregistry.com.br
+DRB1*13:01,DRB1*13:02,1,3,1,,epregistry.com.br
+DRB1*13:01,DRB1*13:03,10,19,1,,epregistry.com.br
+DRB1*13:01,DRB1*13:05,5,9,1,,epregistry.com.br
+DRB1*13:01,DRB1*14:01,10,22,1,,epregistry.com.br
+DRB1*13:01,DRB1*14:02,9,17,1,,epregistry.com.br
+DRB1*13:01,DRB1*14:03,7,14,1,,epregistry.com.br
+DRB1*13:01,DRB1*14:04,10,24,1,,epregistry.com.br
+DRB1*13:01,DRB1*14:05,8,16,1,,epregistry.com.br
+DRB1*13:01,DRB1*14:06,8,14,1,,epregistry.com.br
+DRB1*13:01,DRB1*14:54,9,20,1,,epregistry.com.br
+DRB1*13:01,DRB1*15:01,12,24,1,,epregistry.com.br
+DRB1*13:01,DRB1*15:02,13,27,1,,epregistry.com.br
+DRB1*13:01,DRB1*15:03,13,25,1,,epregistry.com.br
+DRB1*13:01,DRB1*16:01,15,29,1,,epregistry.com.br
+DRB1*13:01,DRB1*16:02,14,28,1,,epregistry.com.br
+DRB1*13:02,DRB1*13:03,9,16,1,,epregistry.com.br
+DRB1*13:02,DRB1*14:01,12,25,1,,epregistry.com.br
+DRB1*13:02,DRB1*14:02,8,14,1,,epregistry.com.br
+DRB1*13:02,DRB1*14:03,6,11,1,,epregistry.com.br
+DRB1*13:02,DRB1*14:04,12,27,1,,epregistry.com.br
+DRB1*13:02,DRB1*14:05,10,19,1,,epregistry.com.br
+DRB1*13:02,DRB1*14:06,10,17,1,,epregistry.com.br
+DRB1*13:02,DRB1*14:54,11,23,1,,epregistry.com.br
+DRB1*13:02,DRB1*15:01,14,27,1,,epregistry.com.br
+DRB1*13:02,DRB1*15:02,12,24,1,,epregistry.com.br
+DRB1*13:02,DRB1*15:03,15,28,1,,epregistry.com.br
+DRB1*13:02,DRB1*16:01,14,26,1,,epregistry.com.br
+DRB1*13:02,DRB1*16:02,13,25,1,,epregistry.com.br
+DRB1*13:03,DRB1*13:05,10,20,1,,epregistry.com.br
+DRB1*13:03,DRB1*14:01,12,27,1,,epregistry.com.br
+DRB1*13:03,DRB1*14:02,11,22,1,,epregistry.com.br
+DRB1*13:03,DRB1*14:03,9,19,1,,epregistry.com.br
+DRB1*13:03,DRB1*14:04,12,29,1,,epregistry.com.br
+DRB1*13:03,DRB1*14:05,12,25,1,,epregistry.com.br
+DRB1*13:03,DRB1*14:06,13,25,1,,epregistry.com.br
+DRB1*13:03,DRB1*14:54,11,25,1,,epregistry.com.br
+DRB1*13:03,DRB1*15:01,14,29,1,,epregistry.com.br
+DRB1*13:03,DRB1*15:02,12,26,1,,epregistry.com.br
+DRB1*13:03,DRB1*15:03,15,30,1,,epregistry.com.br
+DRB1*13:03,DRB1*16:01,11,22,1,,epregistry.com.br
+DRB1*13:03,DRB1*16:02,10,21,1,,epregistry.com.br
+DRB1*13:05,DRB1*14:01,11,25,1,,epregistry.com.br
+DRB1*13:05,DRB1*14:03,3,7,1,,epregistry.com.br
+DRB1*13:05,DRB1*14:04,11,27,1,,epregistry.com.br
+DRB1*13:05,DRB1*15:01,15,31,1,,epregistry.com.br
+DRB1*13:05,DRB1*15:02,13,28,1,,epregistry.com.br
+DRB1*13:05,DRB1*15:03,16,32,1,,epregistry.com.br
+DRB1*13:05,DRB1*16:01,10,20,1,,epregistry.com.br
+DRB1*13:05,DRB1*16:02,10,21,1,,epregistry.com.br
+DRB1*14:01,DRB1*14:02,13,23,1,,epregistry.com.br
+DRB1*14:01,DRB1*14:03,12,22,1,,epregistry.com.br
+DRB1*14:01,DRB1*14:04,2,6,1,,epregistry.com.br
+DRB1*14:01,DRB1*14:05,5,8,1,,epregistry.com.br
+DRB1*14:01,DRB1*14:06,12,20,1,,epregistry.com.br
+DRB1*14:01,DRB1*14:54,1,2,1,,epregistry.com.br
+DRB1*14:01,DRB1*15:01,20,38,1,,epregistry.com.br
+DRB1*14:01,DRB1*15:02,21,41,1,,epregistry.com.br
+DRB1*14:01,DRB1*15:03,21,39,1,,epregistry.com.br
+DRB1*14:01,DRB1*16:01,20,37,1,,epregistry.com.br
+DRB1*14:01,DRB1*16:02,19,36,1,,epregistry.com.br
+DRB1*14:02,DRB1*14:03,5,11,1,,epregistry.com.br
+DRB1*14:02,DRB1*14:04,10,25,1,,epregistry.com.br
+DRB1*14:02,DRB1*14:05,8,17,1,,epregistry.com.br
+DRB1*14:02,DRB1*14:06,2,3,1,,epregistry.com.br
+DRB1*14:02,DRB1*14:54,9,21,1,,epregistry.com.br
+DRB1*14:02,DRB1*15:01,14,29,1,,epregistry.com.br
+DRB1*14:02,DRB1*15:02,12,26,1,,epregistry.com.br
+DRB1*14:02,DRB1*15:03,15,30,1,,epregistry.com.br
+DRB1*14:02,DRB1*16:01,14,28,1,,epregistry.com.br
+DRB1*14:02,DRB1*16:02,13,27,1,,epregistry.com.br
+DRB1*14:03,DRB1*14:04,10,24,1,,epregistry.com.br
+DRB1*14:03,DRB1*14:05,8,16,1,,epregistry.com.br
+DRB1*14:03,DRB1*14:06,8,14,1,,epregistry.com.br
+DRB1*14:03,DRB1*14:54,9,20,1,,epregistry.com.br
+DRB1*14:03,DRB1*15:01,18,36,1,,epregistry.com.br
+DRB1*14:03,DRB1*15:02,16,33,1,,epregistry.com.br
+DRB1*14:03,DRB1*15:03,19,37,1,,epregistry.com.br
+DRB1*14:03,DRB1*16:01,11,21,1,,epregistry.com.br
+DRB1*14:03,DRB1*16:02,10,20,1,,epregistry.com.br
+DRB1*14:04,DRB1*14:05,6,8,1,,epregistry.com.br
+DRB1*14:04,DRB1*14:06,14,22,1,,epregistry.com.br
+DRB1*14:04,DRB1*14:54,3,4,1,,epregistry.com.br
+DRB1*14:04,DRB1*15:01,20,36,1,,epregistry.com.br
+DRB1*14:04,DRB1*15:02,21,39,1,,epregistry.com.br
+DRB1*14:04,DRB1*15:03,21,37,1,,epregistry.com.br
+DRB1*14:04,DRB1*16:01,20,35,1,,epregistry.com.br
+DRB1*14:04,DRB1*16:02,19,34,1,,epregistry.com.br
+DRB1*14:05,DRB1*14:06,8,14,1,,epregistry.com.br
+DRB1*14:05,DRB1*14:54,2,6,1,,epregistry.com.br
+DRB1*14:05,DRB1*15:01,16,32,1,,epregistry.com.br
+DRB1*14:05,DRB1*15:02,17,35,1,,epregistry.com.br
+DRB1*14:05,DRB1*15:03,17,33,1,,epregistry.com.br
+DRB1*14:05,DRB1*16:01,16,31,1,,epregistry.com.br
+DRB1*14:05,DRB1*16:02,15,30,1,,epregistry.com.br
+DRB1*14:06,DRB1*14:54,7,18,1,,epregistry.com.br
+DRB1*14:06,DRB1*15:01,12,26,1,,epregistry.com.br
+DRB1*14:06,DRB1*15:02,13,29,1,,epregistry.com.br
+DRB1*14:06,DRB1*15:03,13,27,1,,epregistry.com.br
+DRB1*14:06,DRB1*16:01,15,31,1,,epregistry.com.br
+DRB1*14:06,DRB1*16:02,14,30,1,,epregistry.com.br
+DRB1*14:54,DRB1*15:01,19,36,1,,epregistry.com.br
+DRB1*14:54,DRB1*15:02,20,39,1,,epregistry.com.br
+DRB1*14:54,DRB1*15:03,20,37,1,,epregistry.com.br
+DRB1*14:54,DRB1*16:01,19,35,1,,epregistry.com.br
+DRB1*14:54,DRB1*16:02,18,34,1,,epregistry.com.br
+DRB1*15:01,DRB1*15:02,1,3,1,,epregistry.com.br
+DRB1*15:01,DRB1*15:03,1,1,1,,epregistry.com.br
+DRB1*15:01,DRB1*16:01,9,17,1,,epregistry.com.br
+DRB1*15:01,DRB1*16:02,8,16,1,,epregistry.com.br
+DRB1*15:02,DRB1*15:03,3,4,1,,epregistry.com.br
+DRB1*15:02,DRB1*16:01,8,14,1,,epregistry.com.br
+DRB1*15:02,DRB1*16:02,7,13,1,,epregistry.com.br
+DRB1*15:03,DRB1*16:01,9,18,1,,epregistry.com.br
+DRB1*15:03,DRB1*16:02,8,17,1,,epregistry.com.br
+DRB1*16:01,DRB1*16:02,0,1,1,,epregistry.com.br
+DRB3*01:01,DRB3*02:01,15,24,1,,epregistry.com.br
+DRB3*01:01,DRB3*02:02,13,21,1,,epregistry.com.br
+DRB3*01:01,DRB3*03:01,10,19,1,,epregistry.com.br
+DRB3*02:01,DRB3*02:02,1,3,1,,epregistry.com.br
+DRB3*02:01,DRB3*03:01,7,19,1,,epregistry.com.br
+DRB3*02:02,DRB3*03:01,9,22,1,,epregistry.com.br
+DRB4*01:01,DRB4*01:03,0,1,1,,epregistry.com.br
+DRB5*01:01,DRB5*01:02,3,5,1,,epregistry.com.br
+DRB5*01:01,DRB5*02:02,11,22,1,,epregistry.com.br
+DRB5*01:02,DRB5*02:02,8,17,1,,epregistry.com.br

@@ -1,0 +1,21 @@
+sequenceDiagram
+    participant Data as Data
+    participant Method as Method
+    participant Eval as Evaluation
+    Data->>Method: Step 1: MARCo data extraction
+    Note over Method: outputs: pair-level CSV: a1, a2, locus, n_pooled, n_immucor, n_ol, rho_pooled, rho_immucor, rho_ol, r2, hats_shares, hla_emma_sa_count
+    Data->>Method: Step 2: IPD-IMGT/HLA sequence retrieval
+    Note over Method: outputs: per-allele protein-sequence index
+    Method->>Eval: Step 3: HATS featurization
+    Note over Eval: outputs: per-pair HATS feature vectors
+    Method->>Eval: Step 4: HLA-EMMA mismatch profiling
+    Note over Eval: outputs: per-pair SA + total mismatch counts
+    Method->>Eval: Step 5: HLAMatchmaker + PIRCHE-II bulk pipeline
+    Note over Eval: outputs: per-pair HLAMatchmaker + PIRCHE-II features
+    Method->>Eval: Step 6: Feature assembly + train/test split
+    Note over Eval: outputs: X, y, sample_weight, fold_indices, FEATURE_COLS
+    Method->>Eval: Step 7: Train XGBoost regressor
+    Note over Eval: outputs: trained XGBoost model + cross-validated metrics
+    Eval->>Data: Step 8: Evaluate per-locus + platform-stratified + platform-discrepant
+    Note over Data: outputs: per-locus Spearman ρ, platform-stratified ρ, discrepant-pair correlation vs consensus
+    Eval-->>Method: Spearman correlation between predicted and observed MFI cross-reactivity (Spearman ρ) at held-out allele pairs, pooled and per-locus ≥ Pooled Spearman ρ ≥ 0.85 AND ≥ 0.07 absolute lift over best of {naive Hamming, HATS-shares, HLA-EMMA-SA, HLAMatchmaker eplet count, PIRCHE-II indirect-recognition} AND per-locus lift ≥ 0.05 in ≥ 4/5 stratification groups AND platform-discrepant-pair Spearman ρ vs consensus ≥ 0.7

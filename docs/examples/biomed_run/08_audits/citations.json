@@ -1,0 +1,107 @@
+{
+  "findings": [
+    {
+      "target_kind": "dataset",
+      "target_summary": "GEO GSE152048 marker panel",
+      "auditor_name": "geo",
+      "status": "verified",
+      "fetched_metadata": {
+        "accession": "GSE152048",
+        "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE152048"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-02T20:34:30.042298+00:00"
+    },
+    {
+      "target_kind": "repo",
+      "target_summary": "github.com/pyg-team/pytorch_geometric",
+      "auditor_name": "github",
+      "status": "verified",
+      "fetched_metadata": {
+        "repo": "pyg-team/pytorch_geometric",
+        "description": "Graph Neural Network Library for PyTorch",
+        "stars": 23716,
+        "url": "https://github.com/pyg-team/pytorch_geometric"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-02T20:34:29.960732+00:00"
+    },
+    {
+      "target_kind": "repo",
+      "target_summary": "github.com/scverse/scanpy",
+      "auditor_name": "github",
+      "status": "verified",
+      "fetched_metadata": {
+        "repo": "scverse/scanpy",
+        "description": "Single-cell analysis in Python. Scales to >100M cells.",
+        "stars": 2436,
+        "url": "https://github.com/scverse/scanpy"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-02T20:34:29.945493+00:00"
+    },
+    {
+      "target_kind": "repo",
+      "target_summary": "github.com/scverse/squidpy",
+      "auditor_name": "github",
+      "status": "verified",
+      "fetched_metadata": {
+        "repo": "scverse/squidpy",
+        "description": "Spatial Single Cell Analysis in Python",
+        "stars": 567,
+        "url": "https://github.com/scverse/squidpy"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-02T20:34:29.913898+00:00"
+    },
+    {
+      "target_kind": "repo",
+      "target_summary": "github.com/scverse/scanpy",
+      "auditor_name": "github",
+      "status": "verified",
+      "fetched_metadata": {
+        "repo": "scverse/scanpy",
+        "description": "Single-cell analysis in Python. Scales to >100M cells.",
+        "stars": 2436,
+        "url": "https://github.com/scverse/scanpy"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-02T20:34:29.945493+00:00"
+    },
+    {
+      "target_kind": "repo",
+      "target_summary": "github.com/scverse/squidpy",
+      "auditor_name": "github",
+      "status": "verified",
+      "fetched_metadata": {
+        "repo": "scverse/squidpy",
+        "description": "Spatial Single Cell Analysis in Python",
+        "stars": 567,
+        "url": "https://github.com/scverse/squidpy"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-02T20:34:29.913898+00:00"
+    },
+    {
+      "target_kind": "dataset",
+      "target_summary": "GEO GSE152048 marker panel",
+      "auditor_name": "geo",
+      "status": "verified",
+      "fetched_metadata": {
+        "accession": "GSE152048",
+        "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE152048"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-02T20:34:30.042298+00:00"
+    }
+  ],
+  "skipped": false,
+  "skipped_reason": ""
+}

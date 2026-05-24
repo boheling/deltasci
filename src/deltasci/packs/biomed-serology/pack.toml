@@ -1,0 +1,18 @@
+[meta]
+name = "biomed-serology"
+display_name = "Biomedical: Serology and Immune Repertoire"
+version = "0.1.0"
+description = "HLA antibody serology, Luminex single-antigen-bead assays, virtual crossmatch, immune-repertoire characterization. For non-single-cell, non-spatial life-sciences workflows centered on antibody-antigen reactivity at residue resolution."
+example_idea = "Predict empirical anti-HLA Class II (DR / DQ heterodimer) antibody cross-reactivity (MFI Spearman correlation between allele pairs in the public MARCo dataset) using HATS key-residue and HLA-EMMA solvent-accessible mismatch features, with platform-agnostic calibration across Immucor and One Lambda LSA assays."
+
+[[evidence_rules]]
+type = "published-evidence"
+source_pattern = "\\d{4}"
+
+[[evidence_rules]]
+type = "engineering-precedent"
+source_pattern = "(github\\.com|huggingface\\.co|gitlab\\.com|zenodo|doi)"
+
+[scoring_rubric]
+axes = ["data_availability", "technical_feasibility", "clinical_relevance", "novelty", "ethical_clearability"]
+weights = [1.0, 1.0, 1.5, 1.0, 1.2]

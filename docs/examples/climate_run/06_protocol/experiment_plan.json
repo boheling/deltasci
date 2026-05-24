@@ -1,0 +1,117 @@
+{
+  "title": "Sahel extreme-P downscaler: ERA5+CMIP6 Swin transformer with water-budget regularization",
+  "summary": "Train Swin-style ViT to downscale Sahel daily P from coarse-grid (ERA5 ~31km, CMIP6 ~100-250km) to 10km, evaluated against gauge data (2019-2023 in-distribution + 1968-1990 OOD) using extreme-focused metrics.",
+  "data_acquisition": {
+    "primary_dataset": "ERA5 hourly + CMIP6 historical/SSP for Sahel domain via Pangeo Zarr; GHCN-Daily for gauge data; West African meteorological office archives for supplementary gauge data.",
+    "accession_or_url": "https://pangeo.io ; https://www.ncei.noaa.gov/products/land-based-station/global-historical-climatology-network-daily",
+    "access_constraints": "ERA5 + GHCN free; CMIP6 free via Earth System Grid; West African office data requires institutional MOU.",
+    "fallback_datasets": [
+      "NOAA 20CRv3 reanalysis for OOD drought-regime extension",
+      "TRMM/GPM satellite precipitation for spatial verification"
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "name": "Data acquisition + tiling",
+      "description": "Pull ERA5 + CMIP6 + topography from Pangeo; tile to per-day Sahel patches.",
+      "inputs": [
+        "Pangeo Zarr"
+      ],
+      "outputs": [
+        "patch tensors"
+      ],
+      "method_citations": [
+        "github.com/pydata/xarray",
+        "https://pangeo.io"
+      ]
+    },
+    {
+      "order": 2,
+      "name": "Gauge QC pipeline",
+      "description": "GHCN-Daily QC, station-matching to grid cells, supplement with West African office archives.",
+      "inputs": [
+        "GHCN-Daily",
+        "office archives"
+      ],
+      "outputs": [
+        "QC'd gauge timeseries"
+      ],
+      "method_citations": []
+    },
+    {
+      "order": 3,
+      "name": "Architecture + losses",
+      "description": "Swin transformer with multi-channel input; 3-component loss (pixel MSE on log(1+P) + extreme focal + water-budget penalty).",
+      "inputs": [
+        "patches",
+        "gauge labels"
+      ],
+      "outputs": [
+        "model"
+      ],
+      "method_citations": [
+        "Pathak et al 2022, arXiv 2202.11214 \u2014 FourCastNet",
+        "Nguyen et al 2023, arXiv 2301.10343 \u2014 ClimaX"
+      ]
+    },
+    {
+      "order": 4,
+      "name": "Train / in-dist eval / OOD eval",
+      "description": "Train 2003-2018; eval 2019-2023; OOD eval on 1968-1990 reanalysis-back-extension.",
+      "inputs": [
+        "model"
+      ],
+      "outputs": [
+        "metrics"
+      ],
+      "method_citations": []
+    },
+    {
+      "order": 5,
+      "name": "Baselines",
+      "description": "Climatology, persistence, quantile-mapped ERA5, CMIP6 ensemble mean, bilinear ERA5 interpolation.",
+      "inputs": [
+        "data"
+      ],
+      "outputs": [
+        "baseline metrics"
+      ],
+      "method_citations": []
+    },
+    {
+      "order": 6,
+      "name": "Reporting + decision-relevance",
+      "description": "Brier skill score + 10-year return-period MAE + spatial skill maps; compare vs all baselines stratified by season + station density.",
+      "inputs": [
+        "metrics"
+      ],
+      "outputs": [
+        "paper",
+        "skill maps"
+      ],
+      "method_citations": [
+        "IPCC AR6 WG1 Chapter 11"
+      ]
+    }
+  ],
+  "primary_metric": "Brier skill score for 95th-percentile daily P (2019-2023 in-distribution; gauge-defined thresholds)",
+  "success_threshold": "Brier skill score > 0.15 over climatology baseline AND 10-year return-period MAE < 30% AND skill > quantile-mapped ERA5 baseline AND OOD drought-regime skill degradation < 50%",
+  "null_outcome": "Brier skill < 0.05 OR worse than quantile-mapping OR OOD degradation > 70% falsifies",
+  "baselines": [
+    "climatology-by-month",
+    "persistence-by-day",
+    "quantile-mapped ERA5",
+    "CMIP6 ensemble mean",
+    "bilinear ERA5 interpolation"
+  ],
+  "compute": {
+    "hardware": "1\u00d7 A100 (40GB)",
+    "estimated_runtime": "1-3 days per ensemble member",
+    "storage": "~5TB ERA5 + 2TB CMIP6 (cached on Pangeo)",
+    "cost_estimate": "~$300 GPU + Pangeo cloud egress"
+  },
+  "timeline_estimate": "Data engineering 4-6 weeks (mostly gauge QC + West African office MOU). Modeling + eval 4-6 weeks.",
+  "sample_size_justification": "20 years \u00d7 365 days \u00d7 ~600\u00d7400 grid points = ~1.7B training pixels per channel. Effective sample size for extremes is much smaller (~365 \u00d7 20 \u00d7 5% = 3650 days with extreme events somewhere in the patch); sufficient for the proposed Brier skill targets at gauge density.",
+  "citations": []
+}

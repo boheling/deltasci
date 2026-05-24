@@ -1,0 +1,180 @@
+# Co-Reasoning Transcript
+
+**Pack:** `materials`
+
+**Idea:** Use a graph neural network trained on the Materials Project to identify Li-ion cathode candidates in the spinel family with predicted voltage > 4.3V and thermal decomposition onset > 200C.
+
+## domain_r1 — domain_scientist
+
+The hypothesis sits at the intersection of two well-characterized regimes — the spinel structural family as Li-ion intercalation hosts, and the high-throughput DFT screening tradition exemplified by the Materials Project.
+
+[CLAIM type=published-evidence coverage=well-covered source="Thackeray et al 1983, Mater Res Bull 18:461 — first spinel LiMn2O4 cathode"]The spinel AB2O4 structural family has been a workhorse for Li-ion cathode chemistry since the 1980s, with LiMn2O4 the canonical example.[/CLAIM]
+
+[CLAIM type=published-evidence coverage=well-covered source="Jain et al 2013, APL Materials 1:011002 — Materials Project foundational paper"]The Materials Project provides DFT-computed properties (formation energy, voltage profiles for intercalation reactions, band gaps) for >150,000 inorganic crystal structures with consistent functional choices.[/CLAIM]
+
+[CLAIM type=engineering-precedent coverage=well-covered source="github.com/materialsproject/pymatgen"]Pymatgen is the open-source toolkit for crystal-structure manipulation, MP API access, and structural featurization at scale.[/CLAIM]
+
+[CLAIM type=observation coverage=well-covered source=""]Standard PBE DFT systematically underestimates band gaps and over-stabilizes some metallic ground states; voltage predictions inherit these biases — a 4.3V threshold predicted by PBE may correspond to a different experimental voltage.[/CLAIM]
+
+The unmet need is voltage + thermal-stability co-screening of spinel candidates beyond the Mn/Co/Ni-dominant materials currently in commercial use:
+
+[CLAIM type=published-evidence coverage=sparse source="Whittingham 2014, Chem Rev 114:11414 — cathode review; specific recent thermal-decomposition benchmarks I'd hedge on"]Cobalt-free and reduced-cobalt cathode chemistry is an active push driven by supply-chain concerns; spinel structures are attractive because of the 3D Li-diffusion network and the structural robustness across charge states.[/CLAIM]
+
+[NOVEL_SYNTHESIS rationale="combining hull-energy synthesizability filter + voltage prediction + thermal decomposition prediction in one pipeline is not standard practice — most existing GNN work targets one property at a time"]A multi-task GNN that predicts voltage AND decomposition temperature AND distance-to-hull jointly, then filters by all three thresholds, is the conceptual leap the hypothesis is making.[/NOVEL_SYNTHESIS]
+
+[KNOWLEDGE_GAP category=unpublished-or-pilot-data]Does the lab have synthesis attempts for any of the candidate compositions, with measured voltage and thermal stability? This anchors the falsifiability threshold.[/KNOWLEDGE_GAP]
+
+[KNOWLEDGE_GAP category=niche-subfield]How many spinel-family entries in MP currently carry experimentally-measured voltage labels at sufficient sample size for training (vs purely DFT-computed)? This determines whether the hypothesis is supervised or active-learning-driven.[/KNOWLEDGE_GAP]
+
+### Evidence collected
+- **[published-evidence · well-covered]** The spinel AB2O4 structural family has been a workhorse for Li-ion cathode chemistry since the 1980s, with LiMn2O4 the canonical example. — _Thackeray et al 1983, Mater Res Bull 18:461 — first spinel LiMn2O4 cathode_
+- **[published-evidence · well-covered]** The Materials Project provides DFT-computed properties (formation energy, voltage profiles for intercalation reactions, band gaps) for >150,000 inorganic crystal structures with consistent functional choices. — _Jain et al 2013, APL Materials 1:011002 — Materials Project foundational paper_
+- **[engineering-precedent · well-covered]** Pymatgen is the open-source toolkit for crystal-structure manipulation, MP API access, and structural featurization at scale. — _github.com/materialsproject/pymatgen_
+- **[observation · well-covered]** Standard PBE DFT systematically underestimates band gaps and over-stabilizes some metallic ground states; voltage predictions inherit these biases — a 4.3V threshold predicted by PBE may correspond to a different experimental voltage. — _—_
+- **[published-evidence · sparse]** Cobalt-free and reduced-cobalt cathode chemistry is an active push driven by supply-chain concerns; spinel structures are attractive because of the 3D Li-diffusion network and the structural robustness across charge states. — _Whittingham 2014, Chem Rev 114:11414 — cathode review; specific recent thermal-decomposition benchmarks I'd hedge on_
+
+### Knowledge gaps flagged for researcher
+- (unpublished-or-pilot-data) Does the lab have synthesis attempts for any of the candidate compositions, with measured voltage and thermal stability? This anchors the falsifiability threshold.
+- (niche-subfield) How many spinel-family entries in MP currently carry experimentally-measured voltage labels at sufficient sample size for training (vs purely DFT-computed)? This determines whether the hypothesis is supervised or active-learning-driven.
+
+### Novel syntheses proposed
+- A multi-task GNN that predicts voltage AND decomposition temperature AND distance-to-hull jointly, then filters by all three thresholds, is the conceptual leap the hypothesis is making. — _combining hull-energy synthesizability filter + voltage prediction + thermal decomposition prediction in one pipeline is not standard practice — most existing GNN work targets one property at a time_
+
+## engineer_r1 — ml_engineer
+
+The data + ML stack is well-trodden for the supervised case; the multi-task framing pushes the design.
+
+**Data representation.**
+
+[CLAIM type=engineering-precedent coverage=well-covered source="github.com/materialsproject/pymatgen"]Pymatgen provides structure parsing + Voronoi-based featurization that maps a crystal to a graph of atoms (nodes) and bonds (edges).[/CLAIM]
+
+[CLAIM type=published-evidence coverage=well-covered source="Xie & Grossman 2018, Phys Rev Lett 120:145301 — CGCNN"]Crystal Graph Convolutional Neural Networks (CGCNN) demonstrated that GNNs over crystal graphs achieve DFT-level accuracy on formation energy, band gap, and other properties at substantially lower compute.[/CLAIM]
+
+[CLAIM type=published-evidence coverage=well-covered source="Chen & Ong 2022, Nat Comput Sci 2:718 — M3GNet"]M3GNet extends graph networks to many-body interactions with a universal interatomic potential, enabling structural relaxation as part of the prediction pipeline.[/CLAIM]
+
+**ML paradigm.**
+
+A multi-task GNN with three regression heads (voltage, decomposition temperature, distance-to-hull) sharing a backbone encoder. The voltage head trains on MP-computed voltages; the thermal head trains on a smaller experimental + DFT decomposition dataset; the hull head trains on MP convex-hull energies.
+
+[CLAIM type=engineering-precedent coverage=well-covered source="github.com/materialsproject/MatBench"]MatBench provides standardized benchmark splits for materials property prediction, including hull energies and band gaps.[/CLAIM]
+
+[CLAIM type=observation coverage=sparse source=""]Combining a multi-task GNN with hull-energy filtering for synthesizability has appeared in recent preprints but I would hedge on specific 2024+ citations.[/CLAIM]
+
+**Existing implementations of the exact idea.**
+
+[KNOWLEDGE_GAP category=niche-subfield]Has multi-task GNN voltage + decomposition co-prediction been published for Li-ion cathodes specifically? I can recall single-task cathode GNN screens but no multi-task pipeline.[/KNOWLEDGE_GAP]
+
+**Compute.**
+
+[CLAIM type=observation coverage=well-covered source=""]Single A100 sufficient. CGCNN/M3GNet-class encoders train in a few GPU-hours on MP-scale (~150K) datasets; inference over the full MP catalog is minutes.[/CLAIM]
+
+**Top three risks.**
+
+1. [CLAIM type=observation coverage=well-covered source=""]Train-test leakage in materials databases via near-duplicate structures across composition or polymorph variants is a documented failure mode for ML-on-MP work.[/CLAIM]
+
+2. [CLAIM type=observation coverage=sparse source=""]Decomposition-temperature labels are sparser and noisier than voltage labels. Class-imbalance in 'thermally-stable above 200°C' may degrade the corresponding head; specific dataset sizes I'd hedge on.[/CLAIM]
+
+3. [CLAIM type=published-evidence coverage=well-covered source="Sun et al 2016, Sci Adv 2:e1600225 — synthesizability vs energy-above-hull"]Distance-to-hull is an imperfect synthesizability proxy — meta-stable phases above the hull do get synthesized, sometimes routinely; a hard hull-distance cutoff will reject viable candidates.[/CLAIM]
+
+[NOVEL_SYNTHESIS rationale="combining classical empirical rules with learned features in a single pipeline is not standard — most GNN cathode work uses pure structural features"]Adding Goldschmidt tolerance factor, ionic-radius mismatch, and Hume-Rothery rules as auxiliary input features alongside the learned graph embedding lets the model exploit hard-won materials-science priors that pure GNN features may not recover from data alone.[/NOVEL_SYNTHESIS]
+
+### Evidence collected
+- **[engineering-precedent · well-covered]** Pymatgen provides structure parsing + Voronoi-based featurization that maps a crystal to a graph of atoms (nodes) and bonds (edges). — _github.com/materialsproject/pymatgen_
+- **[published-evidence · well-covered]** Crystal Graph Convolutional Neural Networks (CGCNN) demonstrated that GNNs over crystal graphs achieve DFT-level accuracy on formation energy, band gap, and other properties at substantially lower compute. — _Xie & Grossman 2018, Phys Rev Lett 120:145301 — CGCNN_
+- **[published-evidence · well-covered]** M3GNet extends graph networks to many-body interactions with a universal interatomic potential, enabling structural relaxation as part of the prediction pipeline. — _Chen & Ong 2022, Nat Comput Sci 2:718 — M3GNet_
+- **[engineering-precedent · well-covered]** MatBench provides standardized benchmark splits for materials property prediction, including hull energies and band gaps. — _github.com/materialsproject/MatBench_
+- **[observation · sparse]** Combining a multi-task GNN with hull-energy filtering for synthesizability has appeared in recent preprints but I would hedge on specific 2024+ citations. — _—_
+- **[observation · well-covered]** Single A100 sufficient. CGCNN/M3GNet-class encoders train in a few GPU-hours on MP-scale (~150K) datasets; inference over the full MP catalog is minutes. — _—_
+- **[observation · well-covered]** Train-test leakage in materials databases via near-duplicate structures across composition or polymorph variants is a documented failure mode for ML-on-MP work. — _—_
+- **[observation · sparse]** Decomposition-temperature labels are sparser and noisier than voltage labels. Class-imbalance in 'thermally-stable above 200°C' may degrade the corresponding head; specific dataset sizes I'd hedge on. — _—_
+- **[published-evidence · well-covered]** Distance-to-hull is an imperfect synthesizability proxy — meta-stable phases above the hull do get synthesized, sometimes routinely; a hard hull-distance cutoff will reject viable candidates. — _Sun et al 2016, Sci Adv 2:e1600225 — synthesizability vs energy-above-hull_
+
+### Knowledge gaps flagged for researcher
+- (niche-subfield) Has multi-task GNN voltage + decomposition co-prediction been published for Li-ion cathodes specifically? I can recall single-task cathode GNN screens but no multi-task pipeline.
+
+### Novel syntheses proposed
+- Adding Goldschmidt tolerance factor, ionic-radius mismatch, and Hume-Rothery rules as auxiliary input features alongside the learned graph embedding lets the model exploit hard-won materials-science priors that pure GNN features may not recover from data alone. — _combining classical empirical rules with learned features in a single pipeline is not standard — most GNN cathode work uses pure structural features_
+
+## domain_r2 — domain_scientist
+
+Two adjustments before this is a defensible hypothesis.
+
+**1. The right outcome and the right baseline.**
+
+[CLAIM type=published-evidence coverage=sparse source="Aykol et al 2018, Sci Adv 4:eaaq0148 — synthesizability prediction; specific result numbers I'd hedge on"]Synthesizability prediction has progressed beyond hull-distance to multi-feature classification; any new screen should compare against this stronger baseline.[/CLAIM]
+
+[CLAIM type=observation coverage=well-covered source=""]A hard 4.3V threshold misses physically interesting compounds at 4.25V or 4.35V — voltage prediction has known DFT-systematic error of roughly ±0.1-0.2V depending on the redox couple. Pre-screening should use a soft margin, with the hard threshold reserved for the final candidate list.[/CLAIM]
+
+**2. Clinically meaningful evaluation — i.e., synthesis-meaningful.**
+
+[CLAIM type=engineering-precedent coverage=well-covered source="github.com/materialsproject/MatBench"]The MatBench benchmark protocol for materials property prediction includes scaled MAE and R² but not synthesizability hit-rate, which is the metric that matters for an actionable cathode screen.[/CLAIM]
+
+[NOVEL_SYNTHESIS rationale="connecting GNN screen output to experimental synthesizability validation has been done individually but not as a held-out evaluation regime"]The right held-out test is not 'predict the test-set MP voltage' — it is 'pick top-K candidates from outside MP, attempt synthesis, measure properties, compute hit-rate against the predicted thresholds.' This is a closed-loop evaluation, more demanding than benchmark MAE.[/NOVEL_SYNTHESIS]
+
+**3. The falsifiable prediction.**
+
+The hypothesis should commit to: a multi-task GNN, trained on MP plus the available experimental decomposition data, achieves a top-20 synthesis hit-rate ≥ 30% on a held-out test cohort of synthesized + characterized spinel candidates outside the MP-training set, with measured voltage > 4.0V (allowing 0.3V DFT-error tolerance from the 4.3V design target) AND measured decomposition onset > 180°C (20°C tolerance from 200°C target). Hit-rate < 15% falsifies it.
+
+[KNOWLEDGE_GAP category=lab-tribal-knowledge]Is there an experimental partner who can synthesize and characterize the top-K candidates from the screen? Without this, the falsifiability prediction is computational only and the hypothesis collapses to a benchmark exercise.[/KNOWLEDGE_GAP]
+
+### Evidence collected
+- **[published-evidence · sparse]** Synthesizability prediction has progressed beyond hull-distance to multi-feature classification; any new screen should compare against this stronger baseline. — _Aykol et al 2018, Sci Adv 4:eaaq0148 — synthesizability prediction; specific result numbers I'd hedge on_
+- **[observation · well-covered]** A hard 4.3V threshold misses physically interesting compounds at 4.25V or 4.35V — voltage prediction has known DFT-systematic error of roughly ±0.1-0.2V depending on the redox couple. Pre-screening should use a soft margin, with the hard threshold reserved for the final candidate list. — _—_
+- **[engineering-precedent · well-covered]** The MatBench benchmark protocol for materials property prediction includes scaled MAE and R² but not synthesizability hit-rate, which is the metric that matters for an actionable cathode screen. — _github.com/materialsproject/MatBench_
+
+### Knowledge gaps flagged for researcher
+- (lab-tribal-knowledge) Is there an experimental partner who can synthesize and characterize the top-K candidates from the screen? Without this, the falsifiability prediction is computational only and the hypothesis collapses to a benchmark exercise.
+
+### Novel syntheses proposed
+- The right held-out test is not 'predict the test-set MP voltage' — it is 'pick top-K candidates from outside MP, attempt synthesis, measure properties, compute hit-rate against the predicted thresholds.' This is a closed-loop evaluation, more demanding than benchmark MAE. — _connecting GNN screen output to experimental synthesizability validation has been done individually but not as a held-out evaluation regime_
+
+## engineer_r2 — ml_engineer
+
+Adopting the domain refinements. The pivot: shift evaluation from 'MP test-set MAE' to 'top-K synthesis hit-rate.' This changes the model design and the training data substantially.
+
+**Architecture.**
+
+Per-crystal graph G = (V, E):
+- V = atoms with Voronoi-defined neighbor sets, plus learned embeddings for element + oxidation state
+- E = bonds with edge-features for distance + bond type
+
+Encoder: 3-layer M3GNet-class graph backbone (hidden_dim=128) → graph readout (mean + sum pool concatenated) → concatenated with hand-engineered features (Goldschmidt tolerance factor, average ionic radius mismatch, mean electronegativity difference) → 3-head MLP for {voltage, decomp_temp, hull_distance}.
+
+[CLAIM type=published-evidence coverage=well-covered source="Chen & Ong 2022, Nat Comput Sci 2:718 — M3GNet"]The published M3GNet architecture provides the universal-potential encoder; pymatgen provides the hand-engineered features as 1-line calls.[/CLAIM]
+
+[KNOWLEDGE_GAP category=niche-subfield]The current canonical maintained M3GNet implementation (the materialsvirtuallab fork or the newer matgl combined library — please supply the correct verified GitHub URL).[/KNOWLEDGE_GAP]
+
+**Loss.**
+
+Multi-task with task-dependent weights:
+- L_voltage = MSE on MP-computed voltages (large, noisy, dense)
+- L_decomp = MSE on experimental + DFT-MD decomp temps (small, sparser)
+- L_hull = MSE on MP hull distances (large, dense)
+- λ_v = 1.0, λ_d = 0.5 (smaller dataset weighted up via uncertainty), λ_h = 0.3
+
+**Training plan.**
+
+1. Source: MP catalog (full inorganic), filtered to oxide and oxofluoride spinels and spinel-adjacent topologies.
+2. Decomposition labels: harvest experimental DSC/TGA data from open thermochemistry tables + literature mining (~few thousand labels at most, sparse).
+3. Stratified split by composition (no leakage of composition between train/test).
+4. Held-out 'discovery test' cohort: 10-20 candidates outside MP (from recent ICSD additions or novel compositions), synthesized in collaboration; measured voltage and decomp temp.
+5. Baselines: CGCNN single-task voltage, MEGNet single-task voltage, hull-distance-only filter, random selection from spinel structure.
+
+**Expected outcomes.**
+
+[CLAIM type=observation coverage=sparse source=""]Realistic top-20 synthesis hit-rate for a well-tuned multi-task screen is plausibly 25-40% on a focused spinel test cohort; below 15% means the screen is no better than randomly picking from the MP spinel set.[/CLAIM]
+
+[KNOWLEDGE_GAP category=unpublished-or-pilot-data]Pilot synthesis attempts on the top-3 candidates from a baseline single-task screen would calibrate the hit-rate threshold and inform the +0.3V tolerance band on the 4.3V target.[/KNOWLEDGE_GAP]
+
+**Compute & timeline.**
+
+[CLAIM type=observation coverage=well-covered source=""]Single A100; ~6 hours total training. The dominant timeline cost is the experimental closed-loop validation — 6-12 months for a 10-20 candidate synthesis + characterization round.[/CLAIM]
+
+### Evidence collected
+- **[published-evidence · well-covered]** The published M3GNet architecture provides the universal-potential encoder; pymatgen provides the hand-engineered features as 1-line calls. — _Chen & Ong 2022, Nat Comput Sci 2:718 — M3GNet_
+- **[observation · sparse]** Realistic top-20 synthesis hit-rate for a well-tuned multi-task screen is plausibly 25-40% on a focused spinel test cohort; below 15% means the screen is no better than randomly picking from the MP spinel set. — _—_
+- **[observation · well-covered]** Single A100; ~6 hours total training. The dominant timeline cost is the experimental closed-loop validation — 6-12 months for a 10-20 candidate synthesis + characterization round. — _—_
+
+### Knowledge gaps flagged for researcher
+- (niche-subfield) The current canonical maintained M3GNet implementation (the materialsvirtuallab fork or the newer matgl combined library — please supply the correct verified GitHub URL).
+- (unpublished-or-pilot-data) Pilot synthesis attempts on the top-3 candidates from a baseline single-task screen would calibrate the hit-rate threshold and inform the +0.3V tolerance band on the 4.3V target.

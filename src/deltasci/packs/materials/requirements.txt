@@ -1,0 +1,10 @@
+# Materials informatics notebook scaffold dependencies.
+numpy>=1.24
+pandas>=2.0
+matplotlib>=3.7
+scikit-learn>=1.3
+pymatgen>=2024.0
+# matminer>=0.9   # uncomment for featurizers
+torch>=2.1
+# torch-geometric>=2.4   # uncomment for graph-based models (CGCNN, M3GNet, ...)
+jupyter>=1.0

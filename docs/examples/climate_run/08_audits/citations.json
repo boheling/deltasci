@@ -1,0 +1,131 @@
+{
+  "findings": [
+    {
+      "target_kind": "repo",
+      "target_summary": "github.com/pydata/xarray",
+      "auditor_name": "github",
+      "status": "verified",
+      "fetched_metadata": {
+        "repo": "pydata/xarray",
+        "description": "N-D labeled arrays and datasets in Python",
+        "stars": 4141,
+        "url": "https://github.com/pydata/xarray"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-02T20:38:00.339454+00:00"
+    },
+    {
+      "target_kind": "citation",
+      "target_summary": "Pathak et al 2022, arXiv 2202.11214",
+      "auditor_name": "arxiv",
+      "status": "verified",
+      "fetched_metadata": {
+        "arxiv": "2202.11214",
+        "title": "FourCastNet: A Global Data-driven High-resolution Weather Model using Adaptive Fourier Neural Operators",
+        "authors": [
+          "Jaideep Pathak",
+          "Shashank Subramanian",
+          "Peter Harrington",
+          "Sanjeev Raja",
+          "Ashesh Chattopadhyay"
+        ],
+        "year": "2022",
+        "url": "https://arxiv.org/abs/2202.11214"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-02T20:38:00.806776+00:00"
+    },
+    {
+      "target_kind": "citation",
+      "target_summary": "Nguyen et al 2023, arXiv 2301.10343 \u2014 ClimaX",
+      "auditor_name": "arxiv",
+      "status": "verified",
+      "fetched_metadata": {
+        "arxiv": "2301.10343",
+        "title": "ClimaX: A foundation model for weather and climate",
+        "authors": [
+          "Tung Nguyen",
+          "Johannes Brandstetter",
+          "Ashish Kapoor",
+          "Jayesh K. Gupta",
+          "Aditya Grover"
+        ],
+        "year": "2023",
+        "url": "https://arxiv.org/abs/2301.10343"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-02T20:38:01.342490+00:00"
+    },
+    {
+      "target_kind": "citation",
+      "target_summary": "Pathak et al 2022, arXiv 2202.11214",
+      "auditor_name": "arxiv",
+      "status": "verified",
+      "fetched_metadata": {
+        "arxiv": "2202.11214",
+        "title": "FourCastNet: A Global Data-driven High-resolution Weather Model using Adaptive Fourier Neural Operators",
+        "authors": [
+          "Jaideep Pathak",
+          "Shashank Subramanian",
+          "Peter Harrington",
+          "Sanjeev Raja",
+          "Ashesh Chattopadhyay"
+        ],
+        "year": "2022",
+        "url": "https://arxiv.org/abs/2202.11214"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-02T20:38:00.806776+00:00"
+    },
+    {
+      "target_kind": "citation",
+      "target_summary": "Nguyen et al 2023, arXiv 2301.10343 \u2014 ClimaX",
+      "auditor_name": "arxiv",
+      "status": "verified",
+      "fetched_metadata": {
+        "arxiv": "2301.10343",
+        "title": "ClimaX: A foundation model for weather and climate",
+        "authors": [
+          "Tung Nguyen",
+          "Johannes Brandstetter",
+          "Ashish Kapoor",
+          "Jayesh K. Gupta",
+          "Aditya Grover"
+        ],
+        "year": "2023",
+        "url": "https://arxiv.org/abs/2301.10343"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-02T20:38:01.342490+00:00"
+    },
+    {
+      "target_kind": "citation",
+      "target_summary": "Pathak et al 2022, arXiv 2202.11214",
+      "auditor_name": "arxiv",
+      "status": "verified",
+      "fetched_metadata": {
+        "arxiv": "2202.11214",
+        "title": "FourCastNet: A Global Data-driven High-resolution Weather Model using Adaptive Fourier Neural Operators",
+        "authors": [
+          "Jaideep Pathak",
+          "Shashank Subramanian",
+          "Peter Harrington",
+          "Sanjeev Raja",
+          "Ashesh Chattopadhyay"
+        ],
+        "year": "2022",
+        "url": "https://arxiv.org/abs/2202.11214"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-02T20:38:00.806776+00:00"
+    }
+  ],
+  "skipped": false,
+  "skipped_reason": ""
+}

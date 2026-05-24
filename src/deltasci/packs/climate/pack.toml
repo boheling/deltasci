@@ -1,0 +1,18 @@
+[meta]
+name = "climate"
+display_name = "Climate & Earth Sciences"
+version = "0.1.0"
+description = "Climate modeling, earth observation, atmospheric and ocean science — covers downscaling, extreme events, remote sensing, carbon cycle, weather forecasting."
+example_idea = "Train a neural emulator on ERA5 + CMIP6 outputs to downscale precipitation extremes over the Sahel from 100km to 10km, and evaluate against in-situ rain gauge measurements during the 2003-2023 monsoon seasons."
+
+[[evidence_rules]]
+type = "published-evidence"
+source_pattern = "\\d{4}"
+
+[[evidence_rules]]
+type = "engineering-precedent"
+source_pattern = "(github\\.com|huggingface\\.co|pangeo|climatedata|copernicus|noaa|nasa|esa)"
+
+[scoring_rubric]
+axes = ["data_availability", "technical_feasibility", "physical_consistency", "novelty", "decision_relevance"]
+weights = [1.0, 1.0, 1.5, 1.0, 1.3]

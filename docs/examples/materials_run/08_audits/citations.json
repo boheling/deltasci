@@ -1,0 +1,36 @@
+{
+  "findings": [
+    {
+      "target_kind": "repo",
+      "target_summary": "github.com/materialsproject/pymatgen",
+      "auditor_name": "github",
+      "status": "verified",
+      "fetched_metadata": {
+        "repo": "materialsproject/pymatgen",
+        "description": "Python Materials Genomics (pymatgen) is a robust materials analysis code that defines classes for structures and molecules with support for many electronic structure codes. It powers the Materials Project.",
+        "stars": 1865,
+        "url": "https://github.com/materialsproject/pymatgen"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-02T20:37:59.898092+00:00"
+    },
+    {
+      "target_kind": "repo",
+      "target_summary": "github.com/materialsproject/MatBench",
+      "auditor_name": "github",
+      "status": "verified",
+      "fetched_metadata": {
+        "repo": "materialsproject/matbench",
+        "description": "Matbench: Benchmarks for materials science property prediction",
+        "stars": 195,
+        "url": "https://github.com/materialsproject/matbench"
+      },
+      "mismatch_reasons": [],
+      "confidence": "high",
+      "audited_at": "2026-05-02T20:37:59.905416+00:00"
+    }
+  ],
+  "skipped": false,
+  "skipped_reason": ""
+}

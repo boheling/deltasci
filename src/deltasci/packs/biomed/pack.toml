@@ -1,0 +1,18 @@
+[meta]
+name = "biomed"
+display_name = "Biomedical Sciences"
+version = "0.1.0"
+description = "Life sciences, clinical, and translational research — covers molecular biology, genomics, imaging, clinical informatics, drug discovery."
+example_idea = "Predict checkpoint-immunotherapy non-response in TFE3-fusion osteosarcoma using a graph neural network over single-cell spatial transcriptomics, with CD204+ M2 macrophage neighborhood structure encoded as typed cell-cell edges."
+
+[[evidence_rules]]
+type = "published-evidence"
+source_pattern = "\\d{4}"
+
+[[evidence_rules]]
+type = "engineering-precedent"
+source_pattern = "(github\\.com|huggingface\\.co|gitlab\\.com|zenodo|doi)"
+
+[scoring_rubric]
+axes = ["data_availability", "technical_feasibility", "clinical_relevance", "novelty", "ethical_clearability"]
+weights = [1.0, 1.0, 1.5, 1.0, 1.2]

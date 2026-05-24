@@ -1,0 +1,44 @@
+{
+  "summary": "Four findings. The hypothesis frames the multi-task GNN approach as the novel contribution, but the harder unsolved problem is the decomp-temp data scarcity. The 30% hit-rate threshold is loose given measurement noise. The hull-distance synthesizability filter is doing more inferential work than the framing acknowledges.",
+  "findings": [
+    {
+      "id": "C1",
+      "kind": "feasibility-overstated",
+      "severity": "high",
+      "description": "The 30% top-20 hit-rate threshold at n=20 has a wide binomial CI (~[12%, 54%]). A baseline screen at hit-rate 15% has CI ~[3%, 38%]. The two CIs overlap substantially, so a measured 30% vs 15% point estimate is not a definitive falsifiability test at this sample size.",
+      "evidence_citations": [],
+      "suggested_response": "Pre-specify n=40 or report Bayesian posterior on hit-rate; treat the threshold as a Bayesian prior, not a frequentist gate."
+    },
+    {
+      "id": "C2",
+      "kind": "novelty-overstated",
+      "severity": "medium",
+      "description": "Multi-task GNNs for materials property co-prediction have appeared in the recent literature. The OS-specific contribution is the spinel + decomp-temp + closed-loop angle, not the multi-task GNN itself.",
+      "evidence_citations": [
+        "Chen & Ong 2022, Nat Comput Sci 2:718"
+      ],
+      "suggested_response": "Frame the contribution as the spinel + closed-loop synthesis evaluation, not the architecture."
+    },
+    {
+      "id": "C3",
+      "kind": "missing-baseline",
+      "severity": "high",
+      "description": "Hull-distance-only filter is too easy a baseline. Stronger baselines: (a) Aykol synthesizability classifier with hull as one feature, (b) bandit-style active learning that picks batch candidates rather than top-K static, (c) random forest on the same hand-engineered features without GNN.",
+      "evidence_citations": [
+        "Aykol et al 2018, Sci Adv 4:eaaq0148"
+      ],
+      "suggested_response": "Add (a)-(c) as required baselines; if multi-task GNN does not beat random forest on the same features, the GNN was unnecessary."
+    },
+    {
+      "id": "C4",
+      "kind": "data-leakage-risk",
+      "severity": "medium",
+      "description": "Stratified-by-composition split helps but does not eliminate near-duplicate-structure leakage when the same composition has multiple polymorphs in MP. Polymorph-aware split is needed.",
+      "evidence_citations": [],
+      "suggested_response": "Split by reduced-formula AND prototype-structure tag jointly; report the training-set leak rate explicitly."
+    }
+  ],
+  "challenger_provider": "mockllm",
+  "challenger_model": "mock-llm-v1",
+  "citations": []
+}

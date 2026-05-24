@@ -1,0 +1,42 @@
+{
+  "summary": "Four findings. The hypothesis frames the contribution as the architecture, but the architecture is incremental; the real contribution is the OOD evaluation regime, which is also the weakest experimental element. The water-budget regularizer is doing more inferential work than the framing acknowledges.",
+  "findings": [
+    {
+      "id": "C1",
+      "kind": "novelty-overstated",
+      "severity": "medium",
+      "description": "Vision-transformer architectures for weather/climate emulation are now common (FourCastNet, ClimaX, Pangu-Weather, GraphCast). The Sahel-specific architectural contribution is small; the real contribution is the evaluation regime.",
+      "evidence_citations": [
+        "Pathak et al 2022, arXiv 2202.11214"
+      ],
+      "suggested_response": "Frame the contribution as 'rigorous extreme-focused evaluation including OOD drought regime' rather than as a new architecture."
+    },
+    {
+      "id": "C2",
+      "kind": "wrong-metric",
+      "severity": "high",
+      "description": "Brier skill score requires probabilistic forecasts. The proposed deterministic emulator either needs to add ensemble generation (expensive) or be evaluated with a deterministic-friendly extreme metric (e.g., 95th percentile bias, spatial CRPS via random-time-permutation ensemble).",
+      "evidence_citations": [],
+      "suggested_response": "Either add ensemble dropout / VAE component for probabilistic forecasts, or replace Brier skill with a deterministic-compatible extreme metric pre-specified upfront."
+    },
+    {
+      "id": "C3",
+      "kind": "data-leakage-risk",
+      "severity": "high",
+      "description": "ERA5 itself assimilates gauge data over the Sahel \u2014 using ERA5 as input AND gauge data as label means the network can shortcut by extracting the assimilated gauge signal from ERA5. This is a well-known failure mode of ERA5-as-input downscalers.",
+      "evidence_citations": [],
+      "suggested_response": "Test for the shortcut: train a model with ERA5-only inputs and check whether it already achieves high skill at gauge stations; report 'lift over ERA5-only baseline' as the headline metric."
+    },
+    {
+      "id": "C4",
+      "kind": "feasibility-overstated",
+      "severity": "medium",
+      "description": "Engagement with West African meteorological offices for gauge data and decision-relevance framing is described as a step but is realistically 6-12 months of relationship-building, not a workstream you can compress into the timeline.",
+      "evidence_citations": [],
+      "suggested_response": "Either start with publicly-available gauge data only and explicitly defer the operational-decision-relevance claim, or budget 6-12 months for the partnerships before the modeling timeline begins."
+    }
+  ],
+  "challenger_provider": "mockllm",
+  "challenger_model": "mock-llm-v1",
+  "citations": []
+}

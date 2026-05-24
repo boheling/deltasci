@@ -1,0 +1,377 @@
+[
+  {
+    "method": "POST",
+    "url": "https://marco.igen.org.br/api/correlation-matrix",
+    "resource_type": "fetch",
+    "status": 200,
+    "request_post_data": "{\"manufacturer_kit\":\"All_Manufacturers_Kits\",\"locus_group\":\"A\"}",
+    "response_shape": {
+      "success": "bool",
+      "matrix_data": {
+        "allele_1": [
+          "str('A*02:07')",
+          "...\u00d7770"
+        ],
+        "allele_2": [
+          "str('A*02:18')",
+          "...\u00d7770"
+        ],
+        "correlation": [
+          "float",
+          "...\u00d7770"
+        ],
+        "correlation_type": [
+          "str('Spearman')",
+          "...\u00d7770"
+        ],
+        "positive_samples_allele_1": [
+          "int",
+          "...\u00d7770"
+        ],
+        "positive_samples_allele_2": [
+          "int",
+          "...\u00d7770"
+        ],
+        "total_samples_analyzed": [
+          "int",
+          "...\u00d7770"
+        ],
+        "samples_one_lambda_standard_explex": [
+          "int",
+          "...\u00d7770"
+        ],
+        "samples_one_lambda_standard": [
+          "int",
+          "...\u00d7770"
+        ],
+        "samples_immucor_standard": [
+          "int",
+          "...\u00d7770"
+        ],
+        "linear_equation": [
+          "str('y = 0.96x + 328.39')",
+          "...\u00d7770"
+        ],
+        "allele_1_mismatches": [
+          "str('2 (0.39%)')",
+          "...\u00d7770"
+        ],
+        "allele_2_mismatches": [
+          "str('17 (3.26%)')",
+          "...\u00d7770"
+        ],
+        "hover_text": [
+          "str(len=363)",
+          "...\u00d7770"
+        ]
+      },
+      "serotype_info": {
+        "A*66:02": {
+          "allele": "str('A*66:02')",
+          "antigen": "str('A6602')",
+          "broad": "str('A10')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        },
+        "A*36:01": {
+          "allele": "str('A*36:01')",
+          "antigen": "str('A36')",
+          "broad": "str('A36')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        },
+        "A*24:03": {
+          "allele": "str('A*24:03')",
+          "antigen": "str('A2403')",
+          "broad": "str('A9')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "str('Bw4')"
+        },
+        "A*01:02": {
+          "allele": "str('A*01:02')",
+          "antigen": "str('A1')",
+          "broad": "str('A1')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        },
+        "A*02:01": {
+          "allele": "str('A*02:01')",
+          "antigen": "str('A0201')",
+          "broad": "str('A2')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        },
+        "A*01:01": {
+          "allele": "str('A*01:01')",
+          "antigen": "str('A1')",
+          "broad": "str('A1')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        },
+        "A*26:02": {
+          "allele": "str('A*26:02')",
+          "antigen": "str('A2601')",
+          "broad": "str('A10')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        },
+        "A*03:02": {
+          "allele": "str('A*03:02')",
+          "antigen": "str('A0301')",
+          "broad": "str('A3')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        },
+        "A*66:01": {
+          "allele": "str('A*66:01')",
+          "antigen": "str('A6601')",
+          "broad": "str('A10')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        },
+        "A*29:02": {
+          "allele": "str('A*29:02')",
+          "antigen": "str('A2902')",
+          "broad": "str('A19')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        },
+        "A*68:02": {
+          "allele": "str('A*68:02')",
+          "antigen": "str('A6801')",
+          "broad": "str('A28')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        },
+        "A*29:01": {
+          "allele": "str('A*29:01')",
+          "antigen": "str('A2901')",
+          "broad": "str('A19')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        },
+        "A*34:02": {
+          "allele": "str('A*34:02')",
+          "antigen": "str('A3402')",
+          "broad": "str('A10')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        },
+        "A*26:03": {
+          "allele": "str('A*26:03')",
+          "antigen": "str('A2603')",
+          "broad": "str('A10')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        },
+        "A*23:01": {
+          "allele": "str('A*23:01')",
+          "antigen": "str('A2301')",
+          "broad": "str('A9')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "str('Bw4')"
+        },
+        "A*11:02": {
+          "allele": "str('A*11:02')",
+          "antigen": "str('A11')",
+          "broad": "str('A11')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        },
+        "A*02:07": {
+          "allele": "str('A*02:07')",
+          "antigen": "str('A0201')",
+          "broad": "str('A2')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        },
+        "A*31:01": {
+          "allele": "str('A*31:01')",
+          "antigen": "str('A3101')",
+          "broad": "str('A19')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        },
+        "A*02:05": {
+          "allele": "str('A*02:05')",
+          "antigen": "str('A0202')",
+          "broad": "str('A2')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        },
+        "A*33:03": {
+          "allele": "str('A*33:03')",
+          "antigen": "str('A3303')",
+          "broad": "str('A19')",
+          "qualifiers": "str('F')",
+          "bw4_bw6": "null"
+        }
+      },
+      "error": "null"
+    },
+    "response_size_bytes": 379804,
+    "score": 11.0,
+    "score_reasons": [
+      "same-origin",
+      "path:/api/",
+      "path:/correlation",
+      "json-379804B",
+      "POST-with-payload",
+      "200-OK"
+    ]
+  },
+  {
+    "method": "POST",
+    "url": "https://marco.igen.org.br/api/analyze",
+    "resource_type": "fetch",
+    "status": 200,
+    "request_post_data": "{\"manufacturer\":null,\"lot\":null,\"lots\":[],\"kits\":[],\"sex\":null,\"pregnancies\":null,\"transfusions\":null,\"transplants\":null,\"mfi_positive_cutoff\":1500,\"mfi_negative_cutoff\":300,\"allele_1\":\"A*01:01\",\"allele_2\":\"A*01:02\"}",
+    "response_shape": {
+      "success": "bool",
+      "result": {
+        "allele_1": "str('A*01:01')",
+        "allele_2": "str('A*01:02')",
+        "total_samples": "int",
+        "one_lambda_standard_explex_samples": "int",
+        "one_lambda_standard_samples": "int",
+        "immucor_standard_samples": "int",
+        "linear_equation": "str('y = 0.935x + 266.971')",
+        "r_squared": "float",
+        "correlation": "float",
+        "correlation_type": "str('Spearman')",
+        "allele_1_positive_count": "int",
+        "allele_2_positive_count": "int",
+        "allele_1_mismatches": {
+          "count": "int",
+          "percentage_of_positive": "float",
+          "percentage_of_total": "float"
+        },
+        "allele_2_mismatches": {
+          "count": "int",
+          "percentage_of_positive": "float",
+          "percentage_of_total": "float"
+        },
+        "mismatch_details": [
+          {
+            "chain": "str('A')",
+            "total_mismatches": "int",
+            "total_solvent_accessible_mismatches": "int",
+            "amino_acid_profile_allele_1": "str('9F, [17R]')",
+            "amino_acid_profile_allele_2": "str('9S, [17S]')"
+          },
+          "...\u00d71"
+        ],
+        "serotype_info": [
+          {
+            "allele": "str('A*01:01')",
+            "antigen": "str('A1')",
+            "qualifiers": "str('F')",
+            "broad": "str('A1')",
+            "bw4_bw6": "null"
+          },
+          "...\u00d72"
+        ]
+      },
+      "plot_data": [
+        {
+          "sample_id": "str('ID_025095')",
+          "allele_1_mfi": "float",
+          "allele_2_mfi": "float",
+          "point_class": "str('Other/Concordant')",
+          "manufacturer": "str('One Lambda')",
+          "kit": "str('Standard+ExPlex')"
+        },
+        "...\u00d71306"
+      ],
+      "error": "null"
+    },
+    "response_size_bytes": 202202,
+    "score": 9.5,
+    "score_reasons": [
+      "same-origin",
+      "path:/api/",
+      "json-202202B",
+      "response-has-array",
+      "POST-with-payload",
+      "200-OK"
+    ]
+  },
+  {
+    "method": "GET",
+    "url": "https://marco.igen.org.br/api/options",
+    "resource_type": "fetch",
+    "status": 200,
+    "request_post_data": null,
+    "response_shape": {
+      "allele_options": [
+        "str('A*01:01')",
+        "...\u00d7318"
+      ],
+      "manufacturers": [
+        "str('Immucor')",
+        "...\u00d72"
+      ],
+      "sex_options": [
+        "str('Female')",
+        "...\u00d72"
+      ],
+      "matrix_options": {
+        "OneLambda": [
+          "str('A')",
+          "...\u00d78"
+        ],
+        "Immucor": [
+          "str('A')",
+          "...\u00d78"
+        ],
+        "All_Manufacturers_Kits": [
+          "str('A')",
+          "...\u00d78"
+        ]
+      },
+      "transfusion_options": [
+        "str('All')",
+        "...\u00d74"
+      ],
+      "transplant_options": [
+        "str('All')",
+        "...\u00d73"
+      ],
+      "pregnancy_options": [
+        "str('All')",
+        "...\u00d73"
+      ],
+      "lot_options": [
+        "str('1')",
+        "...\u00d717"
+      ],
+      "lot_multiselect_options": [
+        {
+          "value": "str('1')",
+          "label": "str('Lot 1')"
+        },
+        "...\u00d717"
+      ],
+      "kit_options": [
+        "str('Standard')",
+        "...\u00d72"
+      ],
+      "kit_multiselect_options": [
+        {
+          "value": "str('Standard')",
+          "label": "str('Standard')"
+        },
+        "...\u00d72"
+      ]
+    },
+    "response_size_bytes": 6353,
+    "score": 8.0,
+    "score_reasons": [
+      "same-origin",
+      "path:/api/",
+      "json-6353B",
+      "response-has-array",
+      "200-OK"
+    ]
+  }
+]

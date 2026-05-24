@@ -1,0 +1,21 @@
+# Biomed-serology notebook scaffold dependencies.
+# Tabular + sequence-feature workflows. No scanpy / squidpy / torch by default
+# (this is HLA serology, not single-cell or graph-based work).
+
+numpy>=1.24
+pandas>=2.0
+matplotlib>=3.7
+scikit-learn>=1.3
+scipy>=1.10
+xgboost>=2.0
+biopython>=1.81
+
+# Web acquisition (for MARCo / IPD-IMGT/HLA scraping if no API exposed)
+requests>=2.31
+beautifulsoup4>=4.12
+
+# Optional: uncomment for neural-net comparison or interactive exploration
+# torch>=2.1
+# lightgbm>=4.0
+
+jupyter>=1.0

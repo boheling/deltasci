@@ -1,0 +1,118 @@
+{
+  "title": "Multi-task GNN spinel cathode screen + closed-loop synthesis validation",
+  "summary": "Train a multi-task M3GNet-class GNN on the MP spinel and spinel-adjacent subset for {voltage, decomp_temp, hull_distance}. Apply screen to extended composition space; pick top-20 candidates; synthesize + characterize; report hit-rate against the 4.0V/180\u00b0C threshold pair.",
+  "data_acquisition": {
+    "primary_dataset": "Materials Project full catalog (filtered to oxide and oxofluoride spinels and spinel-adjacent space groups)",
+    "accession_or_url": "https://materialsproject.org via pymatgen.ext.matproj API",
+    "access_constraints": "free, requires MP API key (registration only)",
+    "fallback_datasets": [
+      "AFLOW",
+      "OQMD",
+      "ICSD experimental crystal structures (paywalled)"
+    ]
+  },
+  "steps": [
+    {
+      "order": 1,
+      "name": "Spinel subset extraction",
+      "description": "Query MP for entries with prototype spinel topology; supplement with spinel-adjacent space groups.",
+      "inputs": [
+        "MP catalog"
+      ],
+      "outputs": [
+        "spinel structure list"
+      ],
+      "method_citations": [
+        "github.com/materialsproject/pymatgen"
+      ]
+    },
+    {
+      "order": 2,
+      "name": "Decomp-temp label harvesting",
+      "description": "Mine experimental DSC/TGA decomp temps from thermochemistry tables and DFT-MD literature.",
+      "inputs": [
+        "spinel structure list"
+      ],
+      "outputs": [
+        "decomp temp labels"
+      ],
+      "method_citations": [
+        "NIST WebBook"
+      ]
+    },
+    {
+      "order": 3,
+      "name": "Featurization",
+      "description": "Crystal graph + Voronoi neighbors via pymatgen; Goldschmidt + Hume-Rothery features.",
+      "inputs": [
+        "structures"
+      ],
+      "outputs": [
+        "graph + tabular features"
+      ],
+      "method_citations": [
+        "github.com/materialsproject/pymatgen",
+        "Xie & Grossman 2018, Phys Rev Lett 120:145301"
+      ]
+    },
+    {
+      "order": 4,
+      "name": "Multi-task GNN training",
+      "description": "M3GNet-class encoder + 3-head MLP with task-weighted MSE.",
+      "inputs": [
+        "features",
+        "labels"
+      ],
+      "outputs": [
+        "trained model"
+      ],
+      "method_citations": [
+        "Chen & Ong 2022, Nat Comput Sci 2:718"
+      ]
+    },
+    {
+      "order": 5,
+      "name": "Candidate ranking",
+      "description": "Apply trained model to extended composition space; rank by joint posterior over thresholds.",
+      "inputs": [
+        "trained model",
+        "candidate compositions"
+      ],
+      "outputs": [
+        "top-20 ranked list"
+      ],
+      "method_citations": []
+    },
+    {
+      "order": 6,
+      "name": "Closed-loop synthesis + characterization",
+      "description": "Synthesize top-20 with experimental partner; measure voltage (galvanostatic) + decomp temp (TGA).",
+      "inputs": [
+        "top-20 list"
+      ],
+      "outputs": [
+        "measured properties",
+        "hit-rate"
+      ],
+      "method_citations": []
+    }
+  ],
+  "primary_metric": "Top-20 synthesis hit-rate (fraction of top-20 candidates with measured V > 4.0V AND decomp > 180\u00b0C)",
+  "success_threshold": "Top-20 hit-rate >= 30% on held-out discovery cohort, compared to <15% expected from random spinel selection",
+  "null_outcome": "Top-20 hit-rate < 15% falsifies the hypothesis",
+  "baselines": [
+    "CGCNN single-task voltage screen",
+    "MEGNet single-task voltage screen",
+    "hull-distance-only filter",
+    "random selection from MP spinel set"
+  ],
+  "compute": {
+    "hardware": "1\u00d7 A100 (24GB)",
+    "estimated_runtime": "~6h training, minutes inference",
+    "storage": "~100GB MP-cache + features",
+    "cost_estimate": "~$30 GPU + experimental partner cost"
+  },
+  "timeline_estimate": "ML stack: 4-6 weeks. Experimental closed-loop: 6-12 months for synthesis + characterization.",
+  "sample_size_justification": "MP spinel subset ~500-2000 entries with voltage labels. Decomp-temp labels likely <500. Closed-loop test cohort: 10-20 candidates is the realistic budget for an academic experimental partner.",
+  "citations": []
+}

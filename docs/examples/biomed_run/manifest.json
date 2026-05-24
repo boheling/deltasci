@@ -1,0 +1,27 @@
+{
+  "deltasci_version": "0.3.0",
+  "pack": "biomed",
+  "model": "mock-llm-v1",
+  "stages": {
+    "idea": "00_idea.md",
+    "framing": "01_framing/",
+    "engineering": "02_engineering/",
+    "refinement": "03_refinement/",
+    "plan": "04_plan/",
+    "synthesis": "05_synthesis/",
+    "protocol": "06_protocol/",
+    "risks": "07_risks/",
+    "audits": "08_audits/",
+    "notebook": "10_notebook/"
+  },
+  "counts": {
+    "evidence_well_covered": 16,
+    "evidence_sparse": 6,
+    "knowledge_gaps": 7,
+    "novel_syntheses": 3,
+    "audit_verified": 7,
+    "audit_failed": 0,
+    "challenge_findings": 5,
+    "notebook_cells": 20
+  }
+}
