@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeltaScience — Live co-reasoning room (prototype)</title>
+<meta name="description" content="Ideation through dialogue, verified in real time. Two agents reason; a verifier checks every claim against the real record; you fill the gaps only you can.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fafaf7'/%3E%3Cpath d='M16 6 L26 25 L6 25 Z' fill='none' stroke='%232a6f6f' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fafaf7; --paper:#ffffff; --ink:#1a1a1a;
+    --muted:rgba(26,26,26,.62); --faint:rgba(26,26,26,.42);
+    --line:rgba(26,26,26,.12); --line-soft:rgba(26,26,26,.07);
+    --teal:#2a6f6f; --teal-deep:#245f5f; --teal-soft:rgba(42,111,111,.08);
+    --fail:#a8443a; --fail-soft:rgba(168,68,58,.07);
+    --amber:#8a6310; --amber-soft:rgba(138,99,16,.08);
+    --gap:#3a5775; --gap-soft:rgba(58,87,117,.08);
+    --novel:#6d3f6b; --novel-soft:rgba(109,63,107,.07);
+    --serif:"Source Serif 4",Georgia,serif;
+    --sans:"Geist",-apple-system,system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--serif);
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .mono{font-family:var(--mono);}
+
+  /* top bar */
+  header{position:sticky;top:0;z-index:30;background:rgba(250,250,247,.9);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line-soft);}
+  .bar{max-width:1180px;margin:0 auto;padding:11px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .logo{display:flex;align-items:center;gap:.5rem;font-family:var(--sans);font-weight:600;font-size:15px;}
+  .logo .room{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);
+    border:1px solid var(--teal);border-radius:4px;padding:.2rem .5rem;margin-left:.3rem;}
+  .proto{font-family:var(--mono);font-size:11px;color:var(--faint);margin-left:auto;letter-spacing:.04em;}
+
+  .stage{max-width:1180px;margin:0 auto;padding:22px 24px 80px;display:grid;grid-template-columns:1fr 332px;gap:26px;align-items:start;}
+  @media(max-width:880px){.stage{grid-template-columns:1fr;}}
+
+  /* idea bar */
+  .idea{grid-column:1/-1;border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:14px 18px;
+    display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;}
+  .idea .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);flex:none;}
+  .idea .txt{font-size:16.5px;}
+  .idea .restart{margin-left:auto;font-family:var(--sans);font-size:12.5px;border:1px solid var(--line);
+    background:none;border-radius:6px;padding:.4rem .8rem;cursor:pointer;color:var(--ink);transition:.15s;}
+  .idea .restart:hover{border-color:var(--teal);color:var(--teal);}
+
+  /* conversation */
+  .convo{display:flex;flex-direction:column;gap:16px;min-height:60px;}
+  .msg{opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease;}
+  .msg.in{opacity:1;transform:none;}
+  .msg .who{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);
+    margin-bottom:7px;display:flex;align-items:center;gap:.5rem;}
+  .who .dot{width:7px;height:7px;border-radius:50%;display:inline-block;}
+  .msg.sci .who .dot{background:var(--teal);} .msg.sci .who b{color:var(--teal);}
+  .msg.eng .who .dot{background:var(--gap);} .msg.eng .who b{color:var(--gap);}
+  .msg.you .who .dot{background:var(--ink);} .msg.you .who b{color:var(--ink);}
+  .bubble{border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:14px 16px;font-size:16px;line-height:1.62;}
+  .msg.sci .bubble{border-left:3px solid var(--teal);}
+  .msg.eng .bubble{border-left:3px solid var(--gap);}
+  .msg.you .bubble{border-left:3px solid var(--ink);background:var(--cream);}
+  .struck{text-decoration:line-through;color:var(--faint);}
+
+  /* inline chips */
+  .chip{font-family:var(--mono);font-size:11.5px;padding:.08em .45em;border-radius:4px;border:1px solid;white-space:nowrap;
+    display:inline-flex;align-items:center;gap:.35em;vertical-align:baseline;}
+  .chip.checking{color:var(--muted);border-color:var(--line);background:rgba(26,26,26,.03);}
+  .chip.checking .spin{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--line);border-top-color:var(--teal);
+    display:inline-block;animation:spin .7s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .chip.verified{color:var(--teal);border-color:var(--teal);background:var(--teal-soft);}
+  .chip.sparse{color:var(--amber);border-color:rgba(138,99,16,.4);background:var(--amber-soft);}
+  .chip.fabricated{color:var(--fail);border-color:var(--fail);background:var(--fail-soft);}
+  .chip.gap{color:var(--gap);border-color:rgba(58,87,117,.4);background:var(--gap-soft);}
+  .chip.novel{color:var(--novel);border-color:rgba(109,63,107,.4);background:var(--novel-soft);}
+  .chip.flash{animation:flash .5s ease;}
+  @keyframes flash{0%{transform:scale(1);}40%{transform:scale(1.12);}100%{transform:scale(1);}}
+
+  /* your-turn prompt */
+  .turn-prompt{opacity:0;transform:translateY(8px);transition:.4s;border:1.5px solid var(--ink);border-radius:12px;
+    background:var(--paper);padding:16px 18px;box-shadow:0 4px 18px rgba(26,26,26,.06);}
+  .turn-prompt.in{opacity:1;transform:none;}
+  .turn-prompt .hd{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);
+    display:flex;align-items:center;gap:.5rem;margin-bottom:8px;}
+  .turn-prompt .hd .pulse{width:8px;height:8px;border-radius:50%;background:var(--ink);animation:pulse 1.2s ease infinite;}
+  @keyframes pulse{0%,100%{opacity:.3;}50%{opacity:1;}}
+  .turn-prompt .q{font-size:16.5px;margin-bottom:6px;}
+  .turn-prompt .sub{font-size:13.5px;color:var(--muted);margin-bottom:12px;}
+  .turn-prompt .row{display:flex;gap:10px;flex-wrap:wrap;}
+  .turn-prompt input{flex:1;min-width:200px;font-family:var(--serif);font-size:15px;padding:.6rem .8rem;
+    border:1px solid var(--line);border-radius:7px;background:var(--cream);color:var(--ink);}
+  .turn-prompt input:focus{outline:none;border-color:var(--teal);}
+  .turn-prompt button{font-family:var(--sans);font-weight:500;font-size:14px;background:var(--ink);color:var(--cream);
+    border:none;border-radius:7px;padding:.6rem 1.1rem;cursor:pointer;transition:.15s;}
+  .turn-prompt button:hover{background:var(--teal);}
+  .turn-prompt .hint{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:9px;}
+
+  /* right rail */
+  .rail{position:sticky;top:74px;display:flex;flex-direction:column;gap:16px;}
+  @media(max-width:880px){.rail{position:static;}}
+  .panel{border:1px solid var(--line);border-radius:12px;background:var(--paper);overflow:hidden;}
+  .panel .ph{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    padding:11px 15px;border-bottom:1px solid var(--line-soft);display:flex;align-items:center;justify-content:space-between;}
+  .panel .ph .live{color:var(--teal);display:flex;align-items:center;gap:.4rem;font-size:10px;}
+  .panel .ph .live .d{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 1.4s infinite;}
+
+  /* verifier log */
+  .vlog{padding:8px 14px;display:flex;flex-direction:column;gap:2px;max-height:300px;overflow-y:auto;}
+  .vline{font-family:var(--mono);font-size:11.5px;line-height:1.5;padding:6px 0;border-bottom:1px solid var(--line-soft);
+    opacity:0;transform:translateY(4px);transition:.3s;}
+  .vline:last-child{border-bottom:none;}
+  .vline.in{opacity:1;transform:none;}
+  .vline .id{color:var(--ink);}
+  .vline .st{display:block;margin-top:2px;}
+  .vline .st.checking{color:var(--muted);}
+  .vline .st.verified{color:var(--teal);}
+  .vline .st.sparse{color:var(--amber);}
+  .vline .st.fabricated{color:var(--fail);}
+  .vline .note{color:var(--faint);}
+
+  /* tally */
+  .tally{padding:13px 15px;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .tally .t{display:flex;align-items:baseline;gap:.45rem;}
+  .tally .t .n{font-family:var(--mono);font-size:20px;font-weight:500;}
+  .tally .t .l{font-family:var(--sans);font-size:11.5px;color:var(--muted);}
+  .tally .t.v .n{color:var(--teal);} .tally .t.s .n{color:var(--amber);}
+  .tally .t.f .n{color:var(--fail);} .tally .t.g .n{color:var(--gap);}
+
+  /* hypothesis card */
+  .hyp{padding:15px;opacity:.45;transition:opacity .5s;}
+  .hyp.live{opacity:1;}
+  .hyp .stat{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:9px;}
+  .hyp .htitle{font-family:var(--serif);font-weight:600;font-size:16px;line-height:1.3;margin-bottom:10px;color:var(--ink);}
+  .hyp .thresh{font-family:var(--mono);font-size:12px;color:var(--teal);background:var(--teal-soft);border:1px solid rgba(42,111,111,.3);
+    border-radius:5px;padding:7px 10px;line-height:1.45;}
+  .hyp .seal{margin-top:11px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--teal);display:inline-flex;align-items:center;gap:.4rem;opacity:0;transition:.5s;}
+  .hyp .seal.in{opacity:1;}
+  .hyp .placeholder{font-size:14px;color:var(--faint);font-style:italic;}
+
+  .cursor{display:inline-block;width:8px;height:1.05em;background:var(--ink);vertical-align:text-bottom;
+    margin-left:1px;animation:blink 1s step-end infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}.msg,.vline,.turn-prompt{opacity:1!important;transform:none!important;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <span class="logo">
+      <svg width="19" height="19" viewBox="0 0 32 32"><path d="M16 6 L26 25 L6 25 Z" fill="none" stroke="#2a6f6f" stroke-width="2.6" stroke-linejoin="round"/></svg>
+      DeltaScience <span class="room">Live room</span>
+    </span>
+    <span class="proto">prototype · scripted demo · illustrative</span>
+  </div>
+</header>
+
+<div class="stage">
+  <div class="idea">
+    <span class="lab">Idea</span>
+    <span class="txt">Predict checkpoint-immunotherapy non-response in TFE3-fusion osteosarcoma from spatial transcriptomics.</span>
+    <button class="restart" id="restart">↻ Replay</button>
+  </div>
+  <div style="grid-column:1/-1;font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-top:-12px;line-height:1.55;">▷ No fixed round limit. The room keeps reasoning until the hypothesis clears every gate: falsifiable · gaps filled · citations audited.</div>
+
+  <div class="convo" id="convo"></div>
+
+  <aside class="rail">
+    <div class="panel">
+      <div class="ph">Verifier <span class="live"><span class="d"></span>live</span></div>
+      <div class="vlog" id="vlog"></div>
+    </div>
+    <div class="panel">
+      <div class="ph">Run tally</div>
+      <div class="tally">
+        <div class="t v"><span class="n" id="t-v">0</span><span class="l">verified</span></div>
+        <div class="t s"><span class="n" id="t-s">0</span><span class="l">sparse</span></div>
+        <div class="t f"><span class="n" id="t-f">0</span><span class="l">fabricated</span></div>
+        <div class="t g"><span class="n" id="t-g">0</span><span class="l">gaps you filled</span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="ph">Hypothesis</div>
+      <div class="hyp" id="hyp">
+        <div class="stat">assembling…</div>
+        <div class="placeholder">Forms as the room converges on a falsifiable prediction.</div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<script>
+const convo = document.getElementById('convo');
+const vlog = document.getElementById('vlog');
+const hyp = document.getElementById('hyp');
+const tallyEl = {v:document.getElementById('t-v'),s:document.getElementById('t-s'),f:document.getElementById('t-f'),g:document.getElementById('t-g')};
+let tally = {v:0,s:0,f:0,g:0};
+let timers = [];
+const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+const sleep = ms => new Promise(r => timers.push(setTimeout(r, reduce?Math.min(ms,80):ms)));
+function bumpTally(k){ tally[k]++; tallyEl[k].textContent = tally[k]; }
+
+function addMsg(role, who, html){
+  const m = document.createElement('div');
+  m.className = 'msg '+role;
+  m.innerHTML = `<div class="who"><span class="dot"></span><b>${who}</b></div><div class="bubble">${html}</div>`;
+  convo.appendChild(m);
+  requestAnimationFrame(()=>m.classList.add('in'));
+  m.scrollIntoView({behavior:reduce?'auto':'smooth', block:'end'});
+  return m;
+}
+function addVline(id){
+  const v = document.createElement('div');
+  v.className = 'vline';
+  v.innerHTML = `<span class="id">${id}</span><span class="st checking">checking…</span>`;
+  vlog.appendChild(v);
+  requestAnimationFrame(()=>v.classList.add('in'));
+  vlog.scrollTop = vlog.scrollHeight;
+  return v;
+}
+function resolveVline(v, cls, text){ const st=v.querySelector('.st'); st.className='st '+cls; st.innerHTML=text; }
+function setChip(chip, cls, html){ chip.className='chip '+cls+' flash'; chip.innerHTML=html; }
+
+let waitResolve = null;
+function awaitHuman(){ return new Promise(r=>{ waitResolve = r; }); }
+
+async function run(){
+  await sleep(500);
+
+  // R1 — Domain Scientist
+  const m1 = addMsg('sci','Domain scientist · R1 framing',
+    `Non-response to checkpoint therapy in TFE3-fusion osteosarcoma tracks with an immune-excluded niche. <span class="chip checking" id="c1"><span class="spin"></span>PMID 28765432</span>`);
+  const v1 = addVline('PMID 28765432');
+  await sleep(1500);
+  setChip(document.getElementById('c1'),'verified','✓ verified');
+  resolveVline(v1,'verified','✓ verified · title, year, journal match');
+  bumpTally('v');
+  await sleep(700);
+
+  // R1 — the gap
+  const m1b = addMsg('sci','Domain scientist · R1 framing',
+    `But the spatial wiring of that niche <em>in this fusion subtype</em> is <span class="chip gap">KNOWLEDGE_GAP</span> — it lives in unpublished pilot cohorts, not the literature.`);
+  await sleep(650);
+
+  // YOUR TURN
+  const prompt = document.createElement('div');
+  prompt.className = 'turn-prompt';
+  prompt.innerHTML = `
+    <div class="hd"><span class="pulse"></span>Your turn — only you can answer this</div>
+    <div class="q">Do you have spatial / niche data for the TFE3-fusion subtype?</div>
+    <div class="sub">The verifier can't fetch this. It's yours. Your answer enters the record as researcher-provided, not something to audit.</div>
+    <div class="row">
+      <input id="gapInput" type="text" placeholder="e.g. 32 slides, in-house, unpublished" autocomplete="off">
+      <button id="gapSend">Add to record →</button>
+    </div>
+    <div class="hint">prototype: type anything, or just hit the button</div>`;
+  convo.appendChild(prompt);
+  requestAnimationFrame(()=>prompt.classList.add('in'));
+  prompt.scrollIntoView({behavior:reduce?'auto':'smooth', block:'end'});
+  const input = prompt.querySelector('#gapInput');
+  const send = prompt.querySelector('#gapSend');
+  input.focus();
+  const submit = ()=>{ if(waitResolve){ const val=input.value.trim()||'32 slides, in-house, unpublished'; waitResolve(val); waitResolve=null; } };
+  send.addEventListener('click', submit);
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter') submit(); });
+  const answer = await awaitHuman();
+  prompt.remove();
+  addMsg('you','You · researcher','<span class="chip gap" style="margin-right:.4em">RESEARCHER-PROVIDED</span> '+answer.replace(/</g,'&lt;')+'.');
+  bumpTally('g');
+  await sleep(800);
+
+  // R2 — ML Engineer, verified claim
+  const m2 = addMsg('eng','ML engineer · R2 engineering',
+    `Good — that cohort is enough to fine-tune. Model the niche as cell-neighborhood graphs; a graph attention network over them has precedent. <span class="chip checking" id="c2"><span class="spin"></span>PMID 30013049</span>`);
+  const v2 = addVline('PMID 30013049');
+  await sleep(1450);
+  setChip(document.getElementById('c2'),'verified','✓ verified');
+  resolveVline(v2,'verified','✓ verified · metadata matches');
+  bumpTally('v');
+  await sleep(750);
+
+  // R2 — the FABRICATED claim (money moment)
+  const m3 = addMsg('eng','ML engineer · R2 engineering',
+    `And spatial transcriptomics already predicts immunotherapy response in osteosarcoma. <span class="chip checking" id="c3"><span class="spin"></span>PMID 31452104</span>`);
+  const v3 = addVline('PMID 31452104');
+  await sleep(1900);
+  setChip(document.getElementById('c3'),'fabricated','✗ fabricated');
+  resolveVline(v3,'fabricated','✗ FABRICATED · real PMID 31452104 is a 2019 RNA-seq normalization methods paper. <span class="note">title ✗ year ✗ journal ✗</span>');
+  bumpTally('f');
+  await sleep(500);
+  // strike the unsupported sentence
+  const bub = m3.querySelector('.bubble');
+  bub.innerHTML = `<span class="struck">And spatial transcriptomics already predicts immunotherapy response in osteosarcoma.</span> <span class="chip fabricated">✗ claim dropped</span>`;
+  await sleep(700);
+  addMsg('eng','ML engineer · R2 engineering',
+    `Struck. Without that, the cohort is small, so we pretrain on a public spatial atlas and fine-tune. <span class="chip sparse">CLAIM sparse</span>`);
+  bumpTally('s');
+  await sleep(900);
+
+  // R3 — Scientist, novel synthesis + falsifiable
+  addMsg('sci','Domain scientist · R3 refinement',
+    `Then make it falsifiable: the niche-composition score must separate responders from non-responders at <strong>AUROC ≥ 0.75</strong> in held-out patients, with attention tied to known immune-exclusion markers. <span class="chip novel">NOVEL_SYNTHESIS</span>`);
+  await sleep(950);
+
+  // Final — Engineer, converged
+  addMsg('eng','ML engineer · converged',
+    `The gates pass, so the room stops here — no fixed round count. Six-step protocol, ranked risk register, and a challenger pass; everything cited gets re-verified before this leaves the room.`);
+  await sleep(700);
+
+  // hypothesis assembles
+  hyp.classList.add('live');
+  hyp.innerHTML = `
+    <div class="stat">converged · falsifiable</div>
+    <div class="htitle">Spatial niche-composition predicts checkpoint non-response in TFE3-fusion osteosarcoma.</div>
+    <div class="thresh">Falsifiable: niche-composition score separates responders vs non-responders at AUROC ≥ 0.75 in held-out patients.</div>
+    <div class="seal" id="seal">✓ defensible · 1 fabrication caught · 1 gap you filled</div>`;
+  await sleep(450);
+  requestAnimationFrame(()=>document.getElementById('seal').classList.add('in'));
+}
+
+function reset(){
+  timers.forEach(clearTimeout); timers=[];
+  convo.innerHTML=''; vlog.innerHTML='';
+  tally={v:0,s:0,f:0,g:0}; Object.values(tallyEl).forEach(e=>e.textContent='0');
+  hyp.classList.remove('live');
+  hyp.innerHTML='<div class="stat">assembling…</div><div class="placeholder">Forms as the room converges on a falsifiable prediction.</div>';
+  waitResolve=null;
+  run();
+}
+document.getElementById('restart').addEventListener('click', reset);
+run();
+</script>
+</body>
+</html>
