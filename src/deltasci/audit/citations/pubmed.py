@@ -12,6 +12,7 @@ from __future__ import annotations
 
 from deltasci.audit.base import AuditFinding, Auditor
 from deltasci.audit.citations._match import (
+    claim_asserts_metadata,
     first_author_in_claim,
     journal_close_match,
     title_close_match,
@@ -71,18 +72,19 @@ class PubMedAuditor(Auditor):
         actual_year = (result.get("pubdate") or "")[:4]
         actual_journal = result.get("fulljournalname") or result.get("source") or ""
 
-        reasons: list[str] = []
-        if not title_close_match(claim_source, actual_title):
-            reasons.append(f"title differs: AI claim does not contain >50% of tokens from actual title {actual_title!r}")
-        if not first_author_in_claim(actual_authors, claim_source):
-            reasons.append(
-                f"first-author mismatch: actual first author {actual_authors[0] if actual_authors else '?'!r} "
-                f"not present in AI claim"
+        # An esummary "record" with no title, authors, or date is a stub/error for a
+        # numerically-valid-but-nonexistent PMID — treat as not-found (fabricated), not
+        # a metadata mismatch, so all verifiers agree on the FABRICATED verdict.
+        if not actual_title and not actual_authors and not actual_year:
+            return AuditFinding(
+                target_kind="citation",
+                target_summary=claim_source,
+                auditor_name=self.name,
+                status="mismatch",
+                fetched_metadata={"pmid": identifier.value, "found": False},
+                mismatch_reasons=[f"PMID {identifier.value} not found in PubMed"],
+                confidence="high",
             )
-        if not year_in_claim(actual_year, claim_source):
-            reasons.append(f"year mismatch: actual year {actual_year!r} not in AI claim")
-        if not journal_close_match(actual_journal, claim_source):
-            reasons.append(f"journal mismatch: actual journal {actual_journal!r} not in AI claim")
 
         fetched = {
             "pmid": identifier.value,
@@ -92,6 +94,20 @@ class PubMedAuditor(Auditor):
             "journal": actual_journal,
             "url": f"https://pubmed.ncbi.nlm.nih.gov/{identifier.value}/",
         }
+
+        reasons: list[str] = []
+        if claim_asserts_metadata(claim_source, identifier):
+            if not title_close_match(claim_source, actual_title):
+                reasons.append(f"title differs: AI claim does not contain >50% of tokens from actual title {actual_title!r}")
+            if not first_author_in_claim(actual_authors, claim_source):
+                reasons.append(
+                    f"first-author mismatch: actual first author {actual_authors[0] if actual_authors else '?'!r} "
+                    f"not present in AI claim"
+                )
+            if not year_in_claim(actual_year, claim_source):
+                reasons.append(f"year mismatch: actual year {actual_year!r} not in AI claim")
+            if not journal_close_match(actual_journal, claim_source):
+                reasons.append(f"journal mismatch: actual journal {actual_journal!r} not in AI claim")
 
         if reasons:
             return AuditFinding(

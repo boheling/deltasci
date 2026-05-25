@@ -2,6 +2,73 @@
 
 All notable changes to DeltaScience will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.9.0] — 2026-05-25
+
+The principle behind this release: **researchers don't paste a citation — they read a paper, where citations are numbers in the body and the real references sit in a bibliography at the bottom. So `verify` couldn't check a real paper: a pasted paragraph has `[12]`, not a PMID. This release adds whole-paper verification: upload a PDF (or paste full text), and DeltaScience parses the bibliography, resolves every reference to a real record, links each in-text marker to its reference, and checks each citation in the context of the sentence that cites it.**
+
+### Added
+
+- **Whole-paper verification** (`deltasci/paper.py`): `verify_paper(text)` splits body/bibliography, parses numbered references, detects in-text `[n]` / `[1,3-5]` markers, links marker → reference → claim sentence, resolves each reference, and verifies each citation *in context*. Returns a per-reference `PaperReport`.
+- **PDF input**: `deltasci verify --pdf paper.pdf` (paper mode). Text extraction via PyMuPDF (optional `deltasci[pdf]` extra). Also `--paper` to treat `--text`/`--file`/stdin as a whole paper, and `--max-references N` to cap a large bibliography for a fast first pass.
+- **Crossref title→DOI resolution** (`resolve_reference`): a bibliography entry with no embedded DOI/PMID/arXiv is resolved via Crossref bibliographic search, accepted only when the candidate title overlaps the reference text (guards against confidently-wrong matches). This is what makes "the real paper at the bottom" checkable.
+- **Web PDF upload**: the `/verify` page now has a "verify a whole paper (PDF)" uploader; `/api/verify-paper` runs paper mode and renders one card per citation — verdict, the verifiers that ran, the in-text sentence it was *cited in*, and a "↗ view record" link to the real PubMed/DOI page.
+- **LLM fallback** (`deltasci/paper_llm.py`, opt-in via `--llm`): when deterministic numbered-reference parsing comes up short (e.g., author-year citations), an LLM structures the citations into (claim, source) pairs. Verification of each citation stays deterministic; the model is instructed never to fabricate identifiers.
+- **HTTP retry/backoff** (`audit/http.py`): transient 429 + 5xx + network errors are retried with exponential backoff, so a citation is reported `skipped` only when genuinely unreachable — not merely rate-limited. (Whole-paper runs hit many lookups; this makes them reliable.)
+
+### Changed / Fixed
+
+- **Author-format matching** (`first_author_in_claim`): now matches on the family name (first or last token, any length) plus distinctive tokens — fixing false "first-author mismatch" when a bibliography uses initials ("Gu SQ") but the record has the full name ("Si Qian Gu").
+- **Year-in-identifier false positive**: `claim_asserts_metadata` checks the year on the identifier-stripped text, so a DOI like `10.1109/CVPR.2016.90` no longer reads as an asserted year and triggers spurious metadata checks.
+- **Clean abstracts**: `fetch_abstract` now pulls the structured `ArticleTitle` + `AbstractText` via efetch XML — no citation header, author affiliations, or personal emails leaking into the "what the cited paper is about" display.
+- **Semantic Scholar dropped from `verify` without a key** (both support and no-support paths) — its keyless tier 429-spams and adds only noise; the other verifiers cover existence.
+- **Transient failures are no longer cached**, so a one-time rate-limit doesn't stick as a permanent `SKIPPED` on re-runs. Audit concurrency is configurable (`max_workers`) and raised for whole-paper runs (the verifiers hit different, independently-rate-limited hosts).
+
+### Test growth
+
+- **232 tests pass** (was 208 in v0.8.0; +24 covering paper parsing, in-text-marker/range mapping, Crossref resolution + the title-overlap guard, per-reference grouping, the LLM fallback (incl. "don't invoke the LLM when numbered parsing works"), and HTTP retry/backoff).
+
+### Known limitations
+
+- **arXiv-heavy (CS) papers**: the arXiv API is aggressively rate-limited, so arXiv-only references often report `SKIPPED`. Mapping arXiv IDs to their DataCite DOI (`10.48550/arXiv.*`) for verification via Crossref/OpenAlex is the planned fix. Biomedical papers (PubMed/Crossref/OpenAlex) verify reliably.
+- **Whole-paper runs are bounded** in the web UI (first 30 references) for responsiveness against free APIs; the CLI verifies all by default (slower for large bibliographies).
+- Paper mode currently targets **numbered** bibliographies deterministically; author-year and unusual formats rely on the opt-in `--llm` fallback.
+
+## [0.8.0] — 2026-05-24
+
+The principle behind this release: **the audit pillar is DeltaScience's most differentiated capability, but until now it could only run on DeltaScience's own output. An ecosystem scan of AI-scientist tools (Sakana AI-Scientist, AutoResearchClaw, EvoScientist, PaperQA2, Biomni, Dr. Claw, CMU/Google Coscientist) found that hallucinated and topically-wrong citations are the field's signature failure — and that nobody ships a standalone, embeddable verifier you can point at *any* LLM-generated scientific text. This release surfaces the audit engine as `deltasci verify`: paste a related-work section, a JSON list of claims, or a `.bib` file and get a per-claim verdict. The whole thing runs with zero provider API keys.**
+
+### Added
+
+- **`deltasci verify`** CLI subcommand — verify citations/claims in ANY text, not just a DeltaScience run. Reads from `--text`, `--file PATH`, or stdin (`--file -`). Sniffs the input format (`--format auto`) across four modes: DeltaScience `[CLAIM ... source="…"]` tags, untagged prose, a JSON `[{claim, source}]` array, or BibTeX. Output as terminal text, `--markdown`, or `--json`. Exit code `2` on any failed audit (CI-gate friendly), `0` otherwise.
+- **`deltasci.audit.intake`** module — the bridge from arbitrary input to auditable claims:
+  - `Claim` — a minimal `(claim, source)` dataclass that satisfies the runner's duck-type, so the verifier no longer needs an `EvidenceItem` / the hypothesis schema.
+  - `claims_from_source(text, fmt="auto")` + `from_tagged_text` / `from_text` / `from_records` / `from_bibtex` / `detect_format` / `split_stats`.
+  - Untagged mode keeps only sentences that cite a verifiable identifier; `split_stats()` reports how many sentences had no citation (honest "not checked" note).
+- **`deltasci.audit.support.ClaimSupportAuditor`** — a **deterministic** claim-to-abstract *support* check (salient-term overlap vs the cited PubMed abstract). Flags the BioIntel / AutoResearchClaw #258 failure where a real paper is cited for a claim it does not back ("likely citing the wrong paper"). No LLM, no API key. Conservative by design: abstains (`unverifiable`) on short claims, reports `medium` confidence (it's a heuristic, not an entailment proof), and defers quoted claims to the existing `QuoteInAbstractAuditor`. Opt-out with `--no-support`.
+- **`deltasci.audit.report_md`** — `render_findings_terminal` / `render_findings_md` mapping every finding to one of four researcher verdicts: `PASS` / `FABRICATED` / `METADATA-MISMATCH` / `UNSUPPORTED` (plus `UNVERIFIABLE` / `SKIPPED`).
+- **`verify_auditor()`** factory + new `"support"` target kind in the audit type system.
+- **MCP server** (`deltasci-mcp`, optional `deltasci[mcp]` extra) — exposes a single `verify_scientific_claims(text, format, check_support)` tool over stdio via the MCP SDK. This is the distribution play: any MCP client (Claude Code/Desktop, Cursor) or AI-scientist pipeline can verify generated citations **without forking DeltaScience**. Register with e.g. `claude mcp add deltasci-verify -- deltasci-mcp`.
+- **`deltasci.verify`** module — the shared, MCP/CLI-free core (`verify_text`, `verify_claims`, `verify_payload`) behind both the CLI and the MCP tool; the embeddable library entry point.
+- Top-level library exports: `Claim`, `ClaimSupportAuditor`, `claims_from_source`, `verify_auditor`, `verify_text`, `verify_claims`, `verify_payload` (so the verifier is embeddable, not just a CLI).
+
+### Changed
+
+- The audit engine is now decoupled from `deltasci.hypothesis`: `MultiLayerAuditor.audit()` accepts any iterable of `.claim`/`.source` objects (it always did by duck-typing; `Claim` makes it explicit and the package self-contained for a future standalone split).
+
+### Fixed
+
+- **Bare-identifier labeling consistency.** A free-text citation that is *just* an identifier (`arXiv:2502.14297`, `PMID 35562209`, a bare DOI) now verifies on **existence** (`PASS`) instead of manufacturing an author/year `METADATA-MISMATCH` against metadata the claim never asserted. New `claim_asserts_metadata()` gate in `audit/citations/_match.py`, applied uniformly across the PubMed/Crossref/OpenAlex/arXiv/Semantic Scholar verifiers — a real cite ("Zhou Y 2022, Nature Comms …") still flows through the full per-field checks, preserving the BioIntel catch. The content check for bare cites is delegated to the `ClaimSupportAuditor` (claim-vs-abstract).
+- **Missing-record verdict consistency.** A numerically-valid-but-nonexistent PMID that PubMed returns as an empty stub is now treated as not-found (`FABRICATED`), matching OpenAlex/Crossref/S2's 404 handling, instead of being mislabeled `METADATA-MISMATCH`.
+
+### Test growth
+
+- **213 tests pass** (was 186 in v0.7.3; +27 covering intake extraction across all four formats, the support-overlap logic with mocked abstracts, the BioIntel wrong-paper case, the bare-identifier gate, the shared verify core, the MCP tool wiring, and the `verify` CLI exit-code/JSON paths network-free).
+
+### Known limitations / deferred
+
+- **Support check is PubMed-only in v1.** DOI/arXiv abstracts are not yet fetched for the topical-support pass (existence + metadata still run for them).
+- **Renderer dedup.** `verify` uses its own `render_findings_*`; the run pipeline's `_render_hypothesis_md` keeps its inline audit renderer. Unifying them is a follow-up.
+
 ## [0.7.3] — 2026-05-06
 
 The principle behind this release: **the population-mean MARCo correlation hides real biology — for a single test pair, parous-women's ρ is 0.527 vs nulliparas' 0.617 (Δ = 0.09, same magnitude as the model's lift over baselines). The framework should pull each cohort separately, not one mixed average. This release adds a stratified pull against MARCo's `/api/analyze` (the bulk `/api/correlation-matrix` silently ignores demographic filters) plus a min-N gate so underpowered strata surface as flagged rows instead of silently dropping.**

@@ -15,6 +15,34 @@ def normalize(s: str) -> str:
     return re.sub(r"\s+", " ", s).strip()
 
 
+# Citation scaffolding that does not count as asserted bibliographic metadata.
+_CITE_SCAFFOLD = frozenset(
+    {"et", "al", "pmid", "doi", "arxiv", "pubmed", "preprint", "https", "http", "www", "org", "com", "abs"}
+)
+_YEAR_RE = re.compile(r"\b(?:19|20)\d{2}\b")
+
+
+def claim_asserts_metadata(claim_source: str, identifier) -> bool:
+    """True if the claim carries bibliographic metadata beyond the bare identifier.
+
+    A bare identifier ("PMID 35562209", "arXiv:2502.14297") asserts nothing to
+    cross-check, so a successful fetch should verify on *existence* rather than
+    manufacture an author/year "mismatch" against metadata the claim never stated.
+    A real cite ("Zhou Y 2022, Nature Comms — Tumor macrophages…") asserts plenty and
+    still flows through the full per-field checks (preserving the BioIntel catch).
+    """
+
+    norm = normalize(claim_source)
+    for raw in (identifier.value, getattr(identifier, "raw", "")):
+        for tok in normalize(raw).split():
+            if tok:
+                norm = re.sub(rf"\b{re.escape(tok)}\b", " ", norm)
+    content = [t for t in norm.split() if len(t) >= 4 and t not in _CITE_SCAFFOLD]
+    # Check the year on the *stripped* text so a year-like substring inside the identifier
+    # itself (e.g. the DOI 10.1109/CVPR.2016.90) isn't mistaken for an asserted year.
+    return bool(content) or bool(_YEAR_RE.search(norm))
+
+
 def title_close_match(claim: str, actual: str, min_token_overlap: float = 0.3) -> bool:
     """Token-overlap heuristic — paper titles in citations often abbreviate or paraphrase.
 
@@ -66,14 +94,17 @@ def first_author_in_claim(actual_authors: list[str], claim: str) -> bool:
     first = actual_authors[0].strip()
     if not first:
         return True
-    parts = [p for p in re.split(r"[,\s]+", first) if len(p) >= 4]
-    if not parts:
-        # Single-initial or short-name authors — fall back to any-token-in-claim.
-        parts = [p for p in re.split(r"[,\s]+", first) if p]
-    if not parts:
+    name_tokens = [normalize(p) for p in re.split(r"[,\s]+", first) if normalize(p)]
+    if not name_tokens:
         return True
-    norm_claim = normalize(claim)
-    return any(normalize(p) in norm_claim for p in parts)
+    # Match on the family name (the first OR last token — covers both "Gu SQ" and
+    # "Si Qian Gu" formats) regardless of length, plus any distinctive 4+ char token.
+    # Whole-word match against the claim's tokens. This stops short family names like
+    # "Gu" from being dropped (the len>=4 filter used to cause false mismatches).
+    candidates = {name_tokens[0], name_tokens[-1]}
+    candidates.update(t for t in name_tokens if len(t) >= 4)
+    claim_tokens = set(normalize(claim).split())
+    return any(c in claim_tokens for c in candidates if c)
 
 
 def year_in_claim(actual_year: str | int | None, claim: str) -> bool:

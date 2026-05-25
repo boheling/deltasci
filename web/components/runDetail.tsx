@@ -33,9 +33,14 @@ export function RunDetail({ run, projectHref }: { run: DeltaRun; projectHref?: s
           </Link>{' '}
           <span className="text-ink/45">review</span>
         </p>
-        <p className="font-mono text-xs text-ink/55">
-          pack: {run.pack} · {h.metadata.llm_provider} / {h.metadata.model}
-        </p>
+        <div className="flex items-baseline gap-4">
+          <Link href="/verify" className="font-mono text-xs text-teal hover:underline">
+            verify text →
+          </Link>
+          <p className="font-mono text-xs text-ink/55">
+            pack: {run.pack} · {h.metadata.llm_provider} / {h.metadata.model}
+          </p>
+        </div>
       </header>
 
       <NotebookHeader

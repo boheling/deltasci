@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from typing import Iterable
@@ -10,6 +11,7 @@ from deltasci.audit.base import AuditFinding, AuditReport, Auditor
 from deltasci.audit.cache import AuditCache
 from deltasci.audit.citations.arxiv import ArxivAuditor
 from deltasci.audit.citations.crossref import CrossrefAuditor
+from deltasci.audit.citations.datacite import DataCiteArxivAuditor
 from deltasci.audit.citations.openalex import OpenAlexAuditor
 from deltasci.audit.citations.pubmed import PubMedAuditor
 from deltasci.audit.citations.semscholar import SemanticScholarAuditor
@@ -85,7 +87,10 @@ class MultiLayerAuditor:
                     auditor, target = futures[future]
                     finding = future.result()
                     findings.append(finding)
-                    self.cache.put(auditor.name, target.identifier.kind, target.identifier.value, finding)
+                    # Don't cache transient failures — a network error / rate-limit should
+                    # be retried next run, not stick as a permanent SKIPPED.
+                    if finding.status != "skipped":
+                        self.cache.put(auditor.name, target.identifier.kind, target.identifier.value, finding)
 
         self.cache.flush()
         return AuditReport(findings=findings)
@@ -127,6 +132,7 @@ def _default_auditors() -> list[Auditor]:
         CrossrefAuditor(),
         OpenAlexAuditor(),
         ArxivAuditor(),
+        DataCiteArxivAuditor(),
         SemanticScholarAuditor(),
         GitHubAuditor(),
         HuggingFaceAuditor(),
@@ -137,3 +143,28 @@ def _default_auditors() -> list[Auditor]:
 
 def default_auditor() -> MultiLayerAuditor:
     return MultiLayerAuditor()
+
+
+def verify_auditor(
+    cache: AuditCache | None = None, max_workers: int = 4, support: bool = True
+) -> MultiLayerAuditor:
+    """Auditor for the standalone `deltasci verify` surface.
+
+    Drops Semantic Scholar's keyless tier (aggressively rate-limited → only SKIPPED noise;
+    the other verifiers already cover existence) unless a key is configured. Adds the
+    deterministic claim-to-abstract support check when `support` is set. Kept separate from
+    `default_auditor()` so the run pipeline's behavior is unchanged.
+    """
+
+    auditors = _default_auditors()
+    # arXiv's export API rate-limits hard; DataCite verifies arXiv IDs reliably, so drop the
+    # export auditor from the verify path. Drop Semantic Scholar's keyless tier too (429 noise).
+    drop = {"arxiv"}
+    if not os.environ.get("SEMANTIC_SCHOLAR_API_KEY"):
+        drop.add("semantic_scholar")
+    auditors = [a for a in auditors if a.name not in drop]
+    if support:
+        from deltasci.audit.support import ClaimSupportAuditor
+
+        auditors.append(ClaimSupportAuditor())
+    return MultiLayerAuditor(auditors=auditors, cache=cache, max_workers=max_workers)

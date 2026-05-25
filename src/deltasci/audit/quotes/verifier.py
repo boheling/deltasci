@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import re
 import unicodedata
+import xml.etree.ElementTree as ET
 from typing import Iterable
 
 from deltasci.audit.base import AuditFinding, Auditor
@@ -36,15 +37,38 @@ def find_quotes(claim_text: str) -> list[str]:
 
 
 def fetch_abstract(pmid: str, timeout: float = 10.0) -> str | None:
+    """Return the cited paper's title + abstract as clean text.
+
+    Uses efetch XML (not the plaintext dump) so the result is the structured
+    ArticleTitle + AbstractText only — no journal/citation header, author
+    affiliations, or personal emails. Papers with no abstract return just the
+    title (still a strong topic signal for the support check). Returns None on
+    network/parse failure so callers report `skipped`, never a false verdict.
+    """
+
     try:
-        text = get_text(
+        xml_text = get_text(
             EFETCH_URL,
             timeout=timeout,
-            params={"db": "pubmed", "id": pmid, "rettype": "abstract", "retmode": "text", "tool": "deltasci"},
+            params={"db": "pubmed", "id": pmid, "rettype": "abstract", "retmode": "xml", "tool": "deltasci"},
         )
-        return text
     except HTTPError:
         return None
+    try:
+        root = ET.fromstring(xml_text)
+    except ET.ParseError:
+        return None
+
+    parts: list[str] = []
+    title = root.findtext(".//ArticleTitle")
+    if title:
+        parts.append(title.strip())
+    for ab in root.findall(".//AbstractText"):
+        body = "".join(ab.itertext()).strip()
+        if body:
+            parts.append(body)
+    joined = " ".join(parts).strip()
+    return joined or None
 
 
 class QuoteInAbstractAuditor(Auditor):

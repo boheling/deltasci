@@ -6,6 +6,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Status: alpha](https://img.shields.io/badge/status-alpha-orange.svg)](#)
+[![Live demo](https://img.shields.io/badge/demo-boheling.github.io%2Fdeltasci-2f6f5b)](https://boheling.github.io/deltasci)
+
+**▶ [Live demo & interactive verifier](https://boheling.github.io/deltasci)** — paste a paragraph, watch it catch a hallucinated citation.
 
 ---
 
@@ -112,6 +115,45 @@ cd deltasci && bash skill/install.sh
 Then in Claude Code:
 
 > *"Use deltasci with the climate pack to generate a hypothesis for: train a neural emulator on ERA5 to downscale Sahel precipitation."*
+
+## Verify citations in *any* text (no run required)
+
+DeltaScience's citation-audit pillar also ships as a standalone verifier you can point at **any** LLM-generated scientific text — a pasted related-work section, a JSON list of claims, or a `.bib` file. It checks that each cited PMID / DOI / arXiv / GitHub identifier exists, that its metadata matches, and (by default) that the cited paper actually *supports* the claim — catching the "real paper, wrong citation" failure that plagues autonomous AI-scientist pipelines. **No provider API key required.**
+
+```bash
+deltasci verify --file related_work.md          # untagged prose
+echo "X drives Y (PMID 35562209)." | deltasci verify --file -
+deltasci verify --text '…' --json               # machine output; exit code 2 on any failed audit
+```
+
+Each claim gets a verdict: `PASS` / `FABRICATED` / `METADATA-MISMATCH` / `UNSUPPORTED` / `UNVERIFIABLE` / `SKIPPED`.
+
+### As an MCP server
+
+Verify generated citations from inside any MCP client (Claude Code/Desktop, Cursor) or AI-scientist pipeline — without forking anything:
+
+```bash
+pip install "deltasci[mcp]"
+claude mcp add deltasci-verify -- deltasci-mcp
+```
+
+It exposes one tool, `verify_scientific_claims(text, format, check_support)`, returning the same per-claim verdicts.
+
+### Verify a whole paper (PDF)
+
+Real papers cite by number, with the references in a bibliography at the bottom — so a pasted paragraph only has `[12]`, nothing to resolve. Paper mode ingests the whole document: it parses the bibliography, **resolves every reference to a real record** (embedded DOI/PMID/arXiv, or a Crossref title lookup), links each in-text marker to its reference, and checks each citation **in the context of the sentence that cites it**.
+
+```bash
+pip install "deltasci[pdf]"
+deltasci verify --pdf paper.pdf                 # verify every numbered citation in context
+deltasci verify --pdf paper.pdf --max-references 30   # fast first pass on a big bibliography
+deltasci verify --paper --file paper.txt        # pasted full text (body + references)
+deltasci verify --pdf paper.pdf --llm anthropic # LLM fallback for author-year / messy bibliographies
+```
+
+The web UI (`/verify`) also accepts a PDF upload and shows one card per citation — its verdict, the in-text sentence it was cited in, and a link to the real record. Deterministic by default (no API key); the `--llm` fallback only structures messy bibliographies — every citation is still verified against the real record deterministically.
+
+> **Note:** arXiv references are verified via their DataCite DOI (reliable, no rate-limit issues), so arXiv-heavy CS papers work too. The *claim-to-abstract support* check is PubMed-only — non-PubMed references get existence + metadata verification rather than claim-context. Author-year bibliographies (no `[n]` numbers) are handled by extracting and verifying every cited identifier; use `--llm` for full per-claim context on those.
 
 ## Built-in domain packs
 

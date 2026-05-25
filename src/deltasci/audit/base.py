@@ -26,6 +26,7 @@ TargetKind = Literal[
     "repo",       # CLAIM with type=engineering-precedent
     "dataset",    # GEO/SRA/dbGaP accession in any source
     "quote",      # verbatim quote in claim text
+    "support",    # topical claim-to-abstract support (does the cited paper back the claim?)
     "notebook",   # generated notebook artifact (v0.2)
     "data",       # generated dataset artifact (v0.2)
     "figure",     # generated figure artifact (v0.2)

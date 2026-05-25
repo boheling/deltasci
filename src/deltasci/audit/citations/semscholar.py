@@ -16,6 +16,7 @@ import os
 
 from deltasci.audit.base import AuditFinding, Auditor
 from deltasci.audit.citations._match import (
+    claim_asserts_metadata,
     first_author_in_claim,
     title_close_match,
     year_in_claim,
@@ -94,14 +95,15 @@ class SemanticScholarAuditor(Auditor):
         tldr_text = (data.get("tldr") or {}).get("text", "") if data.get("tldr") else ""
 
         reasons: list[str] = []
-        if actual_title and not title_close_match(claim_source, actual_title):
-            reasons.append(f"title differs: actual {actual_title!r}")
-        if not first_author_in_claim(actual_authors, claim_source):
-            reasons.append(
-                f"first-author mismatch: actual {actual_authors[0] if actual_authors else '?'!r} not in AI claim"
-            )
-        if not year_in_claim(actual_year, claim_source):
-            reasons.append(f"year mismatch: actual {actual_year!r}")
+        if claim_asserts_metadata(claim_source, identifier):
+            if actual_title and not title_close_match(claim_source, actual_title):
+                reasons.append(f"title differs: actual {actual_title!r}")
+            if not first_author_in_claim(actual_authors, claim_source):
+                reasons.append(
+                    f"first-author mismatch: actual {actual_authors[0] if actual_authors else '?'!r} not in AI claim"
+                )
+            if not year_in_claim(actual_year, claim_source):
+                reasons.append(f"year mismatch: actual {actual_year!r}")
 
         fetched = {
             "id": identifier.value,

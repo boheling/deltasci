@@ -32,7 +32,8 @@ PMID_RE = re.compile(r"PMID[:\s]*(\d{6,9})", re.IGNORECASE)
 PMID_BARE_RE = re.compile(r"\bpubmed[:/](\d{6,9})", re.IGNORECASE)
 DOI_RE = re.compile(r"\b(10\.\d{4,9}/[^\s\"<>)\]]+)", re.IGNORECASE)
 ARXIV_RE = re.compile(
-    r"\barxiv[:\s/]*"
+    # "arXiv:2303.08774", "arXiv 2303.08774", and the URL form "arxiv.org/abs/2303.08774"
+    r"\barxiv(?:\.org/(?:abs|pdf)/|[:\s/]*)"
     r"(\d{4}\.\d{4,5}(?:v\d+)?|[a-z\-]+/\d{7}(?:v\d+)?)",
     re.IGNORECASE,
 )

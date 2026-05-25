@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from deltasci.audit.base import AuditFinding, Auditor
 from deltasci.audit.citations._match import (
+    claim_asserts_metadata,
     first_author_in_claim,
     journal_close_match,
     title_close_match,
@@ -58,16 +59,17 @@ class OpenAlexAuditor(Auditor):
         actual_journal = ((data.get("primary_location") or {}).get("source") or {}).get("display_name") or ""
 
         reasons: list[str] = []
-        if actual_title and not title_close_match(claim_source, actual_title):
-            reasons.append(f"title differs: actual {actual_title!r}")
-        if not first_author_in_claim(actual_authors, claim_source):
-            reasons.append(
-                f"first-author mismatch: actual {actual_authors[0] if actual_authors else '?'!r} not in AI claim"
-            )
-        if not year_in_claim(actual_year, claim_source):
-            reasons.append(f"year mismatch: actual {actual_year!r}")
-        if not journal_close_match(actual_journal, claim_source):
-            reasons.append(f"journal mismatch: actual {actual_journal!r}")
+        if claim_asserts_metadata(claim_source, identifier):
+            if actual_title and not title_close_match(claim_source, actual_title):
+                reasons.append(f"title differs: actual {actual_title!r}")
+            if not first_author_in_claim(actual_authors, claim_source):
+                reasons.append(
+                    f"first-author mismatch: actual {actual_authors[0] if actual_authors else '?'!r} not in AI claim"
+                )
+            if not year_in_claim(actual_year, claim_source):
+                reasons.append(f"year mismatch: actual {actual_year!r}")
+            if not journal_close_match(actual_journal, claim_source):
+                reasons.append(f"journal mismatch: actual {actual_journal!r}")
 
         fetched = {
             "id": identifier.value,

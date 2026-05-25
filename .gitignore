@@ -21,10 +21,15 @@ env/
 .DS_Store
 deltasci-output/
 
-# --- portfolio publish: keep heavy/generated assets out ---
+# web (Next.js)
 node_modules/
-.next/
-/data/_marco_strata_cache/
-/data/hla_prot.fasta
-/tools/HATS/
+web/node_modules/
+web/.next/
+web/out/
 *.tsbuildinfo
+
+# browser-automation artifacts
+.playwright-mcp/
+
+# scratch
+*.tmp

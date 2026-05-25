@@ -7,6 +7,7 @@ import xml.etree.ElementTree as ET
 
 from deltasci.audit.base import AuditFinding, Auditor
 from deltasci.audit.citations._match import (
+    claim_asserts_metadata,
     first_author_in_claim,
     title_close_match,
     year_in_claim,
@@ -74,12 +75,13 @@ class ArxivAuditor(Auditor):
         published = (entry.findtext("atom:published", default="", namespaces=ns) or "")[:4]
 
         reasons: list[str] = []
-        if actual_title and not title_close_match(claim_source, actual_title):
-            reasons.append(f"title differs: actual {actual_title!r}")
-        if not first_author_in_claim(authors, claim_source):
-            reasons.append(f"first-author mismatch: actual {authors[0] if authors else '?'!r} not in AI claim")
-        if not year_in_claim(published, claim_source):
-            reasons.append(f"year mismatch: actual {published!r}")
+        if claim_asserts_metadata(claim_source, identifier):
+            if actual_title and not title_close_match(claim_source, actual_title):
+                reasons.append(f"title differs: actual {actual_title!r}")
+            if not first_author_in_claim(authors, claim_source):
+                reasons.append(f"first-author mismatch: actual {authors[0] if authors else '?'!r} not in AI claim")
+            if not year_in_claim(published, claim_source):
+                reasons.append(f"year mismatch: actual {published!r}")
 
         fetched = {
             "arxiv": identifier.value,

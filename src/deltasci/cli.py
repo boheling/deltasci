@@ -1038,6 +1038,139 @@ def cmd_audit(args: argparse.Namespace) -> int:
     return 0 if not report.mismatch_count else 2
 
 
+def _read_text_input(args: argparse.Namespace) -> str | None:
+    """Resolve --text / --file / stdin to text, or print an error and return None."""
+
+    if args.text is not None:
+        text = args.text
+    elif args.file:
+        if args.file == "-":
+            text = sys.stdin.read()
+        else:
+            path = Path(args.file)
+            if not path.is_file():
+                print(f"error: file not found: {path}", file=sys.stderr)
+                return None
+            text = path.read_text(encoding="utf-8")
+    elif not sys.stdin.isatty():
+        text = sys.stdin.read()
+    else:
+        print("error: provide --text, --file PATH, --pdf PATH, or pipe text on stdin", file=sys.stderr)
+        return None
+    if not text.strip():
+        print("error: empty input", file=sys.stderr)
+        return None
+    return text
+
+
+def _paper_failed(counts: dict) -> int:
+    return counts.get("FABRICATED", 0) + counts.get("METADATA-MISMATCH", 0) + counts.get("UNSUPPORTED", 0)
+
+
+def cmd_verify(args: argparse.Namespace) -> int:
+    """Verify citations/claims in ANY text, snippet or whole paper.
+
+    Snippet mode (default): --text / --file / stdin → checks each cited identifier.
+    Paper mode (--pdf PATH, or --paper on text input): parses the bibliography, resolves
+    every reference, and verifies each citation in the context of the sentence citing it.
+    Exit code 2 if anything fails audit.
+    """
+
+    from deltasci.audit import render_findings_md, render_findings_terminal
+    from deltasci.audit.cache import AuditCache
+    from deltasci.audit.intake import claims_from_source, detect_format, split_stats
+    from deltasci.verify import verify_claims, verify_payload
+
+    cache = AuditCache(Path(args.audit_cache)) if args.audit_cache else AuditCache()
+
+    # --- paper mode: whole-document verification ------------------------------------
+    if args.pdf or args.paper:
+        from deltasci.paper import paper_payload, render_paper_terminal, verify_paper
+
+        if args.pdf:
+            from deltasci.paper import extract_pdf_text
+
+            pdf_path = Path(args.pdf)
+            if not pdf_path.is_file():
+                print(f"error: PDF not found: {pdf_path}", file=sys.stderr)
+                return 2
+            try:
+                text = extract_pdf_text(str(pdf_path))
+            except RuntimeError as exc:
+                print(f"error: {exc}", file=sys.stderr)
+                return 2
+            if not text.strip():
+                print("error: no extractable text in PDF (scanned image?)", file=sys.stderr)
+                return 2
+        else:
+            text = _read_text_input(args)
+            if text is None:
+                return 2
+
+        llm = None
+        if args.llm:
+            try:
+                from deltasci.llm import get_adapter
+
+                llm = get_adapter(args.llm)
+            except (RuntimeError, ValueError) as exc:
+                print(f"warning: LLM fallback disabled ({exc})", file=sys.stderr)
+        report = verify_paper(
+            text,
+            check_support=not args.no_support,
+            cache=cache,
+            max_references=args.max_references or None,
+            llm=llm,
+        )
+        if args.json:
+            print(json.dumps(paper_payload(report), indent=2))
+        else:
+            print(render_paper_terminal(report, show_passed=not args.quiet_passed))
+        return 0 if not _paper_failed(report.counts()) else 2
+
+    # --- snippet mode ---------------------------------------------------------------
+    text = _read_text_input(args)
+    if text is None:
+        return 2
+
+    try:
+        claims = claims_from_source(text, fmt=args.format)
+    except (ValueError, json.JSONDecodeError) as exc:
+        print(f"error: could not parse input as {args.format!r}: {exc}", file=sys.stderr)
+        return 2
+
+    resolved_fmt = detect_format(text) if args.format == "auto" else args.format
+    uncited_note = ""
+    if resolved_fmt == "text":
+        _cited, uncited = split_stats(text)
+        if uncited:
+            uncited_note = f"note: {uncited} sentence(s) had no verifiable identifier and were not checked."
+
+    if not claims:
+        if args.json:
+            print(json.dumps({"verdicts": {}, "findings": [], "note": "no verifiable citations found"}, indent=2))
+        else:
+            print("no verifiable citations found in input.")
+            if uncited_note:
+                print(uncited_note)
+        return 0
+
+    report = verify_claims(claims, check_support=not args.no_support, cache=cache)
+
+    if args.json:
+        print(json.dumps(verify_payload(report), indent=2))
+    elif args.markdown:
+        print(render_findings_md(report))
+        if uncited_note:
+            print(f"\n_{uncited_note}_")
+    else:
+        print(render_findings_terminal(report, show_passed=not args.quiet_passed))
+        if uncited_note:
+            print(uncited_note)
+
+    return 0 if not report.mismatch_count else 2
+
+
 def _indent(text: str, prefix: str) -> str:
     return "\n".join(prefix + line for line in text.splitlines())
 
@@ -1157,6 +1290,69 @@ def build_parser() -> argparse.ArgumentParser:
         help="Max citing/cited papers to fetch per verified paper when --corroborate is set (default: 10).",
     )
     p_audit.set_defaults(func=cmd_audit)
+
+    p_verify = sub.add_parser(
+        "verify",
+        help=(
+            "Verify citations/claims in ANY text (a pasted related-work section, a "
+            "JSON list of claims, or a .bib file) — not just a DeltaScience run. "
+            "Checks each cited PMID/DOI/arXiv/GitHub identifier exists, its metadata "
+            "matches, and (by default) that the cited paper actually supports the claim."
+        ),
+    )
+    src = p_verify.add_mutually_exclusive_group()
+    src.add_argument("--text", default=None, help="Text to verify, inline.")
+    src.add_argument("--file", default=None, help="Path to a file to verify (use '-' for stdin).")
+    src.add_argument(
+        "--pdf",
+        default=None,
+        help=(
+            "Path to a PDF paper. Paper mode: parses the bibliography, resolves every "
+            "reference, and verifies each citation in the context of the sentence citing "
+            "it. Requires the PDF extra: pip install 'deltasci[pdf]'."
+        ),
+    )
+    p_verify.add_argument(
+        "--paper",
+        action="store_true",
+        help="Treat --text/--file/stdin as a whole paper (body + references), not a snippet.",
+    )
+    p_verify.add_argument(
+        "--max-references",
+        type=int,
+        default=0,
+        help="Paper mode: cap how many references to verify (0 = all). Useful for a fast "
+        "first pass on a large bibliography against rate-limited APIs.",
+    )
+    p_verify.add_argument(
+        "--llm",
+        default=None,
+        help="Paper mode: provider (anthropic|openai|auto) for the LLM fallback used when "
+        "deterministic numbered-reference parsing comes up short (e.g., author-year citations). "
+        "Verification of each citation stays deterministic. Requires a provider key.",
+    )
+    p_verify.add_argument(
+        "--format",
+        default="auto",
+        choices=["auto", "tagged", "text", "records", "bibtex"],
+        help=(
+            "Input format. 'auto' (default) sniffs it: DeltaScience [CLAIM] tags, untagged "
+            "prose, a JSON [{claim, source}] array, or BibTeX."
+        ),
+    )
+    p_verify.add_argument(
+        "--no-support",
+        action="store_true",
+        help=(
+            "Disable the claim-to-abstract support check (existence + metadata only). "
+            "Relaxes the gate: UNSUPPORTED findings won't be raised."
+        ),
+    )
+    p_verify.add_argument("--json", action="store_true", help="Emit machine-readable JSON.")
+    p_verify.add_argument("--markdown", action="store_true", help="Emit a markdown report instead of terminal output.")
+    p_verify.add_argument("--quiet-passed", action="store_true", help="Hide PASS findings in terminal output.")
+    p_verify.add_argument("--audit-cache", default=None, help="Path to the audit cache JSON.")
+    p_verify.set_defaults(func=cmd_verify)
 
     p_pre = sub.add_parser(
         "preflight",

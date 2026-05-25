@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeltaScience — Two perspectives, one hypothesis</title>
+<meta name="description" content="A domain scientist and an ML engineer argue through your AI4Science research idea until it converges on a grounded, falsifiable hypothesis with a verified citation trail.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='25' x='5' font-size='26' font-family='Georgia' font-style='italic' fill='%232f6f5b'%3E&#916;%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.className+=" js";</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f3efe6;
+    --paper-2:#ece6d8;
+    --ink:#1c1a16;
+    --ink-soft:#5b554a;
+    --ink-faint:#8a8273;
+    --rule:#cfc7b5;
+    --verified:#2f6f5b;     /* well-covered / pass */
+    --sparse:#9a6a1e;       /* sparse coverage */
+    --gap:#2f5b8c;          /* knowledge gap */
+    --novel:#7a3f63;        /* novel synthesis */
+    --failed:#a8392c;       /* failed audit */
+    --maxw:1180px;
+    --gut:clamp(20px,5vw,72px);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Newsreader",Georgia,serif;
+    font-size:19px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* paper grain */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;
+    opacity:.045;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  ::selection{background:var(--ink);color:var(--paper);}
+  a{color:inherit;}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut);position:relative;}
+
+  /* ---------- running rail ---------- */
+  .rail{
+    position:fixed;top:0;bottom:0;width:var(--gut);z-index:50;
+    display:flex;align-items:center;justify-content:center;pointer-events:none;
+  }
+  .rail.left{left:0;}
+  .rail.right{right:0;}
+  .rail span{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.42em;
+    text-transform:uppercase;color:var(--ink-faint);white-space:nowrap;
+    writing-mode:vertical-rl;
+  }
+  .rail.left span{transform:rotate(180deg);}
+  @media (max-width:880px){.rail{display:none;}}
+
+  /* ---------- top bar ---------- */
+  header.bar{
+    position:sticky;top:0;z-index:100;
+    background:color-mix(in srgb,var(--paper) 86%,transparent);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  .bar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;}
+  .brand{display:flex;align-items:center;gap:.55rem;font-family:"IBM Plex Mono",monospace;
+    font-weight:500;letter-spacing:.14em;font-size:13px;text-transform:uppercase;text-decoration:none;}
+  .brand .d{font-family:"Fraunces",serif;font-size:26px;line-height:1;font-weight:600;
+    font-style:italic;color:var(--verified);}
+  nav.top{display:flex;gap:1.6rem;align-items:center;}
+  nav.top a{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.08em;
+    text-transform:uppercase;text-decoration:none;color:var(--ink-soft);transition:color .2s;}
+  nav.top a:hover{color:var(--ink);}
+  nav.top a.gh{border:1px solid var(--ink);padding:.45rem .8rem;color:var(--ink);}
+  nav.top a.gh:hover{background:var(--ink);color:var(--paper);}
+  @media (max-width:620px){nav.top a.lnk{display:none;}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:clamp(28px,5vh,56px) 0 clamp(24px,4vh,40px);position:relative;}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--ink-soft);margin-bottom:1.1rem;display:flex;gap:.9rem;flex-wrap:wrap;}
+  .eyebrow b{color:var(--verified);font-weight:500;}
+  h1{
+    font-family:"Fraunces",serif;font-weight:340;
+    font-size:clamp(2.5rem,6vw,4.6rem);line-height:.98;letter-spacing:-.02em;
+    margin:0 0 1.3rem;
+  }
+  h1 em{font-style:italic;color:var(--verified);}
+  h1 .delta{font-style:italic;color:var(--ink-faint);font-weight:300;}
+  .lede{font-size:clamp(1.12rem,2.1vw,1.4rem);line-height:1.5;max-width:46ch;
+    color:var(--ink);font-weight:300;margin:0 0 1.6rem;}
+  .lede .hl{background:linear-gradient(transparent 62%,color-mix(in srgb,var(--sparse) 32%,transparent) 0);}
+  .cta{display:flex;gap:1rem;flex-wrap:wrap;align-items:stretch;margin-bottom:1.8rem;}
+  .btn{font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.06em;
+    text-decoration:none;padding:.95rem 1.4rem;display:inline-flex;align-items:center;gap:.6rem;
+    border:1px solid var(--ink);transition:.2s;cursor:pointer;background:none;color:var(--ink);}
+  .btn.solid{background:var(--ink);color:var(--paper);}
+  .btn.solid:hover{background:var(--verified);border-color:var(--verified);}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper);}
+  .install{display:flex;align-items:center;border:1px solid var(--rule);background:var(--paper-2);}
+  .install code{font-family:"IBM Plex Mono",monospace;font-size:13px;padding:.95rem 1.1rem;color:var(--ink);}
+  .install code .pr{color:var(--verified);}
+  .install button{border:none;border-left:1px solid var(--rule);background:none;cursor:pointer;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    padding:0 1rem;align-self:stretch;color:var(--ink-soft);transition:.2s;}
+  .install button:hover{background:var(--ink);color:var(--paper);}
+
+  .stats{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+  .stats div{flex:1 1 150px;padding:1.25rem 1.5rem;border-left:1px solid var(--rule);}
+  .stats div:first-child{border-left:none;padding-left:0;}
+  .stats .n{font-family:"Fraunces",serif;font-size:2.15rem;line-height:1;font-weight:400;display:block;}
+  .stats .l{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--ink-faint);margin-top:.5rem;}
+  @media (max-width:560px){
+    .stats div{flex-basis:50%;}
+    .stats div:nth-child(3){border-left:none;padding-left:0;}
+  }
+
+  /* ---------- section scaffolding ---------- */
+  section.band{padding:clamp(56px,9vh,110px) 0;border-top:1px solid var(--rule);position:relative;}
+  .sechead{display:flex;gap:1.4rem;align-items:baseline;margin-bottom:2.6rem;}
+  .secno{font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.1em;color:var(--verified);
+    padding-top:.5rem;}
+  .sectitle{font-family:"Fraunces",serif;font-weight:360;font-size:clamp(1.9rem,4.4vw,3.2rem);
+    line-height:1.02;letter-spacing:-.015em;margin:0;max-width:18ch;}
+  .secsub{font-size:1.08rem;color:var(--ink-soft);max-width:56ch;margin:.2rem 0 0;font-weight:300;}
+  .margin-note{font-family:"IBM Plex Mono",monospace;font-size:11.5px;line-height:1.55;
+    color:var(--ink-faint);letter-spacing:.02em;}
+
+  /* problem / 2-col */
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);}
+  .twocol > div{padding:2rem;}
+  .twocol .vs{border-right:1px solid var(--rule);background:var(--paper-2);}
+  .twocol h4{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.16em;
+    text-transform:uppercase;margin:0 0 1.2rem;color:var(--ink-soft);}
+  .twocol .free h4{color:var(--failed);}
+  .twocol .ds h4{color:var(--verified);}
+  .twocol ul{margin:0;padding:0;list-style:none;}
+  .twocol li{padding:.7rem 0;border-bottom:1px dotted var(--rule);font-size:1.02rem;line-height:1.45;}
+  .twocol li:last-child{border-bottom:none;}
+  .twocol li::before{font-family:"IBM Plex Mono",monospace;font-size:13px;margin-right:.6rem;}
+  .free li::before{content:"✗";color:var(--failed);}
+  .ds li::before{content:"✓";color:var(--verified);}
+  @media (max-width:760px){.twocol{grid-template-columns:1fr;}.twocol .vs{border-right:none;border-bottom:1px solid var(--rule);}}
+
+  /* ---------- AUDIT money shot ---------- */
+  .audit{
+    border:1.5px solid var(--ink);background:#fbf8f1;position:relative;
+    box-shadow:14px 14px 0 var(--paper-2);
+  }
+  .audit-top{display:flex;justify-content:space-between;align-items:center;
+    padding:.9rem 1.3rem;border-bottom:1px solid var(--rule);font-family:"IBM Plex Mono",monospace;
+    font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
+  .audit-top .file{color:var(--ink);}
+  .stamp{
+    position:absolute;top:-22px;right:24px;z-index:3;
+    font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:14px;letter-spacing:.18em;
+    color:var(--failed);border:2.5px solid var(--failed);padding:.5rem 1rem;background:var(--paper);
+    transform:rotate(-5deg);text-transform:uppercase;
+    box-shadow:2px 2px 0 color-mix(in srgb,var(--failed) 30%,transparent);
+  }
+  .audit-body{padding:1.6rem 1.3rem;}
+  .claim-line{font-family:"IBM Plex Mono",monospace;font-size:13.5px;line-height:1.7;
+    background:var(--paper-2);padding:1rem 1.1rem;border-left:3px solid var(--sparse);margin-bottom:1.4rem;overflow-x:auto;}
+  .claim-line .k{color:var(--gap);}
+  .claim-line .v{color:var(--sparse);}
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);}
+  .compare > div{background:#fbf8f1;padding:1.2rem;}
+  .compare h5{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;margin:0 0 .8rem;}
+  .compare .claimed h5{color:var(--ink-soft);}
+  .compare .actual h5{color:var(--failed);}
+  .compare p{margin:0;font-size:1rem;line-height:1.5;}
+  .compare .meta{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-faint);margin-top:.7rem;}
+  .audit-verdict{margin-top:1.4rem;padding:1rem 1.1rem;border:1px solid var(--failed);
+    color:var(--failed);font-family:"IBM Plex Mono",monospace;font-size:13px;line-height:1.6;background:color-mix(in srgb,var(--failed) 5%,transparent);}
+  @media (max-width:640px){.compare{grid-template-columns:1fr;}}
+
+  /* ---------- dialogue ---------- */
+  .dialogue{position:relative;margin-top:1rem;}
+  .dialogue::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;
+    background:var(--rule);transform:translateX(-50%);}
+  @media(max-width:760px){.dialogue::before{left:14px;}}
+  .turn{position:relative;width:calc(50% - 28px);margin-bottom:1.6rem;background:#fbf8f1;
+    border:1px solid var(--rule);padding:1.3rem 1.4rem;}
+  .turn.sci{margin-right:auto;border-left:3px solid var(--verified);}
+  .turn.ml{margin-left:auto;border-right:3px solid var(--gap);}
+  @media(max-width:760px){.turn{width:calc(100% - 36px);margin-left:auto!important;margin-right:0!important;
+    border-left:3px solid var(--rule);}.turn.sci{border-left-color:var(--verified);}.turn.ml{border-left-color:var(--gap);}}
+  .turn .who{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    display:flex;justify-content:space-between;margin-bottom:.8rem;color:var(--ink-faint);}
+  .turn.sci .who b{color:var(--verified);}
+  .turn.ml .who b{color:var(--gap);}
+  .turn p{margin:0;font-size:1.04rem;line-height:1.55;}
+  .tag{font-family:"IBM Plex Mono",monospace;font-size:12px;padding:.08em .45em;border-radius:2px;white-space:nowrap;}
+  .tag.claim{background:color-mix(in srgb,var(--verified) 16%,transparent);color:var(--verified);border:1px solid color-mix(in srgb,var(--verified) 40%,transparent);}
+  .tag.sparse{background:color-mix(in srgb,var(--sparse) 16%,transparent);color:var(--sparse);border:1px solid color-mix(in srgb,var(--sparse) 40%,transparent);}
+  .tag.gap{background:color-mix(in srgb,var(--gap) 14%,transparent);color:var(--gap);border:1px solid color-mix(in srgb,var(--gap) 40%,transparent);}
+  .tag.novel{background:color-mix(in srgb,var(--novel) 14%,transparent);color:var(--novel);border:1px solid color-mix(in srgb,var(--novel) 40%,transparent);}
+
+  /* ---------- gates ---------- */
+  .gates{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule);}
+  .gate{padding:2rem 1.6rem;border-right:1px solid var(--rule);}
+  .gate:last-child{border-right:none;}
+  .gate .g-no{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-faint);letter-spacing:.1em;}
+  .gate h4{font-family:"Fraunces",serif;font-weight:400;font-size:1.5rem;margin:.7rem 0 .8rem;line-height:1.1;}
+  .gate p{margin:0;font-size:1rem;color:var(--ink-soft);line-height:1.5;}
+  .gate .seal{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    margin-top:1.2rem;display:inline-block;padding:.3rem .6rem;border:1px solid var(--verified);color:var(--verified);}
+  @media(max-width:760px){.gates{grid-template-columns:1fr;}.gate{border-right:none;border-bottom:1px solid var(--rule);}.gate:last-child{border-bottom:none;}}
+
+  /* ---------- packs ---------- */
+  .packs{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+  @media(max-width:880px){.packs{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:480px){.packs{grid-template-columns:1fr;}}
+  .pack{border:1px solid var(--rule);padding:1.5rem 1.3rem;background:#fbf8f1;transition:.25s;position:relative;}
+  .pack:hover{transform:translateY(-4px);box-shadow:6px 8px 0 var(--paper-2);border-color:var(--ink);}
+  .pack .sym{font-family:"Fraunces",serif;font-style:italic;font-size:2.4rem;line-height:1;color:var(--verified);}
+  .pack h4{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:1rem 0 .5rem;}
+  .pack p{margin:0;font-size:.96rem;color:var(--ink-soft);line-height:1.45;}
+  .pack.diy{background:var(--paper-2);border-style:dashed;}
+  .pack.diy .sym{color:var(--novel);}
+
+  /* ---------- comparison table ---------- */
+  .ctable{width:100%;border-collapse:collapse;font-size:.97rem;}
+  .ctable th,.ctable td{text-align:left;padding:.85rem 1rem;border-bottom:1px solid var(--rule);}
+  .ctable thead th{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--ink-faint);font-weight:500;vertical-align:bottom;}
+  .ctable tbody tr.us{background:color-mix(in srgb,var(--verified) 8%,transparent);}
+  .ctable tbody tr.us td:first-child{font-weight:500;}
+  .ctable td.c{text-align:center;font-family:"IBM Plex Mono",monospace;}
+  .ctable .yes{color:var(--verified);}
+  .ctable .no{color:var(--ink-faint);}
+  .ctable .name{font-family:"Newsreader",serif;}
+  .ctable-wrap{overflow-x:auto;border:1px solid var(--rule);}
+  .ctable tbody tr:last-child td{border-bottom:none;}
+
+  /* ---------- artifacts strip ---------- */
+  .arts{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem;}
+  .arts span{font-family:"IBM Plex Mono",monospace;font-size:12px;border:1px solid var(--rule);
+    padding:.45rem .8rem;color:var(--ink-soft);background:#fbf8f1;}
+  .arts span b{color:var(--verified);font-weight:500;}
+
+  /* ---------- start ---------- */
+  .codeblock{background:var(--ink);color:#e7e0d0;font-family:"IBM Plex Mono",monospace;
+    font-size:13.5px;line-height:1.85;padding:1.6rem 1.7rem;overflow-x:auto;border:1px solid var(--ink);}
+  .codeblock .c{color:#8a8a7a;}
+  .codeblock .p{color:#7fc4a8;}
+  .codeblock .f{color:#d9a85c;}
+  .start-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+  @media(max-width:760px){.start-grid{grid-template-columns:1fr;}}
+  .start-grid h4{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-soft);margin:0 0 .8rem;}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--ink);padding:clamp(48px,7vh,80px) 0 3rem;}
+  .foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;margin-bottom:3rem;}
+  .foot-q{font-family:"Fraunces",serif;font-weight:340;font-style:italic;font-size:clamp(1.6rem,4vw,2.6rem);
+    line-height:1.1;max-width:16ch;margin:0;}
+  .foot-meta{display:flex;gap:3rem;flex-wrap:wrap;font-family:"IBM Plex Mono",monospace;font-size:12px;
+    letter-spacing:.04em;color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:1.6rem;}
+  .foot-meta a{color:var(--ink-soft);text-decoration:none;display:block;line-height:1.9;transition:.2s;}
+  .foot-meta a:hover{color:var(--verified);}
+  .foot-meta .h{color:var(--ink-faint);display:block;margin-bottom:.4rem;letter-spacing:.12em;text-transform:uppercase;}
+  .disclaim{font-size:.92rem;color:var(--ink-faint);max-width:58ch;line-height:1.5;margin-top:2.4rem;font-style:italic;}
+
+  /* ---------- interactive demo ---------- */
+  .demo-panel{border:1.5px solid var(--ink);background:#fbf8f1;box-shadow:14px 14px 0 var(--paper-2);}
+  .demo-bar{display:flex;justify-content:space-between;align-items:center;padding:.8rem 1.2rem;
+    border-bottom:1px solid var(--rule);font-family:"IBM Plex Mono",monospace;font-size:12px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
+  .demo-bar .file{color:var(--ink);}
+  .demo-input{font-family:"IBM Plex Mono",monospace;font-size:13.5px;line-height:1.9;
+    padding:1.3rem;color:var(--ink);background:var(--paper-2);border-bottom:1px solid var(--rule);}
+  .demo-input .pmid{color:var(--gap);white-space:nowrap;}
+  .demo-controls{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;flex-wrap:wrap;}
+  .demo-run{font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.06em;
+    background:var(--ink);color:var(--paper);border:1px solid var(--ink);padding:.7rem 1.3rem;cursor:pointer;transition:.2s;}
+  .demo-run:hover{background:var(--verified);border-color:var(--verified);}
+  .demo-run:disabled{cursor:wait;opacity:.7;}
+  .demo-hint{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.03em;color:var(--ink-faint);}
+  .demo-results{border-top:1px solid var(--rule);padding:1.3rem;}
+  .demo-summary{display:flex;flex-wrap:wrap;gap:.55rem;align-items:center;margin-bottom:.4rem;
+    font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-soft);}
+  .demo-chip{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:.18rem .5rem;border:1px solid;border-radius:2px;}
+  .demo-card{border:1px solid var(--rule);padding:1.05rem 1.15rem;margin-top:.85rem;background:#fbf8f1;
+    display:flex;gap:.95rem;align-items:flex-start;}
+  .demo-badge{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.05em;font-weight:500;
+    padding:.32rem .55rem;border:1px solid;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:.15rem;}
+  .demo-card .body{min-width:0;flex:1;}
+  .demo-card .title{font-size:1.06rem;line-height:1.4;}
+  .demo-card .title .num{font-family:"IBM Plex Mono",monospace;color:var(--ink-faint);font-size:.88em;}
+  .demo-card .checks{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-faint);
+    margin-top:.45rem;display:flex;flex-wrap:wrap;gap:.85rem;}
+  .demo-card .reason{font-family:"IBM Plex Mono",monospace;font-size:12px;line-height:1.55;margin-top:.55rem;}
+  .demo-card .cited{font-style:italic;color:var(--ink-soft);font-size:.97rem;line-height:1.45;margin-top:.55rem;}
+  .demo-card .rec{font-family:"IBM Plex Mono",monospace;font-size:11.5px;margin-top:.5rem;}
+  .demo-card .rec a{color:var(--verified);}
+  .v-pass{color:var(--verified);border-color:var(--verified);background:color-mix(in srgb,var(--verified) 9%,transparent);}
+  .v-unsupported{color:var(--sparse);border-color:var(--sparse);background:color-mix(in srgb,var(--sparse) 9%,transparent);}
+  .v-fabricated{color:var(--failed);border-color:var(--failed);background:color-mix(in srgb,var(--failed) 9%,transparent);}
+  .demo-card.appear{animation:up .5s cubic-bezier(.2,.7,.2,1) both;}
+  @media (prefers-reduced-motion:reduce){.demo-card.appear{animation:none;}}
+
+  /* reveal */
+  .js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
+  .rv.in{opacity:1;transform:none;}
+  .js .stagger > *{opacity:0;transform:translateY(16px);animation:up .8s cubic-bezier(.2,.7,.2,1) forwards;}
+  @keyframes up{to{opacity:1;transform:none;}}
+  @media (prefers-reduced-motion:reduce){.rv,.stagger>*{opacity:1!important;transform:none!important;animation:none!important;transition:none!important;}}
+</style>
+</head>
+<body>
+
+<div class="rail left"><span>Δ DeltaScience · co-reasoning for AI4Science</span></div>
+<div class="rail right"><span>MIT · v0.9 · github.com/boheling/deltasci</span></div>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="d">Δ</span> DeltaScience</a>
+    <nav class="top">
+      <a class="lnk" href="live-room-prototype.html">Live room</a>
+      <a class="lnk" href="#audit">Citation audit</a>
+      <a class="lnk" href="#start">Quick start</a>
+      <a class="gh" href="https://github.com/boheling/deltasci">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="stagger">
+      <div class="eyebrow" style="animation-delay:.05s"><span>Open-source</span><span>·</span><span>AI4Science</span><span>·</span><b>MIT</b></div>
+      <h1 style="animation-delay:.12s">Two&nbsp;perspectives,<br><em>one</em> hypothesis.<span class="delta"> Δ</span></h1>
+      <p class="lede" style="animation-delay:.22s">A domain scientist and an ML engineer argue through your research idea, round after round, until it holds up as a <span class="hl">grounded, falsifiable hypothesis</span> with a citation trail you can defend in front of a PI.</p>
+      <div class="cta" style="animation-delay:.32s">
+        <a class="btn solid" href="live-room-prototype.html">▷ Enter the live room →</a>
+        <a class="btn ghost" href="https://github.com/boheling/deltasci">View on GitHub</a>
+        <div class="install">
+          <code><span class="pr">$</span> pip install deltasci</code>
+          <button id="copyBtn" data-cmd="pip install deltasci">Copy</button>
+        </div>
+      </div>
+      <div class="stats" style="animation-delay:.42s">
+        <div><span class="n">186+</span><span class="l">tests passing</span></div>
+        <div><span class="n">∞</span><span class="l">rounds, to convergence</span></div>
+        <div><span class="n">3+</span><span class="l">domain packs</span></div>
+        <div><span class="n">0</span><span class="l">API key to try</span></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+  <!-- INTERACTIVE DEMO -->
+  <section class="band" id="demo" style="border-top:none;padding-top:0;">
+   <div class="wrap">
+    <div class="sechead rv">
+      <div class="secno">▷ run</div>
+      <div>
+        <h2 class="sectitle">Watch it verify a paragraph.</h2>
+        <p class="secsub">Three citations from an AI-drafted related-work snippet. Hit verify — each identifier is checked against the real PubMed / OpenAlex record, and the claim it's cited for is checked against that paper's own abstract. Runs in your browser, no key.</p>
+      </div>
+    </div>
+    <div class="demo-panel rv">
+      <div class="demo-bar"><span class="file">deltasci&nbsp;verify</span><span>sample run · in-browser</span></div>
+      <div class="demo-input">AlphaFold predicts protein 3-D structure from amino-acid sequence with near-experimental accuracy <span class="pmid">(PMID&nbsp;34265844)</span>. M2-polarized tumor-associated macrophages drive osteosarcoma metastasis <span class="pmid">(PMID&nbsp;32015508)</span>. Checkpoint-blockade immunotherapy doubles five-year survival in TFE3-fusion sarcoma <span class="pmid">(PMID&nbsp;99999999)</span>.</div>
+      <div class="demo-controls">
+        <button class="demo-run" id="demoRun">Verify&nbsp;▶</button>
+        <span class="demo-hint" id="demoHint">3 citations · existence · metadata · claim-to-abstract support</span>
+      </div>
+      <div class="demo-results" id="demoResults" hidden>
+        <div class="demo-summary" id="demoSummary"></div>
+        <div id="demoCards"></div>
+      </div>
+    </div>
+    <div class="rv" style="margin-top:1.6rem;display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;">
+      <a class="btn solid" href="live-room-prototype.html">▷ Enter the live reasoning room →</a>
+      <span class="secsub" style="margin:0;max-width:40ch">That's the verifier on its own. Watch it run in real time inside a two-perspective reasoning session, where you fill the gaps only you can.</span>
+    </div>
+    <p class="margin-note rv" style="margin-top:1.6rem;max-width:66ch">Verify your own text — or a whole PDF — with <span class="mono">pip install deltasci</span> → <span class="mono">deltasci verify --pdf paper.pdf</span>. The same engine runs as a CLI, a library, an MCP server, and a Claude&nbsp;Code skill.</p>
+   </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="band" id="problem">
+   <div class="wrap rv">
+    <div class="sechead">
+      <div class="secno">§01</div>
+      <div>
+        <h2 class="sectitle">Chatbots give you confident mush.</h2>
+        <p class="secsub">Free-form brainstorming produces plausible-sounding ideas with no grounding. "Be a scientist" prompts collapse two distinct expertises into one voice. DeltaScience keeps the domain mechanism and the ML feasibility as separate, arguing parties.</p>
+      </div>
+    </div>
+    <div class="twocol">
+      <div class="vs free">
+        <h4>Free-form LLM</h4>
+        <ul>
+          <li>Mixes verified facts and vibes, untagged</li>
+          <li>Confabulates citations to fill gaps</li>
+          <li>"It might work!" — no measurable threshold</li>
+          <li>One generic voice doing everything</li>
+          <li>"I checked it" with no actual fetch</li>
+        </ul>
+      </div>
+      <div class="ds">
+        <h4>DeltaScience</h4>
+        <ul>
+          <li>Every claim tagged with type, source &amp; coverage</li>
+          <li>Out-of-distribution material becomes a knowledge gap, not a fabrication</li>
+          <li>Synthesis refuses to emit without a falsifiable threshold</li>
+          <li>Domain scientist ⇄ ML engineer, in dialogue</li>
+          <li>Every identifier verified against the real record</li>
+        </ul>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- AUDIT MONEY SHOT -->
+  <section class="band" id="audit">
+   <div class="wrap">
+    <div class="sechead rv">
+      <div class="secno">§02</div>
+      <div>
+        <h2 class="sectitle">It catches the AI lying about its sources.</h2>
+        <p class="secsub">Every PMID, DOI, arXiv ID, GitHub repo and GEO accession in a claim is fetched and verified against the real PubMed / Crossref / OpenAlex / GitHub record. A fabricated identifier doesn't get a green checkmark — it gets a <b style="color:var(--failed)">FAILED AUDIT</b> that shows what the AI claimed next to what is actually there.</p>
+      </div>
+    </div>
+
+    <div class="audit rv">
+      <div class="stamp">⚠ Failed Audit</div>
+      <div class="audit-top">
+        <span class="file">08_audits / citations.json</span>
+        <span>illustrative example</span>
+      </div>
+      <div class="audit-body">
+        <div class="claim-line"><span class="k">[CLAIM</span> <span class="k">type=</span><span class="v">prior-evidence</span> <span class="k">coverage=</span><span class="v">well-covered</span> <span class="k">source=</span><span class="v">"PMID&nbsp;31452104"</span><span class="k">]</span> Spatial transcriptomics predicts checkpoint-immunotherapy response in osteosarcoma. <span class="k">[/CLAIM]</span></div>
+        <div class="compare">
+          <div class="claimed">
+            <h5>What the model claimed</h5>
+            <p>"Spatial transcriptomics predicts checkpoint-immunotherapy response in osteosarcoma."</p>
+            <p class="meta">Nat Med · 2021 · cited as supporting evidence</p>
+          </div>
+          <div class="actual">
+            <h5>What's actually at PMID 31452104</h5>
+            <p>A 2019 methods paper on bulk RNA-seq normalization — different topic, different year, different journal.</p>
+            <p class="meta">metadata mismatch · title ✗ · year ✗ · journal ✗</p>
+          </div>
+        </div>
+        <div class="audit-verdict">VERDICT — identifier resolves, but title / year / journal do not match the cited claim. Surfaced in the FAILED AUDIT section so a reviewer sees it before a grant committee does.</div>
+      </div>
+    </div>
+    <p class="margin-note rv" style="margin-top:1.4rem;max-width:62ch">This is the BioIntel-class failure DeltaScience was built to stop: a fabricated PMID that sails through a naive "looks like a real ID" check. The adversarial challenger's own citations get audited the same way.</p>
+   </div>
+  </section>
+
+  <!-- DIALOGUE -->
+  <section class="band" id="dialogue">
+   <div class="wrap">
+    <div class="sechead rv">
+      <div class="secno">§03</div>
+      <div>
+        <h2 class="sectitle">Two minds. Three honest tags. As many rounds as it takes.</h2>
+        <p class="secsub">The dialogue alternates a domain expert (parameterized by a domain pack) with an ML engineer. Every line is tagged: <span class="tag claim">CLAIM</span> for cited fact, <span class="tag gap">KNOWLEDGE_GAP</span> for what only you can know, <span class="tag novel">NOVEL_SYNTHESIS</span> for a connection the AI is proposing, not citing. It doesn't stop at a fixed count; it runs until the hypothesis clears every gate. This run converged in four.</p>
+      </div>
+    </div>
+
+    <div class="dialogue rv">
+      <div class="turn sci">
+        <div class="who"><b>Domain Scientist</b><span>Round 1 · framing</span></div>
+        <p>Non-response to checkpoint therapy in TFE3-fusion osteosarcoma tracks with an immune-excluded niche. <span class="tag claim">CLAIM well-covered</span> But the spatial wiring of that niche in <em>this fusion subtype</em> is <span class="tag gap">KNOWLEDGE_GAP</span> — it lives in unpublished pilot cohorts you'd have to bring.</p>
+      </div>
+      <div class="turn ml">
+        <div class="who"><span>Round 2 · engineering</span><b>ML Engineer</b></div>
+        <p>Then model it as cell-neighborhood graphs from spatial transcriptomics; a graph attention net over niches has precedent. <span class="tag claim">CLAIM well-covered</span> Risk: your cohort is likely &lt;40 slides, so we pretrain on a public atlas and fine-tune. <span class="tag sparse">CLAIM sparse</span></p>
+      </div>
+      <div class="turn sci">
+        <div class="who"><b>Domain Scientist</b><span>Round 3 · refinement</span></div>
+        <p>Make the prediction falsifiable: niche-composition score must separate responders from non-responders at AUROC ≥ 0.75 in held-out patients. Tie attention weights back to known immune-exclusion markers. <span class="tag novel">NOVEL_SYNTHESIS</span></p>
+      </div>
+      <div class="turn ml">
+        <div class="who"><span>Round 4 · converged</span><b>ML Engineer</b></div>
+        <p>The gates pass, so we stop here. Six-step protocol, ranked risk register, and an adversarial challenger pass — every PMID, DOI and GEO accession above gets fetched and verified before this leaves the building.</p>
+      </div>
+    </div>
+
+    <div class="arts rv">
+      <span><b>→</b> hypothesis.md</span>
+      <span><b>→</b> protocol.md</span>
+      <span><b>→</b> risk_register.json</span>
+      <span><b>→</b> challenger findings</span>
+      <span><b>→</b> citation audit</span>
+      <span><b>→</b> full transcript</span>
+    </div>
+    <p class="margin-note rv" style="margin-top:1rem">Six auditable artifacts per run, in one navigable directory. <span class="mono">coverage ∈ {well-covered, sparse}</span> — anything the AI judges uncovered is <b>never</b> allowed as a CLAIM.</p>
+   </div>
+  </section>
+
+  <!-- GATES -->
+  <section class="band" id="gates">
+   <div class="wrap">
+    <div class="sechead rv">
+      <div class="secno">§04</div>
+      <div>
+        <h2 class="sectitle">Three gates it won't talk past.</h2>
+        <p class="secsub">Synthesis is allowed to fail. That's the point — a refusal is more useful than a confident hallucination.</p>
+      </div>
+    </div>
+    <div class="gates rv">
+      <div class="gate">
+        <span class="g-no">Gate 01</span>
+        <h4>Falsifiability</h4>
+        <p>No hypothesis ships without a measurable threshold — a number a real experiment could beat or miss. "It might work" is rejected.</p>
+        <span class="seal">enforced</span>
+      </div>
+      <div class="gate">
+        <span class="g-no">Gate 02</span>
+        <h4>Epistemic humility</h4>
+        <p>A transcript with zero knowledge-gaps and zero novel-synthesis is itself flagged — total certainty is a hallucination signal, not a success.</p>
+        <span class="seal">enforced</span>
+      </div>
+      <div class="gate">
+        <span class="g-no">Gate 03</span>
+        <h4>Citation audit</h4>
+        <p>Every identifier in a claim is fetched and checked against its real record. Metadata mismatches surface as a prominent FAILED AUDIT.</p>
+        <span class="seal">enforced</span>
+      </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- PACKS -->
+  <section class="band" id="packs">
+   <div class="wrap">
+    <div class="sechead rv">
+      <div class="secno">§05</div>
+      <div>
+        <h2 class="sectitle">Domain-aware by design.</h2>
+        <p class="secsub">A domain pack is two files — <span class="mono">pack.toml</span> + <span class="mono">lens.md</span>, ~50 lines — that parameterize the expert's reasoning lens. Ship with three, or author your own in an afternoon.</p>
+      </div>
+    </div>
+    <div class="packs rv">
+      <div class="pack"><div class="sym">α</div><h4>biomed</h4><p>Mechanism, patient framing, evidence base, IRB / regulatory pathway, translational realism.</p></div>
+      <div class="pack"><div class="sym">β</div><h4>materials</h4><p>First principles, composition / structure space, DFT bias, synthesizability, validation pathway.</p></div>
+      <div class="pack"><div class="sym">γ</div><h4>climate</h4><p>Physical conservation, observational data ecosystem, statistical regime, decision relevance.</p></div>
+      <div class="pack diy"><div class="sym">+</div><h4>your pack</h4><p><span class="mono">deltasci init-pack neuroscience</span> → edit two files → <span class="mono">validate-pack</span> → run.</p></div>
+    </div>
+   </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="band" id="compare">
+   <div class="wrap">
+    <div class="sechead rv">
+      <div class="secno">§06</div>
+      <div>
+        <h2 class="sectitle">Where it sits.</h2>
+        <p class="secsub">DeltaScience deliberately occupies a small niche — <em>get to a defensible hypothesis</em> — then hands off to your paper-writing or experiment-design tool downstream.</p>
+      </div>
+    </div>
+    <div class="ctable-wrap rv">
+      <table class="ctable">
+        <thead>
+          <tr><th>Tool</th><th>Scope</th><th>Open source</th><th class="c">Domain-pluggable</th><th class="c">Falsifiability gate</th><th class="c">Citation audit</th></tr>
+        </thead>
+        <tbody>
+          <tr class="us"><td class="name">DeltaScience</td><td>Hypothesis ideation</td><td>MIT</td><td class="c yes">✓ packs</td><td class="c yes">✓ hard req</td><td class="c yes">✓ verified</td></tr>
+          <tr><td class="name">ChatGPT / Claude direct</td><td>Generic chat</td><td class="no">—</td><td class="c no">manual</td><td class="c no">✗</td><td class="c no">✗</td></tr>
+          <tr><td class="name">AI Scientist (Sakana)</td><td>Full paper generation</td><td>Apache 2.0</td><td class="c no">partial</td><td class="c no">✗</td><td class="c no">✗</td></tr>
+          <tr><td class="name">Coscientist (CMU)</td><td>Chemistry experiment design</td><td>research</td><td class="c no">locked</td><td class="c no">partial</td><td class="c no">✗</td></tr>
+          <tr><td class="name">Galactica / scite / Elicit</td><td>Literature retrieval</td><td>mixed</td><td class="c no">n/a</td><td class="c no">n/a</td><td class="c no">partial</td></tr>
+        </tbody>
+      </table>
+    </div>
+   </div>
+  </section>
+
+  <!-- START -->
+  <section class="band" id="start">
+   <div class="wrap">
+    <div class="sechead rv">
+      <div class="secno">§07</div>
+      <div>
+        <h2 class="sectitle">Run it in thirty seconds.</h2>
+        <p class="secsub">No API key required for the deterministic demo — see the full output shape before you wire up a provider.</p>
+      </div>
+    </div>
+    <div class="start-grid rv">
+      <div>
+        <h4>Try it dry</h4>
+        <div class="codeblock"><span class="c"># deterministic mock, no key</span><br><span class="p">$</span> pip install deltasci<br><span class="p">$</span> deltasci demo <span class="f">--pack</span> biomed <span class="f">--llm</span> mock</div>
+      </div>
+      <div>
+        <h4>Run it for real</h4>
+        <div class="codeblock"><span class="p">$</span> export ANTHROPIC_API_KEY=...<br><span class="p">$</span> deltasci run <span class="f">--pack</span> materials \<br>&nbsp;&nbsp;<span class="f">--idea</span> <span class="c">"GNN on the Materials Project</span><br>&nbsp;&nbsp;<span class="c">for &gt;4.3V spinel cathodes."</span></div>
+      </div>
+    </div>
+    <p class="margin-note rv" style="margin-top:1.3rem">Ships in two form factors: a <span class="mono">pip install</span> CLI + library, and a Claude Code skill. Both share the same domain packs. Output renders in a local web viewer — <span class="mono">deltasci view &lt;run-dir&gt;</span>.</p>
+   </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="foot-q">Get to a hypothesis you can <em>defend</em>.</p>
+      <a class="btn solid" href="https://github.com/boheling/deltasci">Star on GitHub →</a>
+    </div>
+    <div class="foot-meta">
+      <div>
+        <span class="h">Project</span>
+        <a href="https://github.com/boheling/deltasci">github.com/boheling/deltasci</a>
+        <a href="https://github.com/boheling/deltasci/blob/main/docs/AUTHORING_DOMAIN_PACKS.md">Author a domain pack</a>
+        <a href="https://github.com/boheling/deltasci/blob/main/docs/ARCHITECTURE.md">Architecture</a>
+      </div>
+      <div>
+        <span class="h">Install</span>
+        <a href="https://pypi.org/project/deltasci/">pip install deltasci</a>
+        <a href="https://github.com/boheling/deltasci/blob/main/CONTRIBUTING.md">Contributing</a>
+        <a href="https://github.com/boheling/deltasci/blob/main/LICENSE">MIT License</a>
+      </div>
+      <div>
+        <span class="h">Δ DeltaScience</span>
+        <span style="display:block;line-height:1.9">Two-perspective co-reasoning</span>
+        <span style="display:block;line-height:1.9">for AI4Science · 2026</span>
+      </div>
+    </div>
+    <p class="disclaim">DeltaScience is an ideation aid, not a decision-maker. The falsifiability gate is not a substitute for IRB review, regulatory pathway analysis, or clinical validation. Runs locally; the only outbound traffic is to the LLM provider you choose.</p>
+  </div>
+</footer>
+
+<script>
+  // copy install
+  const btn=document.getElementById('copyBtn');
+  btn.addEventListener('click',()=>{
+    navigator.clipboard.writeText(btn.dataset.cmd).then(()=>{
+      const t=btn.textContent;btn.textContent='Copied ✓';
+      setTimeout(()=>btn.textContent=t,1400);
+    });
+  });
+  // scroll reveal — progressive enhancement, never leaves content hidden
+  const rvs=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver((es)=>{
+      es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    rvs.forEach(el=>io.observe(el));
+    // failsafe: anything still hidden after 2.5s gets revealed (e.g. no-scroll contexts)
+    setTimeout(()=>rvs.forEach(el=>el.classList.add('in')),2500);
+  } else {
+    rvs.forEach(el=>el.classList.add('in'));
+  }
+
+  // ---------- interactive verify demo (real recorded result, replayed client-side) ----------
+  (function(){
+    const run=document.getElementById('demoRun');
+    if(!run) return;
+    const results=document.getElementById('demoResults');
+    const summary=document.getElementById('demoSummary');
+    const cards=document.getElementById('demoCards');
+    const data=[
+      {verdict:'FABRICATED',cls:'v-fabricated',sym:'✗',num:3,reasonColor:'var(--failed)',
+       title:'PMID 99999999',
+       checks:['✗ pubmed','✗ openalex','… claim_support'],
+       reason:'PMID 99999999 not found in PubMed or OpenAlex.',
+       cited:'Checkpoint-blockade immunotherapy doubles five-year survival in TFE3-fusion sarcoma.',
+       url:null},
+      {verdict:'UNSUPPORTED',cls:'v-unsupported',sym:'⚠',num:2,reasonColor:'var(--sparse)',
+       title:'A new coronavirus associated with human respiratory disease in China.',
+       checks:['✓ pubmed','✓ openalex','⚠ claim_support'],
+       reason:'Claim shares almost no salient terms with the title/abstract of PMID 32015508 (overlap 0%) — likely citing the wrong paper.',
+       cited:'M2-polarized tumor-associated macrophages drive osteosarcoma metastasis.',
+       url:'https://pubmed.ncbi.nlm.nih.gov/32015508/'},
+      {verdict:'PASS',cls:'v-pass',sym:'✓',num:1,reasonColor:null,
+       title:'Highly accurate protein structure prediction with AlphaFold.',
+       checks:['✓ pubmed','✓ openalex','✓ claim_support'],
+       reason:null,
+       cited:'AlphaFold predicts protein 3-D structure from amino-acid sequence with near-experimental accuracy.',
+       url:'https://pubmed.ncbi.nlm.nih.gov/34265844/'},
+    ];
+    const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    let done=false;
+    run.addEventListener('click',()=>{
+      if(done){ results.hidden=true; cards.innerHTML=''; summary.innerHTML=''; done=false; run.innerHTML='Verify&nbsp;▶'; return; }
+      run.disabled=true; run.textContent='Verifying…';
+      setTimeout(()=>{
+        results.hidden=false;
+        summary.innerHTML='<span style="color:var(--failed);font-weight:500">2 failed audits</span> across 3 citations'+
+          '<span class="demo-chip v-fabricated">✗ FABRICATED 1</span>'+
+          '<span class="demo-chip v-unsupported">⚠ UNSUPPORTED 1</span>'+
+          '<span class="demo-chip v-pass">✓ PASS 1</span>';
+        cards.innerHTML='';
+        data.forEach((d,i)=>{
+          setTimeout(()=>{
+            const el=document.createElement('div');
+            el.className='demo-card appear';
+            el.innerHTML=
+              '<span class="demo-badge '+d.cls+'">'+d.sym+' '+d.verdict+'</span>'+
+              '<div class="body">'+
+                '<div class="title"><span class="num">['+d.num+'] </span>'+esc(d.title)+'</div>'+
+                '<div class="checks">'+d.checks.map(c=>'<span>'+c+'</span>').join('')+'</div>'+
+                (d.reason?'<div class="reason" style="color:'+d.reasonColor+'">→ '+esc(d.reason)+'</div>':'')+
+                '<div class="cited">cited in: “'+esc(d.cited)+'”</div>'+
+                (d.url?'<div class="rec"><a href="'+d.url+'" target="_blank" rel="noreferrer">↗ view record</a></div>':'')+
+              '</div>';
+            cards.appendChild(el);
+          }, i*440);
+        });
+        run.disabled=false; run.innerHTML='↻ Replay'; done=true;
+      }, 850);
+    });
+  })();
+</script>
+</body>
+</html>

@@ -22,17 +22,27 @@ from deltasci.audit.extractor import (
     IdentifierKind,
     extract_identifiers,
 )
-from deltasci.audit.runner import MultiLayerAuditor, default_auditor
+from deltasci.audit.intake import Claim, claims_from_source
+from deltasci.audit.report_md import render_findings_md, render_findings_terminal, verdict
+from deltasci.audit.runner import MultiLayerAuditor, default_auditor, verify_auditor
+from deltasci.audit.support import ClaimSupportAuditor
 
 __all__ = [
     "Auditor",
     "AuditFinding",
     "AuditReport",
     "AuditStatus",
+    "Claim",
+    "ClaimSupportAuditor",
     "Identifier",
     "IdentifierKind",
     "MultiLayerAuditor",
     "TargetKind",
+    "claims_from_source",
     "default_auditor",
     "extract_identifiers",
+    "render_findings_md",
+    "render_findings_terminal",
+    "verdict",
+    "verify_auditor",
 ]

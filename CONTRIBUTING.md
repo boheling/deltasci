@@ -18,7 +18,7 @@ Thanks for your interest in DeltaScience. We optimize for **small contributions 
 ## Development setup
 
 ```bash
-git clone https://github.com/deltasci/deltasci
+git clone https://github.com/boheling/deltasci
 cd deltasci
 python3 -m venv .venv
 source .venv/bin/activate

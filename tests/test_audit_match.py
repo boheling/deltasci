@@ -9,7 +9,12 @@ These exist to lock in the behavior that:
 
 from __future__ import annotations
 
-from deltasci.audit.citations._match import first_author_in_claim, title_close_match
+from deltasci.audit.citations._match import (
+    claim_asserts_metadata,
+    first_author_in_claim,
+    title_close_match,
+)
+from deltasci.audit.extractor import Identifier
 
 
 # --- title_close_match -------------------------------------------------------
@@ -79,3 +84,28 @@ def test_no_authors_returns_true():
 
     assert first_author_in_claim([], "anything")
     assert first_author_in_claim([""], "anything")
+
+
+# --- claim_asserts_metadata (bare-identifier gate) ---------------------------
+
+
+def test_bare_identifier_asserts_no_metadata():
+    """A source that is just the identifier asserts nothing to cross-check."""
+
+    assert not claim_asserts_metadata("PMID 35562209", Identifier(kind="pmid", value="35562209", raw="PMID 35562209"))
+    assert not claim_asserts_metadata(
+        "arXiv:2502.14297", Identifier(kind="arxiv", value="2502.14297", raw="arXiv:2502.14297")
+    )
+    assert not claim_asserts_metadata(
+        "10.1038/s41586-023-06792-0",
+        Identifier(kind="doi", value="10.1038/s41586-023-06792-0", raw="10.1038/s41586-023-06792-0"),
+    )
+
+
+def test_real_citation_asserts_metadata():
+    """An author/year/title cite still flows through the full per-field checks."""
+
+    ident = Identifier(kind="pmid", value="35562209", raw="PMID 35562209")
+    assert claim_asserts_metadata("Zhou Y 2022, Nature Comms — Tumor macrophages, PMID 35562209", ident)
+    # A year alone is enough of an assertion to check.
+    assert claim_asserts_metadata("Smith et al 2020, PMID 35562209", ident)
