@@ -37,12 +37,12 @@ _STOPWORDS = frozenset(
     about above after again against algorithm all also among analysis approach are based
     because been before being below between both but can could data demonstrate
     demonstrated different does down during each effect effects evidence find finding
-    findings from further has have here high higher however into its itself jhep level
+    findings for from further has have here high higher however into its itself jhep level
     levels low lower made many measure measured method methods more most much novel only
     other our over patients propose proposed result results same show showed shown significant
     significantly some study studies such than that the their them then there these they this
     those through using very was were what when where which while will with within without
-    would your
+    would your and or nor per via toward towards across
     """.split()
 )
 
@@ -74,7 +74,9 @@ def salient_terms(text: str) -> set[str]:
         if w not in _STOPWORDS:
             terms.add(w)
     for tok in _TOKEN_RE.findall(text):
-        if _is_marker(tok):
+        # All-caps title/heading words (FOR, AND, WITH, THE) satisfy _is_marker's
+        # "2+ uppercase letters" test but are not acronyms — exclude known stopwords.
+        if _is_marker(tok) and tok.lower() not in _STOPWORDS:
             terms.add(tok.lower())
     return terms
 

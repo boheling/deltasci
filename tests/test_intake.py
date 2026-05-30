@@ -6,6 +6,7 @@ from deltasci.audit.cache import AuditCache
 from deltasci.audit.intake import (
     Claim,
     claims_from_source,
+    coverage_stats,
     detect_format,
     from_bibtex,
     from_records,
@@ -39,6 +40,31 @@ def test_split_stats_counts_cited_and_uncited():
     cited, uncited = split_stats(text)
     assert cited == 2
     assert uncited == 1
+
+
+def test_coverage_stats_flags_references_without_identifier():
+    # A numbered reference list: refs 1-2 have DOIs, ref 3 has none (must be surfaced),
+    # and a non-reference numbered list (no years) must NOT be counted.
+    text = (
+        "Universal conditions:\n"
+        "1. Fragment length must exceed 10 kb.\n"
+        "2. GPU compute is required.\n\n"
+        "References\n"
+        "1. A real paper. Nature. 2024. doi:10.1038/s41586-024-00001-2.\n"
+        "2. Another real one. Cell. 2023. doi:10.1016/j.cell.2023.01.001.\n"
+        "3. Expectations and Realities of Adaptive Sampling. 2026.\n"
+    )
+    cov = coverage_stats(text)
+    assert cov["references_seen"] == 3          # the 3 year-bearing reference lines
+    assert cov["references_with_identifier"] == 2
+    assert cov["references_without_identifier"] == 1
+    assert "Expectations and Realities" in cov["unidentified"][0]
+
+
+def test_coverage_stats_empty_for_plain_prose():
+    cov = coverage_stats("Just a paragraph mentioning PMID 35562209 inline, no reference list.")
+    assert cov["references_seen"] == 0
+    assert cov["references_without_identifier"] == 0
 
 
 def test_from_text_handles_bullets():

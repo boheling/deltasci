@@ -570,22 +570,22 @@ def _print_summary(result, output_dir: Path) -> None:
             print(f"    ! {w}")
     print()
     print(f"outputs written to: {output_dir.resolve()}")
-    print(f"  - manifest.json                     (run-level metadata)")
-    print(f"  - 05_synthesis/hypothesis.md        (top-level read also at hypothesis.md)")
-    print(f"  - 05_synthesis/summary.json         (full schema dump; back-compat copy at summary.json)")
+    print("  - manifest.json                     (run-level metadata)")
+    print("  - 05_synthesis/hypothesis.md        (top-level read also at hypothesis.md)")
+    print("  - 05_synthesis/summary.json         (full schema dump; back-compat copy at summary.json)")
     if result.plan is not None:
-        print(f"  - 06_protocol/protocol.md           (experiment plan)")
-        print(f"  - 06_protocol/experiment_plan.json")
+        print("  - 06_protocol/protocol.md           (experiment plan)")
+        print("  - 06_protocol/experiment_plan.json")
     if result.risks is not None:
-        print(f"  - 07_risks/risks.md                 (risk register)")
-        print(f"  - 07_risks/risk_register.json")
-    print(f"  - 08_audits/citations.json          (citation audit results)")
+        print("  - 07_risks/risks.md                 (risk register)")
+        print("  - 07_risks/risk_register.json")
+    print("  - 08_audits/citations.json          (citation audit results)")
     if result.challenge is not None:
-        print(f"  - 08_audits/codex.json + .md        (adversarial challenge)")
+        print("  - 08_audits/codex.json + .md        (adversarial challenge)")
     notebook_path = output_dir / "10_notebook" / "notebook.ipynb"
     if notebook_path.is_file():
-        print(f"  - 10_notebook/notebook.ipynb        (executable scaffold — fill in TODOs)")
-        print(f"  - 10_notebook/requirements.txt + README.md")
+        print("  - 10_notebook/notebook.ipynb        (executable scaffold — fill in TODOs)")
+        print("  - 10_notebook/requirements.txt + README.md")
 
 
 def _render_hypothesis_md(h, audit_report=None) -> str:
@@ -799,9 +799,9 @@ def cmd_discover_api(args: argparse.Namespace) -> int:
     print(f"  XHR/fetch:  {result['xhr_count']}")
     print(f"  identified endpoints: {len(result['endpoints'])}")
     print(f"\noutputs in {result['out_dir']}:")
-    print(f"  - capture.json     (raw network log)")
-    print(f"  - endpoints.json   (annotated candidates)")
-    print(f"  - api_stub.py      (Python requests-based stub for the most-likely endpoint)")
+    print("  - capture.json     (raw network log)")
+    print("  - endpoints.json   (annotated candidates)")
+    print("  - api_stub.py      (Python requests-based stub for the most-likely endpoint)")
     return 0
 
 
@@ -1067,6 +1067,30 @@ def _paper_failed(counts: dict) -> int:
     return counts.get("FABRICATED", 0) + counts.get("METADATA-MISMATCH", 0) + counts.get("UNSUPPORTED", 0)
 
 
+def _resolve_unidentified(refs: list[str]) -> tuple[list[tuple[str, str]], list[str]]:
+    """Crossref title-search reference strings that carried no inline identifier.
+
+    Returns (resolved=[(ref_text, doi)], unresolvable=[ref_text]). Trust-guarded: a DOI is
+    only accepted when the Crossref top hit's title clearly overlaps the reference text
+    (paper.resolve_reference's guard), so a near-miss can't become a false 'verified'.
+    """
+
+    from concurrent.futures import ThreadPoolExecutor
+
+    from deltasci.paper import Reference, resolve_reference
+
+    objs = [Reference(number=None, raw=r) for r in refs]
+    resolved: list[tuple[str, str]] = []
+    unresolvable: list[str] = []
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        for ref in pool.map(resolve_reference, objs):
+            if ref.resolved_doi:
+                resolved.append((ref.raw, ref.resolved_doi))
+            else:
+                unresolvable.append(ref.raw)
+    return resolved, unresolvable
+
+
 def cmd_verify(args: argparse.Namespace) -> int:
     """Verify citations/claims in ANY text, snippet or whole paper.
 
@@ -1078,7 +1102,7 @@ def cmd_verify(args: argparse.Namespace) -> int:
 
     from deltasci.audit import render_findings_md, render_findings_terminal
     from deltasci.audit.cache import AuditCache
-    from deltasci.audit.intake import claims_from_source, detect_format, split_stats
+    from deltasci.audit.intake import Claim, claims_from_source, coverage_stats, detect_format
     from deltasci.verify import verify_claims, verify_payload
 
     cache = AuditCache(Path(args.audit_cache)) if args.audit_cache else AuditCache()
@@ -1140,35 +1164,204 @@ def cmd_verify(args: argparse.Namespace) -> int:
         return 2
 
     resolved_fmt = detect_format(text) if args.format == "auto" else args.format
-    uncited_note = ""
-    if resolved_fmt == "text":
-        _cited, uncited = split_stats(text)
-        if uncited:
-            uncited_note = f"note: {uncited} sentence(s) had no verifiable identifier and were not checked."
+    coverage = coverage_stats(text) if resolved_fmt == "text" else {}
+
+    # Layer 3: references with no inline identifier → recover a DOI by Crossref title
+    # search (trust-guarded). Resolvable ones get verified like any other DOI; the rest
+    # are reported as genuinely unresolvable — a hard flag, not a silent skip.
+    if coverage.get("unidentified"):
+        resolved, unresolvable = _resolve_unidentified(coverage["unidentified"])
+        for ref_raw, doi in resolved:
+            claims.append(Claim(claim=ref_raw, source=f"doi:{doi}"))
+        coverage["references_resolved_by_title"] = len(resolved)
+        coverage["references_unresolvable"] = len(unresolvable)
+        coverage["resolved"] = [{"reference": r[:200], "doi": d} for r, d in resolved]
+        coverage["unidentified"] = [u[:200] for u in unresolvable]
+
+    n_resolved = coverage.get("references_resolved_by_title", 0)
+    n_unres = coverage.get("references_unresolvable", coverage.get("references_without_identifier", 0))
+    cov_note = ""
+    if coverage.get("references_seen"):
+        bits = []
+        if n_resolved:
+            bits.append(f"{n_resolved} had no inline ID but were resolved by title search (DOI recovered + verified)")
+        if n_unres:
+            bits.append(f"{n_unres} could NOT be resolved to any real record — flag these")
+        if bits:
+            cov_note = "⚠ coverage: " + "; ".join(bits) + "."
+
+    def _print_unidentified():
+        for u in coverage.get("unidentified", [])[:12]:
+            print(f"   • {u}")
 
     if not claims:
         if args.json:
-            print(json.dumps({"verdicts": {}, "findings": [], "note": "no verifiable citations found"}, indent=2))
+            payload = {"summary": "no verifiable citations found", "verdicts": {}, "findings": []}
+            if coverage:
+                payload["coverage"] = coverage
+            print(json.dumps(payload, indent=2))
         else:
             print("no verifiable citations found in input.")
-            if uncited_note:
-                print(uncited_note)
+            if cov_note:
+                print(cov_note)
+                _print_unidentified()
         return 0
 
     report = verify_claims(claims, check_support=not args.no_support, cache=cache)
 
     if args.json:
-        print(json.dumps(verify_payload(report), indent=2))
+        print(json.dumps(verify_payload(report, coverage=coverage or None), indent=2))
     elif args.markdown:
         print(render_findings_md(report))
-        if uncited_note:
-            print(f"\n_{uncited_note}_")
+        if cov_note:
+            print(f"\n_{cov_note}_")
     else:
         print(render_findings_terminal(report, show_passed=not args.quiet_passed))
-        if uncited_note:
-            print(uncited_note)
+        if cov_note:
+            print("\n" + cov_note)
+            _print_unidentified()
 
     return 0 if not report.mismatch_count else 2
+
+
+def cmd_scan(args: argparse.Namespace) -> int:
+    """Prior-art scan: find the closest existing papers + repos to an idea or paper."""
+
+    from deltasci.scan import render_scan_terminal, scan, scan_payload
+
+    explicit_queries = args.query or None  # repeatable --query: agent-supplied search strings
+    if args.pdf:
+        from deltasci.paper import extract_pdf_text
+
+        pdf_path = Path(args.pdf)
+        if not pdf_path.is_file():
+            print(f"error: PDF not found: {pdf_path}", file=sys.stderr)
+            return 2
+        try:
+            text = extract_pdf_text(str(pdf_path))[:2500]  # title + abstract region
+        except RuntimeError as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 2
+    elif explicit_queries:
+        text = ""  # queries drive retrieval; idea text is optional for scoring
+    else:
+        text = _read_text_input(args)
+        if text is None:
+            return 2
+
+    sources = [s.strip() for s in args.sources.split(",") if s.strip()] if args.sources else None
+    # Progress to stderr so it never pollutes --json on stdout, and so the user sees the
+    # network fan-out happening instead of a frozen-looking blank terminal.
+    say = None if args.json else (lambda msg: print(f"  · {msg}", file=sys.stderr, flush=True))
+    report = scan(text, queries=explicit_queries, sources=sources, limit=args.limit, progress=say)
+    if args.json:
+        print(json.dumps(scan_payload(report), indent=2))
+    else:
+        print(render_scan_terminal(report))
+    return 0
+
+
+def cmd_gap(args: argparse.Namespace) -> int:
+    """Gap analysis: is the space around an idea crowded, contested, or open? Grounded in real prior art."""
+
+    from deltasci.gap import analyze_gap, gap_payload, render_gap_terminal
+
+    explicit_queries = args.query or None
+    if args.pdf:
+        from deltasci.paper import extract_pdf_text
+
+        pdf_path = Path(args.pdf)
+        if not pdf_path.is_file():
+            print(f"error: PDF not found: {pdf_path}", file=sys.stderr)
+            return 2
+        try:
+            text = extract_pdf_text(str(pdf_path))[:2500]  # title + abstract region
+        except RuntimeError as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 2
+    elif explicit_queries:
+        text = ""  # queries drive retrieval; idea text is optional for scoring
+    else:
+        text = _read_text_input(args)
+        if text is None:
+            return 2
+
+    llm = None
+    if args.llm:
+        try:
+            from deltasci.llm import get_adapter
+
+            llm = get_adapter(args.llm)
+        except (RuntimeError, ValueError) as exc:
+            print(f"warning: LLM narrative disabled ({exc})", file=sys.stderr)
+
+    sources = [s.strip() for s in args.sources.split(",") if s.strip()] if args.sources else None
+    say = None if args.json else (lambda msg: print(f"  · {msg}", file=sys.stderr, flush=True))
+    report = analyze_gap(text, queries=explicit_queries, sources=sources, limit=args.limit, llm=llm, progress=say)
+    if args.json:
+        print(json.dumps(gap_payload(report), indent=2))
+    else:
+        print(render_gap_terminal(report))
+    return 0
+
+
+def cmd_workflow(args: argparse.Namespace) -> int:
+    """Pick a goal (grant / paper / review / ideate); the right components run underneath."""
+
+    from deltasci.audit.cache import AuditCache
+    from deltasci.workflow import WORKFLOWS, render_workflow_terminal, run_workflow, workflow_payload
+
+    if args.goal not in WORKFLOWS:
+        print(f"error: unknown goal {args.goal!r}; choose from {', '.join(WORKFLOWS)}", file=sys.stderr)
+        return 2
+
+    is_paper = bool(args.pdf or args.paper)
+    if args.pdf:
+        from deltasci.paper import extract_pdf_text
+
+        pdf_path = Path(args.pdf)
+        if not pdf_path.is_file():
+            print(f"error: PDF not found: {pdf_path}", file=sys.stderr)
+            return 2
+        try:
+            text = extract_pdf_text(str(pdf_path))
+        except RuntimeError as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 2
+        if not text.strip():
+            print("error: no extractable text in PDF (scanned image?)", file=sys.stderr)
+            return 2
+    else:
+        text = _read_text_input(args)
+        if text is None:
+            return 2
+
+    llm = None
+    if args.llm:
+        try:
+            from deltasci.llm import get_adapter
+
+            llm = get_adapter(args.llm)
+        except (RuntimeError, ValueError) as exc:
+            print(f"warning: LLM steps disabled ({exc})", file=sys.stderr)
+
+    sources = [s.strip() for s in args.sources.split(",") if s.strip()] if args.sources else None
+    cache = AuditCache(Path(args.audit_cache)) if args.audit_cache else AuditCache()
+    rep = run_workflow(
+        args.goal, text, llm=llm, is_paper=is_paper, cache=cache, limit=args.limit, sources=sources
+    )
+    if args.json:
+        print(json.dumps(workflow_payload(rep), indent=2))
+    else:
+        print(render_workflow_terminal(rep))
+
+    if rep.verify is not None:
+        from deltasci.audit.base import AuditReport
+
+        failed = rep.verify.mismatch_count if isinstance(rep.verify, AuditReport) else _paper_failed(rep.verify.counts())
+        if failed:
+            return 2
+    return 0
 
 
 def _indent(text: str, prefix: str) -> str:
@@ -1219,6 +1412,11 @@ Use 4-6 sections with concrete bullet questions. Examples below.
 - Domain-specific failure modes a generalist would miss.
 - Common pitfalls that produce apparent-but-fake results.
 """
+
+
+# Goal choices for `deltasci workflow` (mirrors workflow.WORKFLOWS; literal here to keep
+# CLI startup light — the workflow module is imported lazily only when the command runs).
+WORKFLOWS_CHOICES = ("grant", "paper", "review", "ideate")
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -1353,6 +1551,88 @@ def build_parser() -> argparse.ArgumentParser:
     p_verify.add_argument("--quiet-passed", action="store_true", help="Hide PASS findings in terminal output.")
     p_verify.add_argument("--audit-cache", default=None, help="Path to the audit cache JSON.")
     p_verify.set_defaults(func=cmd_verify)
+
+    p_scan = sub.add_parser(
+        "scan",
+        help=(
+            "Prior-art scan: find the closest existing papers + repos to a research idea or "
+            "paper (OpenAlex / arXiv / PubMed / GitHub), ranked by similarity. No API key."
+        ),
+    )
+    scan_src = p_scan.add_mutually_exclusive_group()
+    scan_src.add_argument("--text", default=None, help="The research idea or abstract to scan for prior art.")
+    scan_src.add_argument("--file", default=None, help="Read the idea/abstract from a file (use '-' for stdin).")
+    scan_src.add_argument("--pdf", default=None, help="A paper PDF; its title + abstract region is used as the query. Needs deltasci[pdf].")
+    p_scan.add_argument(
+        "--query",
+        action="append",
+        metavar="STRING",
+        help="Search an explicit query string instead of deriving one from the text. Repeatable. "
+        "This is the primitive an agent uses to drive scan with its own LLM-written queries.",
+    )
+    p_scan.add_argument("--limit", type=int, default=10, help="Max results to return (default 10).")
+    p_scan.add_argument(
+        "--sources",
+        default=None,
+        help="Comma-separated subset of: openalex,arxiv,pubmed,github (default: all).",
+    )
+    p_scan.add_argument("--json", action="store_true", help="Emit machine-readable JSON.")
+    p_scan.set_defaults(func=cmd_scan)
+
+    p_gap = sub.add_parser(
+        "gap",
+        help=(
+            "Gap analysis: classify the white space around an idea (crowded / contested / open) "
+            "from real prior art, with distinguishing terms. Add --llm for a grounded narrative."
+        ),
+    )
+    gap_src = p_gap.add_mutually_exclusive_group()
+    gap_src.add_argument("--text", default=None, help="The research idea or abstract to assess.")
+    gap_src.add_argument("--file", default=None, help="Read the idea/abstract from a file (use '-' for stdin).")
+    gap_src.add_argument("--pdf", default=None, help="A paper PDF; its title + abstract region is used. Needs deltasci[pdf].")
+    p_gap.add_argument(
+        "--query",
+        action="append",
+        metavar="STRING",
+        help="Search explicit query strings instead of deriving them from the text. Repeatable.",
+    )
+    p_gap.add_argument("--limit", type=int, default=10, help="Max prior-art results to consider (default 10).")
+    p_gap.add_argument(
+        "--sources",
+        default=None,
+        help="Comma-separated subset of: openalex,arxiv,pubmed,github (default: all).",
+    )
+    p_gap.add_argument(
+        "--llm",
+        default=None,
+        help="LLM provider for a grounded gap narrative (anthropic/openai/mock). Off by default; deterministic verdict needs no key.",
+    )
+    p_gap.add_argument("--json", action="store_true", help="Emit machine-readable JSON.")
+    p_gap.set_defaults(func=cmd_gap)
+
+    p_wf = sub.add_parser(
+        "workflow",
+        help=(
+            "Pick a goal and run the right components in one pass: grant (verify+scan+gap), "
+            "paper (verify+scan), review (verify+scan+draft review), ideate (scan+gap+directions)."
+        ),
+    )
+    p_wf.add_argument("goal", choices=list(WORKFLOWS_CHOICES), help="What you're doing.")
+    wf_src = p_wf.add_mutually_exclusive_group()
+    wf_src.add_argument("--text", default=None, help="The idea / abstract / paper text.")
+    wf_src.add_argument("--file", default=None, help="Read input from a file (use '-' for stdin).")
+    wf_src.add_argument("--pdf", default=None, help="A paper PDF (whole-paper verify). Needs deltasci[pdf].")
+    p_wf.add_argument("--paper", action="store_true", help="Treat --text/--file input as a whole paper (parse its bibliography).")
+    p_wf.add_argument("--limit", type=int, default=10, help="Max prior-art results to consider (default 10).")
+    p_wf.add_argument("--sources", default=None, help="Comma-separated subset of: openalex,arxiv,pubmed,github.")
+    p_wf.add_argument(
+        "--llm",
+        default=None,
+        help="LLM provider (anthropic/openai/mock). Required for review/ideate generation; enriches gap. Verify/scan/gap stay keyless.",
+    )
+    p_wf.add_argument("--audit-cache", default=None, help="Path to the audit cache JSON.")
+    p_wf.add_argument("--json", action="store_true", help="Emit machine-readable JSON.")
+    p_wf.set_defaults(func=cmd_workflow)
 
     p_pre = sub.add_parser(
         "preflight",

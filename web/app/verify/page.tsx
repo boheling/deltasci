@@ -30,10 +30,21 @@ interface Finding {
   verdict: Verdict;
 }
 
+interface Coverage {
+  references_seen: number;
+  references_with_identifier: number;
+  references_without_identifier: number;
+  references_resolved_by_title?: number;
+  references_unresolvable?: number;
+  resolved?: { reference: string; doi: string }[];
+  unidentified: string[];
+}
+
 interface Payload {
   summary: string;
   verdicts: Record<string, number>;
   findings: Finding[];
+  coverage?: Coverage;
   error?: string;
 }
 
@@ -560,6 +571,50 @@ export default function VerifyPage() {
                 ))}
             </div>
           </div>
+
+          {result.coverage && result.coverage.references_without_identifier > 0 && (
+            <div className="mt-4 space-y-3">
+              <p className="font-mono text-[11px] text-ink/55">
+                coverage: {result.coverage.references_with_identifier} of {result.coverage.references_seen} references
+                carried an inline identifier; the remaining {result.coverage.references_without_identifier} had none —
+                resolved by title search where possible:
+              </p>
+
+              {result.coverage.resolved && result.coverage.resolved.length > 0 && (
+                <div className="rounded border border-teal/40 bg-teal-soft px-4 py-3">
+                  <p className="font-sans text-[13px] font-semibold text-teal">
+                    ✓ {result.coverage.resolved.length} reference
+                    {result.coverage.resolved.length === 1 ? '' : 's'} had no inline ID but {result.coverage.resolved.length === 1 ? 'was' : 'were'} resolved
+                    by title search — DOI recovered &amp; verified:
+                  </p>
+                  <ul className="mt-2 space-y-1">
+                    {result.coverage.resolved.map((r, i) => (
+                      <li key={i} className="font-mono text-[11px] leading-snug text-ink/70">
+                        • {r.reference} <span className="whitespace-nowrap text-teal">→ {r.doi}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {result.coverage.unidentified.length > 0 && (
+                <div className="rounded border border-burgundy/40 bg-burgundy-soft px-4 py-3">
+                  <p className="font-sans text-[13px] font-semibold text-burgundy">
+                    ⚠ {result.coverage.unidentified.length} reference
+                    {result.coverage.unidentified.length === 1 ? '' : 's'} could NOT be resolved to any real record — flag
+                    {result.coverage.unidentified.length === 1 ? 's' : ''} these:
+                  </p>
+                  <ul className="mt-2 space-y-1">
+                    {result.coverage.unidentified.map((u, i) => (
+                      <li key={i} className="font-mono text-[11px] leading-snug text-ink/70">
+                        • {u}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
 
           {actionable.length > 0 && (
             <ul className="divide-y divide-slate-border/15">

@@ -73,7 +73,12 @@ def get_json(
         raise HTTPError(f"invalid JSON from {url}: {exc}") from exc
 
 
-def get_text(url: str, timeout: float = 10.0, params: dict[str, str] | None = None) -> str:
+def get_text(
+    url: str,
+    timeout: float = 10.0,
+    params: dict[str, str] | None = None,
+    retries: int = DEFAULT_RETRIES,
+) -> str:
     if params:
         url = url + ("&" if "?" in url else "?") + urllib.parse.urlencode(params)
-    return _fetch_bytes(url, timeout, {"User-Agent": USER_AGENT}).decode("utf-8", errors="replace")
+    return _fetch_bytes(url, timeout, {"User-Agent": USER_AGENT}, retries=retries).decode("utf-8", errors="replace")

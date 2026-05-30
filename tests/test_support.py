@@ -33,6 +33,14 @@ def test_salient_terms_keeps_markers_drops_stopwords():
     assert "the" not in terms
 
 
+def test_salient_terms_drops_all_caps_stopwords():
+    # Regression: ALL-CAPS title words ("FOR", "WITH", "AND") pass the acronym heuristic
+    # (2+ uppercase letters) but are stopwords, not markers — they must not be salient.
+    terms = salient_terms("REINFORCEMENT LEARNING FOR SKILL EVOLUTION WITH AGENTS AND TFE3")
+    assert "for" not in terms and "with" not in terms and "and" not in terms
+    assert "tfe3" in terms  # a genuine all-caps marker still survives
+
+
 def test_support_flags_wrong_paper(monkeypatch):
     monkeypatch.setattr("deltasci.audit.support.fetch_abstract", lambda pmid, timeout=10.0: _RENAL_ABSTRACT)
     finding = ClaimSupportAuditor().audit(

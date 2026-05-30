@@ -1,25 +1,29 @@
 # DeltaScience
 
-> **Two perspectives, one hypothesis.**
-> A domain scientist and an ML engineer talk through your AI4Science research idea in 4 structured rounds, producing a grounded, falsifiable hypothesis with a citation trail.
+> **A verification layer for scientific work.**
+> Paste any scientific text — or a whole PDF — and every PMID, DOI, arXiv ID and GitHub repo is checked against the real record: does it exist, does its metadata match, does the cited paper support the claim? Fabricated and mis-cited references are flagged. Deterministic, no API key.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Status: alpha](https://img.shields.io/badge/status-alpha-orange.svg)](#)
 [![Live demo](https://img.shields.io/badge/demo-boheling.github.io%2Fdeltasci-2f6f5b)](https://boheling.github.io/deltasci)
 
-**▶ [Live demo & interactive verifier](https://boheling.github.io/deltasci)** — paste a paragraph, watch it catch a hallucinated citation.
+**▶ [Live demo & interactive verifier](https://boheling.github.io/deltasci)** — paste a paragraph, watch it catch a fabricated or mis-cited reference.
 
 ---
 
 ## What is DeltaScience?
 
-DeltaScience is a small, focused tool for the AI4Science community. It runs a structured **two-perspective co-reasoning dialogue** — alternating between a domain expert (parameterized by a *domain pack*) and an ML engineer — and produces a hypothesis you can defend in front of a PI or a grant reviewer.
+DeltaScience checks the citations in scientific writing against the real record — whether you drafted the text yourself or with an AI. Its core is a **citation verifier**: paste a paragraph, a hypothesis, or a whole paper, and every identifier is checked against PubMed / Crossref / OpenAlex / arXiv / DataCite / GitHub — does it exist, does its metadata match, and does the cited paper actually support the claim? It is **deterministic** (real lookups + string matching, no LLM in the trust path), so it runs with **no API key**.
+
+Around that trust path it adds the **discovery** layer: **`scan`** (retrieve the closest real prior work) and **`gap`** (a coverage-honest read of how crowded an area is) — plus a workflow layer that runs the right ones for your goal (`grant`, `paper`, `review`, `ideate`). The principle is **no LLM in the *trust path***, not "no LLM anywhere": `verify` must be deterministic, but discovery is better with intelligence. So `scan`/`gap` run keyless out of the box (deterministic term-overlap retrieval), and get sharper when an agent drives them — pass your own queries with `scan --query "…"`, or let the [`deltasci-ground` skill](#inside-claude-code) write the queries and reason over the results. A weak discovery pass can only make you *miss* prior art; it can never corrupt a verdict.
+
+It also includes the **two-perspective co-reasoning mode** it grew out of — a domain scientist and an ML engineer talk an idea through in structured rounds (`deltasci run`, needs an LLM), documented below. The verifier is the part that stands on its own.
 
 It ships in two form factors:
 
 1. **`pip install deltasci`** — a Python CLI + library.
-2. **A Claude Code skill** — drop the `skill/` directory into `~/.claude/skills/deltasci/` and invoke it from inside Claude Code.
+2. **Claude Code skills** — install `skill/` for the two-perspective hypothesis mode (`deltasci`), and/or `skill-ground/` for the **grounding layer** (`deltasci-ground`), where the agent drives scan → gap and calls the deterministic engine to verify.
 
 Both share the same domain packs (biomed, materials, climate, plus your own).
 
@@ -109,10 +113,17 @@ This runs a deterministic mock LLM end-to-end so you can see the output shape.
 
 ```bash
 git clone https://github.com/boheling/deltasci
-cd deltasci && bash skill/install.sh
+cd deltasci
+bash skill/install.sh         # deltasci — two-perspective hypothesis mode
+bash skill-ground/install.sh  # deltasci-ground — the scan → gap → verify grounding layer
 ```
 
-Then in Claude Code:
+Then in Claude Code, for the grounding layer (the agent writes the queries and reasons; `verify` stays deterministic — no key):
+
+> *"Ground this idea: an experience-learning framework with RL for LLM-agent skill evolution."*
+> *"Verify the citations in paper.pdf."*
+
+…or for the hypothesis mode:
 
 > *"Use deltasci with the climate pack to generate a hypothesis for: train a neural emulator on ERA5 to downscale Sahel precipitation."*
 

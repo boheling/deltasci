@@ -52,14 +52,22 @@ def verify_text(
     return verify_claims(claims_from_source(text, fmt=fmt), check_support=check_support, cache=cache)
 
 
-def verify_payload(report: AuditReport) -> dict:
-    """JSON-ready dict: a one-line summary, verdict counts, and per-finding verdicts."""
+def verify_payload(report: AuditReport, *, coverage: dict | None = None) -> dict:
+    """JSON-ready dict: a one-line summary, verdict counts, and per-finding verdicts.
 
-    return {
+    `coverage` (from `intake.coverage_stats`) is included when present so the caller can
+    honestly report references that had no checkable identifier and were NOT verified —
+    rather than letting "N verified" silently hide the unchecked ones.
+    """
+
+    payload = {
         "summary": report.banner(),
         "verdicts": summary_counts(report),
         "findings": [{**f.model_dump(), "verdict": verdict(f)} for f in report.findings],
     }
+    if coverage is not None:
+        payload["coverage"] = coverage
+    return payload
 
 
 __all__ = ["verify_claims", "verify_payload", "verify_text"]

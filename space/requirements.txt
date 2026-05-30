@@ -1,0 +1,5 @@
+# Local dev convenience (the Docker image installs these + ./pkg). For local run:
+#   pip install -r requirements.txt && pip install -e ..   # editable deltasci
+#   DELTASCI_BIN=../.venv/bin/deltasci uvicorn app:app --port 7860
+fastapi>=0.110
+uvicorn[standard]>=0.29

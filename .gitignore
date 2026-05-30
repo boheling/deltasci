@@ -33,3 +33,18 @@ web/out/
 
 # scratch
 *.tmp
+
+# design/dev scratch screenshots (root-level PNGs)
+/*.png
+
+# scratch HTML prototypes (the published one lives in docs/)
+/live-room-prototype.html
+/reasoning-room-prototype.html
+/showcase-*.html
+
+# local data caches & fixtures
+data/_marco_strata_cache/
+data/*.fasta
+
+# embedded repo, not a submodule here
+tools/HATS/

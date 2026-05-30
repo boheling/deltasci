@@ -124,6 +124,45 @@ def split_stats(text: str) -> tuple[int, int]:
     return cited, uncited
 
 
+_NUM_ENTRY_RE = re.compile(r"^\s*(\d+)[.)]\s+(.*)")
+_YEAR_RE = re.compile(r"\b(?:19|20)\d{2}\b")
+
+
+def coverage_stats(text: str, *, max_listed: int = 20) -> dict:
+    """Honest *coverage* over a numbered reference list — the antidote to "6 verified"
+    silently hiding the 6 references that had no DOI/PMID/arXiv.
+
+    Gathers numbered entries (multi-line aware), keeps the reference-like ones (those
+    carrying a year), and reports how many of THOSE carry no extractable identifier.
+    A reference with no resolvable identifier is itself a flag (the LLM couldn't ground
+    it), so it must be surfaced, not silently dropped. Non-reference numbered lists
+    (e.g. "1. Fragment length ≥ 10 kb") are excluded by the year requirement.
+    """
+
+    entries: list[str] = []
+    cur: str | None = None
+    for raw in text.replace("\r\n", "\n").split("\n"):
+        s = raw.strip()
+        m = _NUM_ENTRY_RE.match(s)
+        if m:
+            if cur is not None:
+                entries.append(cur)
+            cur = m.group(2)
+        elif cur is not None and s:
+            cur += " " + s
+    if cur is not None:
+        entries.append(cur)
+
+    refs = [e for e in entries if _YEAR_RE.search(e)]
+    unidentified = [e for e in refs if not extract_identifiers(e)]
+    return {
+        "references_seen": len(refs),
+        "references_with_identifier": len(refs) - len(unidentified),
+        "references_without_identifier": len(unidentified),
+        "unidentified": [e[:200] for e in unidentified[:max_listed]],
+    }
+
+
 def from_records(data: str | list) -> list[Claim]:
     """JSON list of ``{"claim": ..., "source": ...}`` objects (or a pre-parsed list)."""
 
@@ -185,6 +224,7 @@ __all__ = [
     "Claim",
     "Format",
     "claims_from_source",
+    "coverage_stats",
     "detect_format",
     "from_bibtex",
     "from_records",
